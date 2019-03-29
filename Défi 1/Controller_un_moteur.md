@@ -16,7 +16,7 @@ La principale différence entre les deux modes de transmission est que le PWM ne
 
 La méthode la plus simple est le PWM. Elle nous permet de controller rapidement le moteur voulu en branchant le cable du controlleur sur le bon port PWM du RoboRio (encadrés en rouge).
 
-![Ports PWM du RoboRio](RoboRio.jpg)
+![Ports PWM du RoboRio](Roborio.jpg)
 
 ## Dans le Code
 
@@ -26,7 +26,7 @@ Du côté du RoboRio, il nous suffit de créer un objet correspondant au control
 #include <frc/Spark.h>
 #include <frc/PWMVictorSPX.h>
 ```
-Remarquez que `VictorSPX` est précéde de `PWM`, c'est parce qu'il peut être controllé via le CAN. Pour pou différencier les 2 objets (qui sont totalement différents), celui-ci se nomme donc `PWMVictorSPX`.
+Remarquez que `VictorSPX` est précéde de `PWM`, c'est parce qu'il peut être controllé via le CAN. Pour différencier les 2 objets (qui sont totalement différents), celui-ci se nomme donc `PWMVictorSPX`.
 
 Quand on crée un objet qui représente un controlleur PWM, on doit spécifier dans le constructeur le port sur lequel il est branché. Par exemple, pour un VictorSP branché sur le port n°0 :
 ```c++

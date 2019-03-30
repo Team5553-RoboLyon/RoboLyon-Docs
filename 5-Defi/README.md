@@ -1,4 +1,4 @@
-# 1er Défi : Controller un moteur grâce au joystick
+# 1er Défi : Contrôler un moteur grâce au joystick
 
 ## Le défi
 Coder la méthode TeleopPeriodic d'un TimedRobot pour répondre à ces objectifs :

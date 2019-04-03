@@ -30,7 +30,7 @@ Remarquez que `VictorSPX` est précéde de `PWM`, c'est parce qu'il peut être c
 
 Quand on crée un objet qui représente un contrôleur PWM, on doit spécifier dans le constructeur le port sur lequel il est branché. Par exemple, pour un VictorSP branché sur le port n°0 :
 ```c++
-frc::VictorSP mon_moteur{0};
+frc::VictorSP mon_moteur(0);
 ```
 
 On a ensuite accès à tout un tas de méthodes qui nous permettent de contrôler le moteur.

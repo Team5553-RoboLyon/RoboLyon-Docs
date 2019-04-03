@@ -15,8 +15,8 @@ Coder la méthode TeleopPeriodic d'un TimedRobot pour répondre à ces objectifs
   ### Robot.h
   ```c++
   private:
-    frc::Joystick m_joystick{0};
-    frc::VictorSP m_moteur{0};
+    frc::Joystick m_joystick(0);
+    frc::VictorSP m_moteur(0);
   ```
 
   ### Robot.cpp

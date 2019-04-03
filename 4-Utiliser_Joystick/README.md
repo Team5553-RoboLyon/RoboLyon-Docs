@@ -19,7 +19,7 @@ WpiLib fournit un objet `Joystick` qui nous permet de récuperer les infos de ce
 ```c++
 #include <frc/Joystick.h>
 
-frc::Joystick mon_joystick{0};
+frc::Joystick mon_joystick(0);
 ```
 
 Pour récuperer l'état d'un bouton (appuyé/relaché, on peut utiliser la méthode `bool GetRawButton(int button)` qui attend en argument le numéro du boutton et qui renvoit `true` si le boutton est appuyé et `false` si il est relaché.

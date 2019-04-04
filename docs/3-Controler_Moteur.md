@@ -4,7 +4,7 @@
 
 Pour contrôler les moteurs présents sur le robot, nous avons besoin de contrôleurs moteurs. En un mot, ceux-ci recoivent un signal de faible intensité de la part du RoboRio et envoient au moteur un signal de plus forte intensité. Voici quelques exemples de contrôleurs moteur que nous utilisons : VictorSP, Spark et SparkMax.
 
-![Quelques Contrôleurs Moteur](Controllers.jpg)
+![Quelques Contrôleurs Moteur](img/Controllers.jpg)
 
 ## PWM et CAN
 
@@ -12,11 +12,11 @@ Il y a 2 manières de contrôler ceux-ci : en PWM ou en CAN. Tous les contrôleu
 
 La principale différence entre les deux modes de transmission est que le PWM ne peut commander que la vitesse du moteur tandis que le CAN permet des contrôles plus avancés et la communication d'informations entre le contrôleur et le RoboRio.
 
-![PWM vs CAN](CanPwm.jpg)
+![PWM vs CAN](img/CanPwm.jpg)
 
 La méthode la plus simple est le PWM. Elle nous permet de contrôler rapidement le moteur voulu en branchant le cable du contrôleur sur le bon port PWM du RoboRio (encadrés en rouge).
 
-![Ports PWM du RoboRio](Roborio.jpg)
+![Ports PWM du RoboRio](img/Roborio.jpg)
 
 ## Dans le Code
 

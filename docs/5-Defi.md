@@ -33,7 +33,7 @@ Coder la méthode TeleopPeriodic d'un TimedRobot pour répondre à ces objectifs
           if(y < 0.2 && y > -0.2)
           {
               y = 0;
-          }d
+          }
 
           moteur.Set(y);
       }

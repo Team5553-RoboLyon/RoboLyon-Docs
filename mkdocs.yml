@@ -13,4 +13,4 @@ markdown_extensions:
     - pymdownx.details
     - pymdownx.superfences
 
-google_analytics: ['UA-137778125-1', 'team5553-robolyon.github.io/Cours-WpiLib/']
+google_analytics: ['UA-137778125-1', 'auto']

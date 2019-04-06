@@ -10,11 +10,14 @@ Les sources du cours sont écrites en Markdown et sont situées dans le dossier 
 
 Le fichier `mkdocs.yml` sert à configurer la converssion des fichiers .md en pages web.
 
-## Fonctionnement du projet
+## Installation
 
-Le site utilise [mkdocs](http://www.mkdocs.org) pour être créé. Pour l'installer suivre la doc officielle disponible [ici](https://www.mkdocs.org/#manual-installation).
+Le site utilise [mkdocs](http://www.mkdocs.org) pour être créé. Pour l'installer suivre [ces instructions](https://www.mkdocs.org/#manual-installation) avec la méthode `pip install mkdocs`. Puis installer les extensions PyMdown avec la commande `pip install pymdown-extensions`.
 
-- Pour tester le site en local, il faut executer la commande `mkdocs serve` et aller à l'adresse : http://127.0.0.1:8000, la page sera rafraichie automatiquement à chaque modification des sources.
+
+## Tester et deployer le site
+
+- Pour tester le site en local, executer la commande `mkdocs serve` et aller à l'adresse : http://127.0.0.1:8000, la page sera rafraichie automatiquement à chaque modification des sources.
 
 - Pour build le site en local, entrer la commande `mkdocs build`. Les sources du site seront crées dans le dossier `site/`.
 

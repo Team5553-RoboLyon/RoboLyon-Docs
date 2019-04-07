@@ -5,6 +5,7 @@ python:
 
 install:
   - pip install mkdocs pymdown-extensions
+  - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
 
 script:
   - mkdocs gh-deploy --force

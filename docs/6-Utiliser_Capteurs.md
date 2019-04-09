@@ -1,0 +1,71 @@
+# Utiliser les capteurs
+
+Maintenant que l'on sait faire bouger notre robot, faisons le bouger intelligement. Mais cela n'est pas possible si nous n'avons pas d'indications sur l'état du robot. C'est pourquoi nous utilisons des capteurs.
+
+
+## Les limit switch
+
+### Description
+
+L'un des types de capteur les plus simple à utiliser est le limit switch. C'est un interrupteur qui revient à sa place quand il n'est pas pressé (un bouton poussoir).
+
+![Limit Switch](img/Limit_switch.jpg)
+
+Ce capteur nous permet de savoir si un mecanisme a atteint un certain point. Par exemple, un limit switch situé au bout d'un bras pivotant peut nous dire si le bras touche le bord du robot.
+
+Un limit switch se branche aux ports DIO du Roborio grâce à deux cables. Un va sur le ground (&#9178;) et l'autre sur le signal (S). Pourtnat, le switch possède souvent 3 connecteurs : Normally Open (NO), Normally Closed (NC), et ground (C ou COM). Normally Open signifie que le switch est normalement non-pressé. Quand il sera pressé, un message sera envoyé au Roborio. Normally Closed signifie le contraire. Connectez un des cables au connecteur NO ou NC, et l'autre au ground.
+
+### Dans le Code
+
+Pour programmer un limit switch, créez une instance de la classe `DigitalInput`, son constructeur attend comme argument le port DIO sur lequel le switch est branché :
+```c++
+#include <frc/DigitalInput.h>
+frc::DigitalInput mon_switch(0);
+```
+
+La méthode `bool Get()` renvoie `true` ou `false` suivant la position du switch (appuyé/relaché) et ses branchements (NO/NC) :
+```c++
+bool switchPresse = mon_switch.Get();
+```
+
+<br>
+## Les encodeurs
+
+### Description
+
+Les encodeurs permettent de connaitre la position précise d'un mécanisme. Ils se fixent sur des axes et comptent le nombre de tours que ceux-ci font. Ce sont des sortes de compteurs : quand l'axe tourne dans un sens la "position" augmente, quand il tourne dans le sens inverse la "position" diminue. Les encodeurs peuvent être optiques ou bien magnétiques.
+
+![Encodeur](img/Encodeur.jpg)
+
+Voici la façon dont il se branche :
+
+![Branchements encodeur](img/Encodeur_wiring.jpg)
+
+### Dans le Code
+
+Pour programmer un encodeur, créez une instance de la classe `Encoder`, son constructeur attend comme argument les port DIO sur lequels l'encodeur est branché :
+```c++
+#include <frc/Encoder.h>
+frc::Encoder mon_encodeur(0, 1);
+```
+
+La méthode `int Get()` renvoie la distance angulaire mesurée par l'encodeur en ticks. Selon le modèle, un tour équivaut à 360 ticks, 22 ticks, ... :
+```c++
+double distance = mon_encodeur.Get();
+```
+
+La méthode `void Reset()` remet le compteur à zéro :
+```c++
+mon_encodeur.Reset();
+```
+
+Les méthodes `void 	SetDistancePerPulse(double distancePerPulse)` et `double GetDistance()` permettent de convertir automatiquement les tick en une autre unité :
+```c++
+mon_encodeur.SetDistancePerPulse(3);
+double distanceEnMetre = mon_encodeur.GetDistance();
+```
+
+La méthode `void GetRate()` renvoie la vitesse actuelle convertie en distance selon le facteur de convertion (1 par défaut) :
+```c++
+double vitsse = mon_encodeur.GetRate();
+```

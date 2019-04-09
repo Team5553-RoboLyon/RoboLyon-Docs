@@ -61,11 +61,12 @@ mon_encodeur.Reset();
 
 Les méthodes `void 	SetDistancePerPulse(double distancePerPulse)` et `double GetDistance()` permettent de convertir automatiquement les tick en une autre unité :
 ```c++
+// 1 tick équivaut à 3 cm
 mon_encodeur.SetDistancePerPulse(3);
-double distanceEnMetre = mon_encodeur.GetDistance();
+double distanceEnCentimetre = mon_encodeur.GetDistance();
 ```
 
 La méthode `void GetRate()` renvoie la vitesse actuelle convertie en distance selon le facteur de convertion (1 par défaut) :
 ```c++
-double vitsse = mon_encodeur.GetRate();
+double vitesse = mon_encodeur.GetRate();
 ```

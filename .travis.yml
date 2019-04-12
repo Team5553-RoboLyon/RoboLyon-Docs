@@ -10,11 +10,8 @@ script:
   - mkdocs build
 
 deploy:
-  skip-cleanup: true
   provider: script
-  script:
-    - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
-    - mkdocs gh-deploy --force
+  script: echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc && mkdocs gh-deploy --force
   on:
     condition: $TRAVIS_PULL_REQUEST == false
 

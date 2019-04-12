@@ -11,7 +11,7 @@ script:
   - mkdocs build
 
 deploy:
-  - 'if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then mkdocs gh-deploy --force; fi'
+  - if [ $TRAVIS_PULL_REQUEST == "false" ]; then mkdocs gh-deploy --force; fi
 
 branches:
   only:

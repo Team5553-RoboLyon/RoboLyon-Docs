@@ -8,7 +8,10 @@ install:
   - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
 
 script:
-  - mkdocs gh-deploy --force
+  - mkdocs build
+
+deploy:
+  - 'if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then mkdocs gh-deploy --force; fi'
 
 branches:
   only:

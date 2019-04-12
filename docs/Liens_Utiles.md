@@ -1,6 +1,6 @@
 # Lien utiles
 
-### Tutos, cours
+### Tutos, Cours
 
 - [Wpilib Screensteps](https://wpilib.screenstepslive.com/s/currentCS)
 - [Frc Programming Done Right](https://frc-pdr.readthedocs.io/en/latest/)
@@ -13,12 +13,14 @@
 - [Cross The Road Electronics](https://phoenix-documentation.readthedocs.io/en/latest/index.html) : pour contôler les Victor SPX, Talon SRX, ... via le bus CAN
 - [Rev](http://www.revrobotics.com/sparkmax-software/) : pour contrôler le Spark MAX, seul contrôleur moteur disponible pour le NEO
 - [Pathfinder](https://github.com/JacisNonsense/Pathfinder) ([pour C++](https://github.com/JacisNonsense/Pathfinder/wiki/Pathfinder-for-FRC---CPP) et [coordonnées](https://www.chiefdelphi.com/t/pathfinder-coordinate-system/159870/4?u=nathan_5553)) : pour générer et suivre des trajectoires courbes
+- [OpenCV](https://docs.opencv.org/master/d9/df8/tutorial_root.html) : pour faire de la reconnaissance visuelle
 
 ### Documentations
 
 - [WpiLib](http://first.wpi.edu/FRC/roborio/release/docs/cpp/)
 - [Rev](http://www.revrobotics.com/content/sw/max/sw-docs/cpp/index.html)
 - [Cross The Road Electronics](http://www.ctr-electronics.com/downloads/api/cpp/html/index.html)
+- [OpenCV](https://docs.opencv.org/master/index.html)
 
 
 ### PID et Motion profiling
@@ -28,13 +30,19 @@
 - [Conférence de 254 sur le sujet](https://www.youtube.com/watch?v=8319J1BEHwM) et [leurs slides](https://docs.google.com/presentation/d/1xjtQ5m3Ay4AYxS_SfloF2n_vWZnCU25aXZuu9A59xPY/pub?start=false&loop=false&delayms=3000#slide=id.p)
 
 
+### Visual Processing
+- [Conférence de 254 sur le sujet](https://www.team254.com/documents/vision-control/)
+- [Raspberry-Vision](https://github.com/Team5553-RoboLyon/Raspberry-Vision) : utiliser OpenCV sur raspberry pi
+- [Image de Raspberry pour la Frc](http://wpilib.screenstepslive.com/s/currentCS/m/85074)
+
+
 ### Git et Github
 
 - [Cours OpenClassroom](https://openclassrooms.com/fr/courses/2342361-gerez-votre-code-avec-git-et-github)
 - [Cheat Sheet](https://github.github.com/training-kit/downloads/fr/github-git-cheat-sheet/)
 
 
-### Forums et communauté
+### Forums et Communauté
 
 - [Chief Delphi](https://www.chiefdelphi.com/) : The place to be
 - [Reddit](https://www.reddit.com/r/FRC/)

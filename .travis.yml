@@ -5,13 +5,17 @@ python:
 
 install:
   - pip install mkdocs pymdown-extensions
-  - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
 
 script:
   - mkdocs build
 
 deploy:
-  - if [ $TRAVIS_PULL_REQUEST == "false" ]; then mkdocs gh-deploy --force; fi
+  provider: script
+  script:
+    - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
+    - mkdocs gh-deploy --force
+  on:
+    condition: $TRAVIS_PULL_REQUEST == false
 
 branches:
   only:

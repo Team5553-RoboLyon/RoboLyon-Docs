@@ -10,6 +10,7 @@ script:
   - mkdocs build
 
 deploy:
+  skip-cleanup: true
   provider: script
   script:
     - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc

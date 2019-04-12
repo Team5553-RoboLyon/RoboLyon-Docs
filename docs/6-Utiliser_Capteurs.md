@@ -3,7 +3,7 @@
 Maintenant que l'on sait faire bouger notre robot, faisons le bouger intelligement. Mais cela n'est pas possible si nous n'avons pas d'indications sur l'état du robot. C'est pourquoi nous utilisons des capteurs.
 
 
-## Les limit switch
+## Limit switch
 
 ### Description
 
@@ -28,8 +28,9 @@ La méthode `bool Get()` renvoie `true` ou `false` suivant la position du switch
 bool switchPresse = mon_switch.Get();
 ```
 
+
 <br>
-## Les encodeurs
+## Encodeurs
 
 ### Description
 
@@ -61,12 +62,49 @@ mon_encodeur.Reset();
 
 Les méthodes `void 	SetDistancePerPulse(double distancePerPulse)` et `double GetDistance()` permettent de convertir automatiquement les tick en une autre unité :
 ```c++
-// 1 tick équivaut à 3 cm
-mon_encodeur.SetDistancePerPulse(3);
-double distanceEnCentimetre = mon_encodeur.GetDistance();
+// 1 tour équivaut à 360 ticks
+mon_encodeur.SetDistancePerPulse(1.0/360);
+double nombreDeTours = mon_encodeur.GetDistance();
 ```
 
-La méthode `void GetRate()` renvoie la vitesse actuelle convertie en distance selon le facteur de convertion (1 par défaut) :
+La méthode `void GetRate()` renvoie la vitesse actuelle convertie en distance selon le facteur de conversion (1 par défaut) :
 ```c++
 double vitesse = mon_encodeur.GetRate();
+```
+
+
+<br>
+## Gyroscopes
+
+### Description
+
+Les gyroscopes permettent de connaître la vitesse et le sens de rotation du robot. Ils permettent aussi de connaître l'angle du robot sur le terrain. Ils peuvent se brancher sur le port SPI ou les ports Analog In 0 et 1 du Roborio.
+
+### Dans le Code
+
+Pour programmer un gyroscope, créez une instance de la classe `ADXRS450_Gyro` (SPI) ou `AnalogGyro` (Analog In) en fonction du gyroscope. Le constructeur d'`AnalogGyro` attend comme argument le port Analog In (0 ou 1) sur lequel le gyroscope est branché :
+```c++
+#include <frc/ADXRS450_Gyro.h>
+frc::ADXRS450_Gyro mon_gyro();
+```
+```c++
+#include <frc/AnalogGyro.h>
+frc::AnalogGyro mon_gyro(0);
+```
+
+La méthode `double GetAngle()` renvoie l'angle du robot en degrés dans le sens des aguilles d'une montre :
+```c++
+double angle = mon_gyro.GetAngle();
+```
+
+La méthode `double GetRate()` renvoie la vitesse de rotation du robot en degrés par secondes dans le sens des aguilles d'une montre :
+```c++
+double vitesseRotation = mon_gyro.GetRate();
+```
+
+La méthode `void Calibrate()` calibre le gyroscope en définissant son centre. La méthode `void Reset()` remet le gyroscope à zéro :
+```c++
+// Initialisation du gyro
+mon_gyro.Calibrate();
+mon_gyro.Reset();
 ```

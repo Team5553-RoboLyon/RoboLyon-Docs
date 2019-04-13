@@ -23,8 +23,8 @@ class Robot : public frc::TimedRobot
 };
 ```
 
-!!! question ""
-    Mais où est le main() ?
+!!! question "Mais où est le main() ?"
+
 
 En effet, le programme du robot est différent de ce que l'on a l'habitude de voir. Au lieu d'avoir un `int main()` et beaucoup de fonctions, le programme est une classe. Bien sûr, il existe quelque par un main; mais il ne change jamais et il est déjà écrit pour nous.
 

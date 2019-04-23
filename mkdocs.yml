@@ -13,5 +13,9 @@ markdown_extensions:
     - attr_list
     - pymdownx.details
     - pymdownx.superfences
+    - pymdownx.arithmatex
+
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
 google_analytics: ['UA-137778125-1', 'auto']

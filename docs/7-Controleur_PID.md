@@ -1,0 +1,63 @@
+# Le contrôleur PID
+
+## Contrôler un mécanisme
+
+Maintenant que nous savons contrôler les moteurs et lire les informations des capteurs, il faut les utiliser ensemble pour contrôler intelligement et efficacement vos mécanismes. Voici quelques termes qui seront utiles pour la suite :
+
+### Setpoint
+Le setpoint est l'objectif que le mécanisme doit atteindre. Pour un élévateur, le setpoint est la hauteur désirée. Pour un pivot, c'est un angle. On peut aussi imaginer un shooter dont le setpoint serait la vitesse de rotation adéquate pour lancer l'objet à la bonne distance.
+
+### Erreur
+L'erreur est la différence entre le setpoint et l'état (position, vitesse) du mécanisme à un instant donné. Pour un élévateur, c'est la distance (positive ou négative) qu'il reste à parcourir pour atteindre le setpoint.
+
+### Output
+L'output est la correction exercé sur le mécanisme pour le rapprocher du setpoint. Il peut être exprimé sur une échelle de -1 à 1 représentant la puissance donnée au moteur ou bien en volts.
+
+
+## PID, ça veut dire quoi ?
+
+Le PID est une méthode pour contrôler les mécanismes efficacement. C'est la boucle de contrôle la plus utilisée dans l'industrie car elle peut s'appliquer à de nombreuses situations (thermostat, regulateur de position, de vitesse). C'est un acronyme signifiant : **Proportonnel**, **Intégral**, **Dérivé**, les 3 termes qui composent le PID.
+
+L'équation d'un contrôleur PID est la somme de ces 3 termes :
+\begin{align}
+output = P \times erreur + I \times \sum erreur + D \times \frac{\Delta erreur}{\Delta t}
+\end{align}
+
+### Proportionel
+\(P \times erreur\)
+
+![](https://upload.wikimedia.org/wikipedia/commons/a/a3/PID_varyingP.jpg){ width=400px }
+
+Le terme proportionel est égal au produit d'un coefficient constant (**kP** ou **P gain**) et de l'erreur. Ce terme est ainsi élevé quand l'erreur est élevé (au début) et diminue lorsque le mécanisme se rapproche du setpoint. Plus le coefficient est élevé, plus la réponse du système sera rapide mais plus le mécanisme risquera d'osciller.
+
+### Intégral
+\(I \times \sum erreur\)
+
+![](https://upload.wikimedia.org/wikipedia/commons/c/c0/Change_with_Ki.png){ width=400px }
+
+En utilisant seulement le terme proportionel, le mécanisme peut osciller (kP trop élevé) ou bien rester en dessous du setpoint (kP trop faible). Pour cela, on peut utiliser le terme [intégral](https://couleur-science.eu/?d=211a43--les-integrales-en-math). Celui-ci est égal à la somme de toutes les erreurs depuis le début. Ce terme va ainsi augmenter de plus en plus si le mécanisme reste en dessous du setpoint trop longtemps.
+
+### Dérivé
+\(D \times \frac{\Delta erreur}{\Delta t}\)
+
+![](https://upload.wikimedia.org/wikipedia/commons/c/c7/Change_with_Kd.png){ width=400px }
+
+Le terme [dérivé](https://couleur-science.eu/?d=94f1c0--les-fonctions-derivees-en-math) est égal à la variation de l'erreur sur la variation du temps. C'est la "pente" de l'erreur.  Dans le code du robot, le delta temps sera toujours le même entre 2 itérations. On peut donc résumer le terme dérivé en la variation de l'erreur entre 2 itérations soit la différence entre l'erreur actuelle et l'erreur précedente.
+
+\(D \times (erreur - erreurPrecedente)\)
+
+Le coeefficient kD est souvent négatif afin de réguler "l'accélération" du mécanisme. Si elle est trop élevée, le terme dérivé sera alors d'autant plus important et ralentira le mécanisme.
+
+### Feed-Forward
+
+Au PID on peut ajouter un 4ème terme, le terme F pour feed forward. Il peut être calculé en connaissant les caractéristiques du mécanisme :
+
+**Elévateur** : Pour contrer la gravité exercée sur un élévateur, le voltage nécéssaire peut être calculé en fonction de la masse de l'élévateur, du torque du moteur et du ratio de la gearbox.
+
+**Pivot** : Pour contrer la gravité exercée sur le bras du pivot, le terme F peut être calculé en fonction de l'angle \(\theta\) du bras : \(k \cos \theta\)
+
+Il existe d'autres cas comme les bases roulantes où le terme F peut être utile pour contrer les forces de frottement ou d'accélération.
+
+
+
+## La classe PIDController

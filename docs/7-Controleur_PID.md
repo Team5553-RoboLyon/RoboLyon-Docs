@@ -59,11 +59,13 @@ Au PID on peut ajouter un 4ème terme, le terme F pour feed forward. Il peut êt
 Il existe d'autres cas comme les bases roulantes où le terme F peut être utile pour contrer les forces de frottement ou d'accélération.
 
 
-### Coder un PID
+## Coder un PID
+
+### Le Code
 
 Maintenant que nous avons apris la théorie du PID, utilisons le pour déplacer notre élévateur de façon autonome. Pour l'exemple, un dira que l'unique moteur de l'élévateur sera contrôlé par un `VictorSP` et que la position de l'élévateur nous sera donnée par un `Encoder`. A vous de jouer.
 
-??? note "Correction"
+??? note "**Correction**"
     Normalement, votre programme sera séparé en 2 fichiers différents : Robot.h et Robot.cpp. Ici, le programme est dans un seul fichier pour plus de simplicité :
 
     ```c++
@@ -155,3 +157,24 @@ Maintenant que nous avons apris la théorie du PID, utilisons le pour déplacer 
         const double m_maxSetpoint = 1.5;
     };
     ```
+
+### Le Réglage
+
+L'étape de tuning (de réglage) du PID consiste à trouver les bonnes valeurs pour les 3 coefficients P, I et D. Il faut commencer avec I et D à zéro et en réglant seulement P. C'est le coefficient P qui va determiner la "vitesse de réaction" du mécanisme. Ensuite, si il y a besoin, on peut ajuster les 2 autres coefficients afin d'améliorer le PID.
+
+Cette étape nécessite un poil de chance mais surtout du talent :) Il existe de nombreuses méthodes différentes censées faciliter cette étape mais souvent régler le PID à l'instinct suffit.
+
+!!! warning "Safety First"
+    Regler un PID peu s'avérer très dangereux si des précautions ne sont pas prises. Pensez, au tout début, à calculer l'ordre de grandeur de vos coefficients en fonction des valeurs de l'erreur.
+
+    Par exemple, pour un élévateur dont l'erreur sera au maximum égale à 1,5 (m), on veut commencer avec un output maximum inferieur à 0,1.
+
+    \(P \times erreur = output\)
+
+    \(P \times erreurMax < outputMax\)
+
+    \(P \times 1.5 < 0.1\)
+
+    \(P < 0.06666\)
+
+    On peut donc commencer avec un coefficient P aux alentours de 0.06666 sans prendre trop de risques. En revanche, si la distance parcourue par l'élévateur était exprimée en cm, un coefficient de 0.06666 serait beaucoup trop élevé et dangereux (\(0.06666 \times 150 = 10\) !!!).

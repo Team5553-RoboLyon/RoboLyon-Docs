@@ -15,7 +15,7 @@ On peut connaitre l'état de chaque bouton/axe du joystique en temps réel sur l
 
 ## Dans le Code
 
-WpiLib fournit une classe `Joystick` qui nous permet de récuperer les infos de celui-ci. Son constructeur attend en argument le numéro du joystick. Les numéros sont attribués selon l'ordre de branchement : le 1er joystick sera le 0, le 2ème le 1, ect ... Si on a un seul joystick, il aura donc pour numéro 0 :
+WpiLib fournit une classe [Joystick](http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Joystick.html) qui nous permet de récuperer les infos de celui-ci. Son constructeur attend en argument le numéro du joystick. Les numéros sont attribués selon l'ordre de branchement : le 1er joystick sera le 0, le 2ème le 1, ect ... Si on a un seul joystick, il aura donc pour numéro 0 :
 ```c++
 #include <frc/Joystick.h>
 

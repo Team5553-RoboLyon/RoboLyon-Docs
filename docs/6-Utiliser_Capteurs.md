@@ -17,7 +17,7 @@ Un limit switch se branche aux ports DIO du Roborio grâce à deux cables. Un va
 
 ### Dans le Code
 
-Pour programmer un limit switch, créez une instance de la classe `DigitalInput`, son constructeur attend comme argument le port DIO sur lequel le switch est branché :
+Pour programmer un limit switch, créez une instance de la classe [DigitalInput](http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1DigitalInput.html), son constructeur attend comme argument le port DIO sur lequel le switch est branché :
 ```c++
 #include <frc/DigitalInput.h>
 frc::DigitalInput mon_switch(0);
@@ -44,7 +44,7 @@ Voici la façon dont il se branche :
 
 ### Dans le Code
 
-Pour programmer un encodeur, créez une instance de la classe `Encoder`, son constructeur attend comme argument les port DIO sur lequels l'encodeur est branché :
+Pour programmer un encodeur, créez une instance de la classe [Encoder](http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Encoder.html), son constructeur attend comme argument les port DIO sur lequels l'encodeur est branché :
 ```c++
 #include <frc/Encoder.h>
 frc::Encoder mon_encodeur(0, 1);
@@ -82,7 +82,7 @@ Les gyroscopes permettent de connaître la vitesse et le sens de rotation du rob
 
 ### Dans le Code
 
-Pour programmer un gyroscope, créez une instance de la classe `ADXRS450_Gyro` (SPI) ou `AnalogGyro` (Analog In) en fonction du gyroscope. Le constructeur d'`AnalogGyro` attend comme argument le port Analog In (0 ou 1) sur lequel le gyroscope est branché :
+Pour programmer un gyroscope, créez une instance de la classe [ADXRS450_Gyro](http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1ADXRS450__Gyro.html) (SPI) ou [AnalogGyro](http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1AnalogGyro.html) (Analog In) en fonction du gyroscope. Le constructeur d'`AnalogGyro` attend comme argument le port Analog In (0 ou 1) sur lequel le gyroscope est branché :
 ```c++
 #include <frc/ADXRS450_Gyro.h>
 frc::ADXRS450_Gyro mon_gyro();

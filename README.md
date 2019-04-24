@@ -34,7 +34,7 @@ Ce projet utilise [travis-ci](https://travis-ci.com/) pour deployer automatiquem
 
 A chaque nouveau commit sur la branche master ou à chaque nouvelle pull request, un `build` est lancé par travis. Celui-ci lit alors le fichier [.travis.yml](.travis.yml) qui va installer les dépendances nécessaires (`pip install mkdocs pymdown-extensions`) et deployer le site grâce à la commande `mkdocs gh-deploy`.
 
-Pour deployer le site, travis à besoin d'avoir les droits d'écriture sur ce repository. Une [variable environnement](https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings) nommée `GITHUB_TOKEN` doit donc être configurée. Elle a pour valeur l'ID d'un [token github](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) qui permet d'avoir les droits d'écriture sur ce repository. Il faut donc cocher la case `repo` pendant sa création. Cette variable est récupérée dans le build grâce à l'instruction :
+Pour deployer le site, travis à besoin d'avoir les droits d'écriture sur ce repository. Une [variable environnement](https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings) nommée `GITHUB_TOKEN` doit donc être configurée. Elle a pour valeur l'ID d'un [token github](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) qui permet d'avoir les droits d'écriture sur ce repository. Il faut donc cocher la case `repo` pendant la création du token. Cette variable (ID du token github) est récupérée dans le build grâce à l'instruction :
 ```sh
 echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
 ```

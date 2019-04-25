@@ -1,12 +1,27 @@
 site_name: Cours WpiLib
 
 site_author: FRC 5553 - Robo'Lyon Team
+site_description: Tutoriel en français pour apprendre la programmation d'un robot FRC avec WpiLib
 repo_url: https://github.com/Team5553-RoboLyon/Cours-WpiLib
 copyright: Copyright &copy; 2019, FRC 5553 - Robo'Lyon.
 
 theme:
     name: readthedocs
     custom_dir: custom_theme/
+
+nav:
+    - Home: 'index.md'
+    - PREMIERS PAS AVEC WPILIB:
+        - Introduction: '1-Presentation.md'
+        - Notre Premier Programme: '2-Premier_Programme.md'
+    - CONTRÔLER LE ROBOT:
+        - Moteur: '3-Moteur.md'
+        - Joystick: '4-Joystick.md'
+        - 1er Défi: '5-Defi.md'
+        - Capteurs: '6-Capteurs.md'
+        - PID: '7-PID.md'
+        - Pneumatique: '8-Pneumatique.md'
+    - Liens: 'Liens.md'
 
 markdown_extensions:
     - admonition
@@ -16,6 +31,6 @@ markdown_extensions:
     - pymdownx.arithmatex
 
 extra_javascript:
-  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
 google_analytics: ['UA-137778125-1', 'auto']

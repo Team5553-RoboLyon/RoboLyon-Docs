@@ -1,6 +1,6 @@
 # Utiliser les capteurs
 
-Maintenant que l'on sait faire bouger notre robot, faisons le bouger intelligement. Mais cela n'est pas possible si nous n'avons pas d'indications sur l'état du robot. C'est pourquoi nous utilisons des capteurs.
+Maintenant que l'on sait faire bouger notre robot, faisons le bouger intelligemment. Mais cela n'est pas possible si nous n'avons pas d'indications sur l'état du robot. C'est pourquoi nous utilisons des capteurs.
 
 
 ## Limit switch
@@ -11,9 +11,9 @@ L'un des types de capteur les plus simple à utiliser est le limit switch. C'est
 
 ![Limit Switch](img/Limit_switch.jpg)
 
-Ce capteur nous permet de savoir si un mecanisme a atteint un certain point. Par exemple, un limit switch situé au bout d'un bras pivotant peut nous dire si le bras touche le bord du robot.
+Ce capteur nous permet de savoir si un mécanisme a atteint un certain point. Par exemple, un limit switch situé au bout d'un bras pivotant peut nous dire si le bras touche le bord du robot.
 
-Un limit switch se branche aux ports DIO du Roborio grâce à deux cables. Un va sur le ground (&#9178;) et l'autre sur le signal (S). Pourtnat, le switch possède souvent 3 connecteurs : Normally Open (NO), Normally Closed (NC), et ground (C ou COM). Normally Open signifie que le switch est normalement non-pressé. Quand il sera pressé, un message sera envoyé au Roborio. Normally Closed signifie le contraire. Connectez un des cables au connecteur NO ou NC, et l'autre au ground.
+Un limit switch se branche aux ports DIO du Roborio grâce à deux cables. Un va sur le ground (&#9178;) et l'autre sur le signal (S). Pourtant, le switch possède souvent 3 connecteurs : Normally Open (NO), Normally Closed (NC), et ground (C ou COM). Normally Open signifie que le switch est normalement non-pressé. Quand il sera pressé, un message sera envoyé au Roborio. Normally Closed signifie le contraire. Connectez un des cables au connecteur NO ou NC, et l'autre au ground.
 
 ### Dans le Code
 
@@ -23,7 +23,7 @@ Pour programmer un limit switch, créez une instance de la classe [DigitalInput]
 frc::DigitalInput mon_switch(0);
 ```
 
-La méthode `bool Get()` renvoie `true` ou `false` suivant la position du switch (appuyé/relaché) et ses branchements (NO/NC) :
+La méthode `bool Get()` renvoie `true` ou `false` suivant la position du switch (appuyé/relâché) et ses branchements (NO/NC) :
 ```c++
 bool switchPresse = mon_switch.Get();
 ```
@@ -34,7 +34,7 @@ bool switchPresse = mon_switch.Get();
 
 ### Description
 
-Les encodeurs permettent de connaitre la position précise d'un mécanisme. Ils se fixent sur des axes et comptent le nombre de tours que ceux-ci font. Ce sont des sortes de compteurs : quand l'axe tourne dans un sens la "position" augmente, quand il tourne dans le sens inverse la "position" diminue. Les encodeurs peuvent être optiques ou bien magnétiques.
+Les encodeurs permettent de connaître la position précise d'un mécanisme. Ils se fixent sur des axes et comptent le nombre de tours que ceux-ci font. Ce sont des sortes de compteurs : quand l'axe tourne dans un sens la "position" augmente, quand il tourne dans le sens inverse la "position" diminue. Les encodeurs peuvent être optiques ou bien magnétiques.
 
 ![Encodeur](img/Encodeur.jpg)
 
@@ -44,7 +44,7 @@ Voici la façon dont il se branche :
 
 ### Dans le Code
 
-Pour programmer un encodeur, créez une instance de la classe [Encoder](http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Encoder.html), son constructeur attend comme argument les port DIO sur lequels l'encodeur est branché :
+Pour programmer un encodeur, créez une instance de la classe [Encoder](http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Encoder.html), son constructeur attend comme argument les port DIO sur lesquels l'encodeur est branché :
 ```c++
 #include <frc/Encoder.h>
 frc::Encoder mon_encodeur(0, 1);
@@ -92,12 +92,12 @@ frc::ADXRS450_Gyro mon_gyro();
 frc::AnalogGyro mon_gyro(0);
 ```
 
-La méthode `double GetAngle()` renvoie l'angle du robot en degrés dans le sens des aguilles d'une montre :
+La méthode `double GetAngle()` renvoie l'angle du robot en degrés dans le sens des aiguilles d'une montre :
 ```c++
 double angle = mon_gyro.GetAngle();
 ```
 
-La méthode `double GetRate()` renvoie la vitesse de rotation du robot en degrés par secondes dans le sens des aguilles d'une montre :
+La méthode `double GetRate()` renvoie la vitesse de rotation du robot en degrés par secondes dans le sens des aiguilles d'une montre :
 ```c++
 double vitesseRotation = mon_gyro.GetRate();
 ```

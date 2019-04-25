@@ -10,7 +10,7 @@
 
 ### Autres librairies
 
-- [Cross The Road Electronics](https://phoenix-documentation.readthedocs.io/en/latest/index.html) : pour contôler les Victor SPX, Talon SRX, ... via le bus CAN
+- [Cross The Road Electronics](https://phoenix-documentation.readthedocs.io/en/latest/index.html) : pour contrôler les Victor SPX, Talon SRX, ... via le bus CAN
 - [Rev](http://www.revrobotics.com/sparkmax-software/) : pour contrôler le Spark MAX, seul contrôleur moteur disponible pour le NEO
 - [Pathfinder](https://github.com/JacisNonsense/Pathfinder) ([pour C++](https://github.com/JacisNonsense/Pathfinder/wiki/Pathfinder-for-FRC---CPP) et [coordonnées](https://www.chiefdelphi.com/t/pathfinder-coordinate-system/159870/4?u=nathan_5553)) : pour générer et suivre des trajectoires courbes
 - [OpenCV](https://docs.opencv.org/master/d9/df8/tutorial_root.html) : pour faire de la reconnaissance visuelle

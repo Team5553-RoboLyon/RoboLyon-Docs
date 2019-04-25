@@ -2,7 +2,7 @@
 
 ## Comment contrôle-t-on un robot ?
 
-Le robot est controlé par le RoboRio, le cerveau du robot. C'est lui que nous allons programmer. Il communique avec de nombreux composants du robot pour, par exemple, envoyer des ordres aux moteurs et aux verins. Il reçoit aussi les informations venant des capteurs du robot (encodeurs, ultrasons, limit switch). 
+Le robot est contrôlé par le RoboRio, le cerveau du robot. C'est lui que nous allons programmer. Il communique avec de nombreux composants du robot pour, par exemple, envoyer des ordres aux moteurs et aux vérins. Il reçoit aussi les informations venant des capteurs du robot (encodeurs, ultrasons, limit switch). 
 
 Le RoboRio est connecté par ethernet à la borne wifi du robot. Il peut ainsi communiquer par wifi avec l'ordinateur du pilote.
 
@@ -31,7 +31,7 @@ WpiLib est disponible en C++ et en Java. Il existe aussi des versions non-offici
 Pour programmer le robot en C++ et en Java, WpiLib propose d'utiliser Visual Studio Code qui est l'IDE officiellement supporté.
 Pour installer l'environnement de programmation, un installer Windows est disponible. Les instructions sont à retrouver [ici](https://wpilib.screenstepslive.com/s/currentCS/m/cpp/l/1027500-installing-c-and-java-development-tools-for-frc).
 
-VS Code permet l'utilisation des classes de WpiLib mais aussi de deployer le programme sur le robot.
+VS Code permet l'utilisation des classes de WpiLib mais aussi de déployer le programme sur le robot.
 
 Pour contrôler le robot, il faut aussi avoir la Driver Station. Les instructions pour l'installer sont à retrouver [ici](https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/1004055-installing-the-frc-update-suite-all-languages)
 

@@ -35,11 +35,11 @@ Le programme du robot va donc lire la classe que nous allons coder.
 
 `#include <frc/TimedRobot.h>` : Cette ligne inclut le fichier "frc/TimedRobot.h"
 
-`class Robot : public frc::TimedRobot` : Notre classe s'appelle `Robot` et qu'elle hérite d'une autre classe appelée `TimedRobot`. TimedRobot a été inclus précédement, cette classe fait partie de la librairie WpiLib.
+`class Robot : public frc::TimedRobot` : Notre classe s'appelle `Robot` et qu'elle hérite d'une autre classe appelée `TimedRobot`. TimedRobot a été inclus précédemment, cette classe fait partie de la librairie WpiLib.
 
 Ensuite, on voit que notre classe `Robot` possède plusieurs méthodes : `RobotInit()`, `AutonomousInit()`, `AutonomousPeriodic()`, ect... Ce sont ces méthodes que nous allons coder pour programmer le robot.
 
-Toutes ces déclarations de méthode sont suivies du mot-clé `override`. Petite explication : ces méthodes sont en fait héritées de la classe mère `TimedRobot`. Cela permet à n'importe quelle programme d'appeler ces méthodes en etant sûr qu'elles existent. Par défaut, ces méthodes sont vides et ne font rien. C'est pourquoi on peut les `override` : ce sera ainsi notre version de la méthode qui sera appelée au lieu de la version vide du `TimedRobot`.
+Toutes ces déclarations de méthode sont suivies du mot-clé `override`. Petite explication : ces méthodes sont en fait héritées de la classe mère `TimedRobot`. Cela permet à n'importe quelle programme d'appeler ces méthodes en étant sûr qu'elles existent. Par défaut, ces méthodes sont vides et ne font rien. C'est pourquoi on peut les `override` : ce sera ainsi notre version de la méthode qui sera appelée au lieu de la version vide du `TimedRobot`.
 
 
 ## Les différentes méthodes
@@ -50,10 +50,10 @@ Le `TimedRobot` nous propose donc une structure pour coder le robot qui gère le
 
 - Periodic : cette méthode est appelée toutes les 20ms quand on est dans l'état correspondant (par exemple si l'on est en Teleop, la méthode `TeleopPeriodic()` sera appelée un fois toutes les 20ms).
 
-Pour comprendre le fonctionnement du robot, essayez d'afficher un message pour chaque méthode. Les sorties `cout` sont rédirigées vers le réseau et on peut les lire grâce à Riolog ou sur la Driver Station.
+Pour comprendre le fonctionnement du robot, essayez d'afficher un message pour chaque méthode. Les sorties `cout` sont redirigées vers le réseau et on peut les lire grâce à Riolog ou sur la Driver Station.
 
 !!! warning "Attention"
-    Comme ces méthodes sont appelées très fréquement, il ne faut pas y écrire du code trop long à s'executer. Sinon, cela bloque le programme et pose des problèmes. Les boucles `while`, `do .. while` et `for` sont donc formellement interdites. On utilisera à la place de celles-ci des `if` qui seront appelés régulièrement.
+    Comme ces méthodes sont appelées très fréquemment, il ne faut pas y écrire du code trop long à s'executer. Sinon, cela bloque le programme et pose des problèmes. Les boucles `while`, `do .. while` et `for` sont donc formellement interdites. On utilisera à la place de celles-ci des `if` qui seront appelés régulièrement.
 
 ## Utiliser WpiLib
 
@@ -66,7 +66,7 @@ Mais pour programmer le robot nous allons avoir besoin des autres classes WpiLib
 ```c++
 #include <frc/WPILib.h>
 ```
-Vous pouvez jeter un coup d'oeil à l'interieur de ce ficher. Il inclut en fait à son tour toutes les classes de WpiLib (dont TimedRobot).
+Vous pouvez jeter un coup d'oeil à l'intérieur de ce ficher. Il inclut en fait à son tour toutes les classes de WpiLib (dont TimedRobot).
 ```c++
 #include "frc/ADXL345_I2C.h"
 #include "frc/ADXL345_SPI.h"

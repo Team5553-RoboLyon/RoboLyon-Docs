@@ -5,9 +5,9 @@ Coder la méthode TeleopPeriodic d'un TimedRobot pour répondre à ces objectifs
 
 - Quand le joystick est proche de zéro (entre -0.2 et 0.2), le moteur ne tourne pas.
 
-- Sinon, le moteur tourne à une vitesse proportionelle à la position du joystick
+- Sinon, le moteur tourne à une vitesse proportionnelle à la position du joystick
 
-- Quand la gachette (bouton 1) du joystick est appuyée, le moteur tourne pas
+- Quand la gâchette (bouton 1) du joystick est appuyée, le moteur tourne pas
 
 
 ??? note "**Correction**"

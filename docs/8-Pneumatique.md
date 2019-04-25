@@ -1,12 +1,12 @@
 # Utiliser la Pneumatique
 
-Nous avons apris comment contrôler les moteurs et les capteurs du robot. Mais ces éléments ne sont pas les seuls présents sur le robot : il peut aussi y avoir de la pneumatique.
+Nous avons appris comment contrôler les moteurs et les capteurs du robot. Mais ces éléments ne sont pas les seuls présents sur le robot : il peut aussi y avoir de la pneumatique.
 
 ![Circuit](img/Schema_pneumatique.jpg)
 
-Le circuit pneumatique est composé de tous les éléments utilisant l'air compréssé au sein du robot : un **compresseur**, de **réservoirs d'air** (air tanks), de jauges de pression, de **solénoïdes** et de **vérins**.
+Le circuit pneumatique est composé de tous les éléments utilisant l'air compressé au sein du robot : un **compresseur**, de **réservoirs d'air** (air tanks), de jauges de pression, de **solénoïdes** et de **vérins**.
 
-Les verins sont les seuls actionneurs utilisant la pneumatique, ils sont utilisés pour des mouvements rapides ne nécessitant que 2 positions (rentré/sorti).
+Les vérins sont les seuls actionneurs utilisant la pneumatique, ils sont utilisés pour des mouvements rapides ne nécessitant que 2 positions (rentré/sorti).
 
 ![Solénoïdes](img/Solenoides.jpg)
 
@@ -15,7 +15,7 @@ Les solénoïdes (ou solenoid valves) contrôlent le flux d'air. Ils permettent 
 
 ## Solénoïdes simples
 
-Les solénoïdes simples peuvent seulement appliquer ou bloquer la pression de leur unique sortie. Ils ne peuvent ainsi appliquer une pression qu'à une seule entrée d'un vérin. Ils sont utiles lorsqu'une force exterieur (gravité, ...) permet de rentrer/sortir le vérin ou bien lorsque le vérin n'est utilisé qu'une seule fois (Sorti mais jamais rentré).
+Les solénoïdes simples peuvent seulement appliquer ou bloquer la pression de leur unique sortie. Ils ne peuvent ainsi appliquer une pression qu'à une seule entrée d'un vérin. Ils sont utiles lorsqu'une force extérieur (gravité, ...) permet de rentrer/sortir le vérin ou bien lorsque le vérin n'est utilisé qu'une seule fois (Sorti mais jamais rentré).
 
 ### Dans le code
 

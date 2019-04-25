@@ -2,7 +2,7 @@
 
 ## Les contrôleurs moteur
 
-Pour contrôler les moteurs présents sur le robot, nous avons besoin de contrôleurs moteurs. En un mot, ceux-ci recoivent un signal de faible intensité de la part du RoboRio et envoient au moteur un signal de plus forte intensité. Voici quelques exemples de contrôleurs moteur que nous utilisons : VictorSP, Spark et SparkMax.
+Pour contrôler les moteurs présents sur le robot, nous avons besoin de contrôleurs moteurs. En un mot, ceux-ci reçoivent un signal de faible intensité de la part du RoboRio et envoient au moteur un signal de plus forte intensité. Voici quelques exemples de contrôleurs moteur que nous utilisons : VictorSP, Spark et SparkMax.
 
 ![Quelques Contrôleurs Moteur](img/Controllers.jpg)
 
@@ -26,7 +26,7 @@ Du côté du RoboRio, il nous suffit de créer un objet correspondant au contrô
 #include <frc/Spark.h>
 #include <frc/PWMVictorSPX.h>
 ```
-Remarquez que `VictorSPX` est précédé de `PWM`, c'est parce qu'il peut être controllé via le CAN. Pour différencier les 2 classes (qui sont totalement différentes), celui-ci se nomme donc `PWMVictorSPX`.
+Remarquez que `VictorSPX` est précédé de `PWM`, c'est parce qu'il peut être contrôlé via le CAN. Pour différencier les 2 classes (qui sont totalement différentes), celui-ci se nomme donc `PWMVictorSPX`.
 
 Quand on crée un objet qui représente un contrôleur PWM, on doit spécifier dans le constructeur le port sur lequel il est branché. Par exemple, pour un VictorSP branché sur le port n°0 :
 ```c++

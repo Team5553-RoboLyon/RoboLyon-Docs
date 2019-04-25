@@ -8,29 +8,29 @@ Le joystick que nous utilisons est le Logitech 3D Pro. Il possède 3 axes (avant
 
 ![Logitech 3D Extreme Pro](img/Joystick.jpg)
 
-On peut connaitre l'état de chaque bouton/axe du joystique en temps réel sur la Driver Station :
+On peut connaître l'état de chaque bouton/axe du joystick en temps réel sur la Driver Station :
 
 ![Driver Station](img/Ds.jpg)
 
 
 ## Dans le Code
 
-WpiLib fournit une classe [Joystick](http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Joystick.html) qui nous permet de récuperer les infos de celui-ci. Son constructeur attend en argument le numéro du joystick. Les numéros sont attribués selon l'ordre de branchement : le 1er joystick sera le 0, le 2ème le 1, ect ... Si on a un seul joystick, il aura donc pour numéro 0 :
+WpiLib fournit une classe [Joystick](http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Joystick.html) qui nous permet de récupérer les infos de celui-ci. Son constructeur attend en argument le numéro du joystick. Les numéros sont attribués selon l'ordre de branchement : le 1er joystick sera le 0, le 2ème le 1, ect ... Si on a un seul joystick, il aura donc pour numéro 0 :
 ```c++
 #include <frc/Joystick.h>
 
 frc::Joystick mon_joystick(0);
 ```
 
-Pour récuperer l'état d'un bouton (appuyé/relaché, on peut utiliser la méthode `bool GetRawButton(int button)` qui attend en argument le numéro du boutton et qui renvoit `true` si le boutton est appuyé et `false` si il est relaché.
+Pour récupérer l'état d'un bouton (appuyé/relâché, on peut utiliser la méthode `bool GetRawButton(int button)` qui attend en argument le numéro du bouton et qui renvoi `true` si le bouton est appuyé et `false` si il est relâché.
 ```c++
-// Recupere l'état de la gachette (trigger)
+// Récupère l'état de la gâchette (trigger)
 bool gachetteAppuyee = mon_joystick.GetRawButton(1);
 ```
 
 Pour récupérer la position d'un axe entre -1 et 1, on peut utiliser les méthodes `double GetX()`, `double GetY()`, `double GetZ()` (ou `GetTwist()`) et `double GetThrottle()`.
 ```c++
-// Recupere l'état de chaque axe
+// Récupère l'état de chaque axe
 double x = mon_joystick.GetX();
 double y = mon_joystick.GetY();
 double twist = mon_joystick.GetTwist();

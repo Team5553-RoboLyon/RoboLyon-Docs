@@ -21,6 +21,7 @@ nav:
         - Capteurs: '6-Capteurs.md'
         - PID: '7-PID.md'
         - Pneumatique: '8-Pneumatique.md'
+        - Communication: '9-Communication.md'
     - Liens: 'Liens.md'
 
 markdown_extensions:
@@ -29,6 +30,7 @@ markdown_extensions:
     - pymdownx.details
     - pymdownx.superfences
     - pymdownx.arithmatex
+    - pymdownx.keys
 
 extra_javascript:
     - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'

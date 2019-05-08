@@ -23,6 +23,8 @@ nav:
         - PID: '7-PID.md'
         - Pneumatique: '8-Pneumatique.md'
         - Communication: '9-Communication.md'
+    - COMMAND−BASED PROGRAMMING:
+        - Organiser son Programme: '10-Organiser_Programme.md'
     - Liens: 'Liens.md'
 
 markdown_extensions:

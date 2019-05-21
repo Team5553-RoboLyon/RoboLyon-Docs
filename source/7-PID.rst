@@ -33,7 +33,8 @@ Proportionnel
 ~~~~~~~~~~~~~
 \(P \times erreur\)
 
-!`Variation kP <https://upload.wikimedia.org/wikipedia/commons/a/a3/PID_varyingP.jpg>`_{ width=400px }
+.. image:: https://upload.wikimedia.org/wikipedia/commons/a/a3/PID_varyingP.jpg
+   :width: 400px
 
 Le terme proportionnel est égal au produit d'un coefficient constant (**kP** ou **P gain**) et de l'erreur. Ce terme est ainsi élevé quand l'erreur est élevé (au début) et diminue lorsque le mécanisme se rapproche du setpoint. Plus le coefficient est élevé, plus la réponse du système sera rapide mais plus le mécanisme risquera d'osciller.
 
@@ -41,7 +42,8 @@ Intégral
 ~~~~~~~~
 \(I \times \sum erreur\)
 
-!`Variation kI <https://upload.wikimedia.org/wikipedia/commons/c/c0/Change_with_Ki.png>`_{ width=400px }
+.. image:: https://upload.wikimedia.org/wikipedia/commons/c/c0/Change_with_Ki.png
+   :width: 400px
 
 En utilisant seulement le terme proportionnel, le mécanisme peut osciller (kP trop élevé) ou bien rester en dessous du setpoint (kP trop faible). Pour cela, on peut utiliser le terme `intégral <https://couleur-science.eu/?d=211a43--les-integrales-en-math>`_. Celui-ci est égal à la somme de toutes les erreurs depuis le début. Ce terme va ainsi augmenter de plus en plus si le mécanisme reste en dessous du setpoint trop longtemps.
 
@@ -49,7 +51,8 @@ Dérivé
 ~~~~~~
 \(D \times \frac{\Delta erreur}{\Delta t}\)
 
-!`Variation kD <https://upload.wikimedia.org/wikipedia/commons/c/c7/Change_with_Kd.png>`_{ width=400px }
+.. image:: https://upload.wikimedia.org/wikipedia/commons/c/c7/Change_with_Kd.png
+   :width: 400px
 
 Le terme `dérivé <https://couleur-science.eu/?d=94f1c0--les-fonctions-derivees-en-math>`_ est égal à la variation de l'erreur sur la variation du temps. C'est la "pente" de l'erreur.  Dans le code du robot, le delta temps sera toujours le même entre 2 itérations. On peut donc résumer le terme dérivé en la variation de l'erreur entre 2 itérations soit la différence entre l'erreur actuelle et l'erreur précédente.
 
@@ -175,7 +178,7 @@ Le Réglage
 
 L'étape de tuning (de réglage) du PID consiste à trouver les bonnes valeurs pour les 3 coefficients P, I et D. Il faut commencer avec I et D à zéro et en réglant seulement P. C'est le coefficient P qui va determiner la "vitesse de réaction" du mécanisme. Ensuite, si il y a besoin, on peut ajuster les 2 autres coefficients afin d'améliorer le PID.
 
-!`PID Tuning <https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif>`_
+.. image:: https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif
 
 Le réglage d'un PID se fait souvent de façon empirique (au talent) Il existe cependant `différentes méthodes <https://en.wikipedia.org/wiki/PID_controller#Overview_of_tuning_methods>`_ censées faciliter cette étape mais souvent régler le PID à l'instinct suffit.
 

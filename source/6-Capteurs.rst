@@ -12,7 +12,7 @@ Description
 
 L'un des types de capteur les plus simple à utiliser est le limit switch. C'est un interrupteur qui revient à sa place quand il n'est pas pressé (un bouton poussoir).
 
-!`Limit Switch <img/Limit_switch.jpg>`_
+.. image:: img/Limit_switch.jpg
 
 Ce capteur nous permet de savoir si un mécanisme a atteint un certain point. Par exemple, un limit switch situé au bout d'un bras pivotant peut nous dire si le bras touche le bord du robot.
 
@@ -42,11 +42,11 @@ Description
 
 Les encodeurs permettent de connaître la position précise d'un mécanisme. Ils se fixent sur des axes et comptent le nombre de tours que ceux-ci font. Ce sont des sortes de compteurs : quand l'axe tourne dans un sens la "position" augmente, quand il tourne dans le sens inverse la "position" diminue. Les encodeurs peuvent être optiques ou bien magnétiques.
 
-!`Encodeur <img/Encodeur.jpg>`_
+.. image:: img/Encodeur.jpg
 
 Voici la façon dont il se branche :
 
-!`Branchements encodeur <img/Encodeur_wiring.jpg>`_
+.. image:: img/Encodeur_wiring.jpg
 
 Dans le Code
 ~~~~~~~~~~~~

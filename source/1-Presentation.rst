@@ -14,7 +14,7 @@ Le RoboRio est connecté par ethernet à la borne wifi du robot. Il peut ainsi c
 
 Voici un schéma des branchements du robot pour mieux comprendre :
 
-!`RoboRio <img/Schema.jpg>`_
+.. image:: img/Schema.jpg
 
 Sur l'ordinateur du pilote, c'est le programme appelé `FRC Driver Station` qui permet de communiquer avec le robot. Celui-ci permet au pilote de contrôler le robot avec son joystick.
 
@@ -27,7 +27,7 @@ Présentation
 
 WpiLib (Worcester Polytechnic Institute Robotics Library) est une librairie qui permet la programmation du RoboRio. C'est un ensemble de classes qui permettent l'interface entre le logiciel et le hardware.
 
-!`WpiLib <img/Wpilib.jpg>`_
+.. image:: img/Wpilib.jpg
 
 Cette librairie nous fournit des classes pour gérer les moteurs, la pneumatique, les capteurs et à peu près tout ce dont nous avons besoin pour contrôler un robot. C'est une librairie de haut-niveau, c'est à dire qu'elle nous permet de manipuler facilement des objets complexes.
 

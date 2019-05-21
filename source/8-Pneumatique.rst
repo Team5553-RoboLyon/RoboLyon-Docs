@@ -3,13 +3,13 @@ Utiliser la Pneumatique
 
 Nous avons appris comment contrôler les moteurs et les capteurs du robot. Mais ces éléments ne sont pas les seuls présents sur le robot : il peut aussi y avoir de la pneumatique.
 
-!`Circuit <img/Schema_pneumatique.jpg>`_
+.. image:: img/Schema_pneumatique.jpg
 
 Le circuit pneumatique est composé de tous les éléments utilisant l'air compressé au sein du robot : un **compresseur**, de **réservoirs d'air** (air tanks), de jauges de pression, de **solénoïdes** et de **vérins**.
 
 Les vérins sont les seuls actionneurs utilisant la pneumatique, ils sont utilisés pour des mouvements rapides ne nécessitant que 2 positions (rentré/sortir).
 
-!`Solénoïdes <img/Solenoides.jpg>`_
+.. image:: img/Solenoides.jpg
 
 Les solénoïdes (ou solenoid valves) contrôlent le flux d'air. Ils permettent de diriger ou non l'air dans un vérin. Il existe 2 types de solénoïdes : les solénoïdes simple et doubles. Ils sont contrôlés par le PCM (Pneumatic Control Module) et se branchent donc sur les différents ports que celui-ci possède.
 
@@ -42,7 +42,8 @@ Solénoïdes doubles
 
 Les solénoïdes possèdent une entrée et deux sorties. La pression peut donc être appliquée à une sortie, à l'autre ou bien à aucune des deux. Quand un solénoïde double est branché à un vérin, il peut ainsi le sortir, le rentrer ou bien le laisser "libre".
 
-!`Piston <img/Piston.gif>`_{ width=400px }
+.. image:: img/Piston.gif
+   :width: 400px
 
 Dans le code
 ~~~~~~~~~~~~

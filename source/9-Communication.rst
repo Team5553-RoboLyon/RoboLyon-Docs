@@ -9,11 +9,11 @@ Cout et Printf()
 
 La première méthode à notre disposition est d'utiliser l'affichage console classique du C++ (`cout` et `printf()`). Le flux de sortie du robot est en effet redirigé sur le réseau. On peut le lire directement sur la Driver Station.
 
-!`Driver Station <img/DsOutput.jpg>`_
+.. image:: img/DsOutput.jpg
 
 On peut aussi lire le flux de sortie du robot avec le RioLog. On peut lancer le RioLog dans VS Code en entrant `riolog` dans la palette de commandes (++ctrl+shift+p++) puis en sélectionnant `WpiLib: Start RioLog`.
 
-!`RioLog <img/RioLog.jpg>`_
+.. image:: img/RioLog.jpg
 
 
 SmartDashboard

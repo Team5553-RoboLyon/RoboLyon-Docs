@@ -8,11 +8,11 @@ Pour permettre au pilote de contrôler le robot, celui-ci utilise un joystick. N
 
 Le joystick que nous utilisons est le Logitech 3D Pro. Il possède 3 axes (avant/arrière, gauche/droite et twist), 12 boutons, un POV (bouton avec 9 positions possibles) et un throttle (manette type avion).
 
-!`Logitech 3D Extreme Pro <img/Joystick.jpg>`_
+.. image:: img/Joystick.jpg
 
 On peut connaître l'état de chaque bouton/axe du joystick en temps réel sur la Driver Station :
 
-!`Driver Station <img/Ds.jpg>`_
+.. image:: img/Ds.jpg
 
 
 Dans le Code

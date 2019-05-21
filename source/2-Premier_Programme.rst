@@ -52,8 +52,7 @@ Le `TimedRobot` nous propose donc une structure pour coder le robot qui gère le
 
 Pour comprendre le fonctionnement du robot, essayez d'afficher un message pour chaque méthode. Les sorties `cout` sont redirigées vers le réseau et on peut les lire grâce à Riolog ou sur la Driver Station.
 
-!!! warning "Attention"
-    Comme ces méthodes sont appelées très fréquemment, il ne faut pas y écrire du code trop long à s'executer. Sinon, cela bloque le programme et pose des problèmes. Les boucles `while`, `do .. while` et `for` sont donc formellement interdites. On utilisera à la place de celles-ci des `if` qui seront appelés régulièrement.
+.. attention:: Comme ces méthodes sont appelées très fréquemment, il ne faut pas y écrire du code trop long à s'executer. Sinon, cela bloque le programme et pose des problèmes. Les boucles `while`, `do .. while` et `for` sont donc formellement interdites. On utilisera à la place de celles-ci des `if` qui seront appelés régulièrement.
 
 ## Utiliser WpiLib
 

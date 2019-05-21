@@ -119,5 +119,4 @@ private:
 };
 ```
 
-!!!warning "Attention"
-    Encore une fois, les méthodes appelées par le programme principal ne doivent pas durer dans le temps au risque de rester bloqué dans une des fonctions. Les boucles `while`, `do while` et `for` sont donc interdites partout dans le code.
+.. attention:: Encore une fois, les méthodes appelées par le programme principal ne doivent pas durer dans le temps au risque de rester bloqué dans une des fonctions. Les boucles `while`, `do while` et `for` sont donc interdites partout dans le code.

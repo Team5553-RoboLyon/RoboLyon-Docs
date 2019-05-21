@@ -166,7 +166,7 @@ L'étape de tuning (de réglage>`_ du PID consiste à trouver les bonnes valeurs
 
 Le réglage d'un PID se fait souvent de façon empirique (au talent>`_ Il existe cependant `différentes méthodes <https://en.wikipedia.org/wiki/PID_controller#Overview_of_tuning_methods>`_ censées faciliter cette étape mais souvent régler le PID à l'instinct suffit.
 
-!!! warning "Safety First"
+.. attention::
     Régler un PID peu s'avérer très dangereux si des précautions ne sont pas prises. Pensez, au tout début, à calculer l'ordre de grandeur de vos coefficients en fonction des valeurs de l'erreur.
 
     Par exemple, pour un élévateur dont l'erreur sera au maximum égale à 1,5 (m>`_, on veut commencer avec un output maximum inférieur à 0,1.

@@ -1,10 +1,12 @@
-# Lire les entrées d'un joystick
+Lire les entrées d'un joystick
+==============================
 
-## Le Joystick
+Le Joystick
+-----------
 
 Pour permettre au pilote de contrôler le robot, celui-ci utilise un joystick. Nous pouvons aussi utiliser une manette de Xbox.
 
-Le joystick que nous utilisons est le Logitech 3D Pro. Il possède 3 axes (avant/arrière, gauche/droite et twist>`_, 12 boutons, un POV (bouton avec 9 positions possibles>`_ et un throttle (manette type avion>`_.
+Le joystick que nous utilisons est le Logitech 3D Pro. Il possède 3 axes (avant/arrière, gauche/droite et twist), 12 boutons, un POV (bouton avec 9 positions possibles) et un throttle (manette type avion).
 
 !`Logitech 3D Extreme Pro <img/Joystick.jpg>`_
 
@@ -13,35 +15,36 @@ On peut connaître l'état de chaque bouton/axe du joystick en temps réel sur l
 !`Driver Station <img/Ds.jpg>`_
 
 
-## Dans le Code
+Dans le Code
+------------
 
 WpiLib fournit une classe `Joystick <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Joystick.html>`_ qui nous permet de récupérer les infos de celui-ci. Son constructeur attend en argument le numéro du joystick. Les numéros sont attribués selon l'ordre de branchement : le 1er joystick sera le 0, le 2ème le 1, ect ... Si on a un seul joystick, il aura donc pour numéro 0 :
 ```c++
 #include <frc/Joystick.h>
 
-frc::Joystick mon_joystick(0>`_;
+frc::Joystick mon_joystick(0);
 ```
 
-Pour récupérer l'état d'un bouton (appuyé/relâché, on peut utiliser la méthode `bool GetRawButton(int button>`_` qui attend en argument le numéro du bouton et qui renvoi `true` si le bouton est appuyé et `false` si il est relâché.
+Pour récupérer l'état d'un bouton (appuyé/relâché, on peut utiliser la méthode `bool GetRawButton(int button)` qui attend en argument le numéro du bouton et qui renvoi `true` si le bouton est appuyé et `false` si il est relâché.
 ```c++
-// Récupère l'état de la gâchette (trigger>`_
-bool gachetteAppuyee = mon_joystick.GetRawButton(1>`_;
+// Récupère l'état de la gâchette (trigger)
+bool gachetteAppuyee = mon_joystick.GetRawButton(1);
 ```
 
-Pour récupérer la position d'un axe entre -1 et 1, on peut utiliser les méthodes `double GetX(>`_`, `double GetY(>`_`, `double GetZ(>`_` (ou `GetTwist(>`_`>`_ et `double GetThrottle(>`_`.
+Pour récupérer la position d'un axe entre -1 et 1, on peut utiliser les méthodes `double GetX()`, `double GetY()`, `double GetZ()` (ou `GetTwist()`) et `double GetThrottle()`.
 ```c++
 // Récupère l'état de chaque axe
-double x = mon_joystick.GetX(>`_;
-double y = mon_joystick.GetY(>`_;
-double twist = mon_joystick.GetTwist(>`_;
-double throttle = mon_joystick.GetThrottle(>`_;
+double x = mon_joystick.GetX();
+double y = mon_joystick.GetY();
+double twist = mon_joystick.GetTwist();
+double throttle = mon_joystick.GetThrottle();
 ```
 
-On a aussi la méthode `int GetPOV(>`_` qui renvoi l'angle formé par le POV ou -1 si il est situé au centre.
+On a aussi la méthode `int GetPOV()` qui renvoi l'angle formé par le POV ou -1 si il est situé au centre.
 ```c++
-int pov = mon_joystick.GetPOV(>`_;
+int pov = mon_joystick.GetPOV();
 
-switch (pov>`_
+switch (pov)
 {
     case -1:
         // Centre

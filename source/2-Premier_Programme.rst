@@ -1,6 +1,8 @@
-# Notre premier programme
+Notre premier programme
+=======================
 
-## A quoi ressemble un programme de robot ?
+A quoi ressemble un programme de robot ?
+----------------------------------------
 
 Quand on crée un nouveau projet, on a plusieurs choix : `SampleRobot`, `IterativeRobot`, `TimedRobot` et `CommandBasedRobot`. Pour commencer choisissez `TimedRobot Skeleton`. Voici à quoi cela ressemble :
 
@@ -42,7 +44,8 @@ Ensuite, on voit que notre classe `Robot` possède plusieurs méthodes : `RobotI
 Toutes ces déclarations de méthode sont suivies du mot-clé `override`. Petite explication : ces méthodes sont en fait héritées de la classe mère `TimedRobot`. Cela permet à n'importe quelle programme d'appeler ces méthodes en étant sûr qu'elles existent. Par défaut, ces méthodes sont vides et ne font rien. C'est pourquoi on peut les `override` : ce sera ainsi notre version de la méthode qui sera appelée au lieu de la version vide du `TimedRobot`.
 
 
-## Les différentes méthodes
+Les différentes méthodes
+------------------------
 
 Le `TimedRobot` nous propose donc une structure pour coder le robot qui gère les transitions entre les états du robot et les boucles dans ces états. Pour chaque état (autonomous, teleop, disabled, test), deux méthodes sont appelées :
 
@@ -54,7 +57,8 @@ Pour comprendre le fonctionnement du robot, essayez d'afficher un message pour c
 
 .. attention:: Comme ces méthodes sont appelées très fréquemment, il ne faut pas y écrire du code trop long à s'executer. Sinon, cela bloque le programme et pose des problèmes. Les boucles `while`, `do .. while` et `for` sont donc formellement interdites. On utilisera à la place de celles-ci des `if` qui seront appelés régulièrement.
 
-## Utiliser WpiLib
+Utiliser WpiLib
+---------------
 
 Pour l'instant, on utilise une seule classe fournie par WpiLib, la classe `TimedRobot`. Elle est incluse grâce à la ligne :
 ```c++

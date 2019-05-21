@@ -1,13 +1,15 @@
-# Organiser son Programme
+Organiser son Programme
+=======================
 
 
-## Diviser le programme en Classes
+Diviser le programme en Classes
+-------------------------------
 
 Pour l'instant, tout le code que nous écrivions était uniquement dans la classe principale `Robot`. Cependant, pour des projets plus importants, la quantité de code commence à être trop grande pour se située dans un unique fichier.
 
 Pour organiser le programme du Robot, il est donc nécessaire de le structurer en plusieurs fichiers. Chacun gérant une fonctionnalité différente du code.
 
-Une première méthode pour structurer le code peut être de créer une classe pour chacun des mécanismes du robot (ou subsystems>`_ :
+Une première méthode pour structurer le code peut être de créer une classe pour chacun des mécanismes du robot (ou subsystems) :
 
 ```
 subsystems/
@@ -23,19 +25,19 @@ Chacune de ses classes contient ainsi les méthodes nécessaires au fonctionneme
 class BaseRoulante
 {
   public:
-    BaseRoulante(>`_;
+    BaseRoulante();
 
-    void Drive(double x, double y>`_;
-    void Stop(>`_;
+    void Drive(double x, double y);
+    void Stop();
 
-    void ActiverVitesse1(>`_;
-    void ActiverVitesse2(>`_;
-    void ChangerVitesse(>`_;
+    void ActiverVitesse1();
+    void ActiverVitesse2();
+    void ChangerVitesse();
 
-    double GetDistanceDroite(>`_;
-    double GetDistanceGauche(>`_;
-    double GetAngle(>`_;
-    void ResetCapteurs(>`_;
+    double GetDistanceDroite();
+    double GetDistanceGauche();
+    double GetAngle();
+    void ResetCapteurs();
 
   private:
     // Variables, objets et méthodes
@@ -45,9 +47,10 @@ class BaseRoulante
 ```
 
 
-## Cablage.h ou RobotMap.h
+Cablage.h ou RobotMap.h
+-----------------------
 
-En séparant les subsystems en plusieurs classes/fichiers, on sépare aussi les objets qu'ils contiennent (contrôleurs moteur, capteurs, ...>`_. Il peut ainsi, par exemple, être compliqué de savoir si le port X du RoboRio est déjà utilisé. Sur quels ports sont branchés les encodeurs de la base ?
+En séparant les subsystems en plusieurs classes/fichiers, on sépare aussi les objets qu'ils contiennent (contrôleurs moteur, capteurs, ...). Il peut ainsi, par exemple, être compliqué de savoir si le port X du RoboRio est déjà utilisé. Sur quels ports sont branchés les encodeurs de la base ?
 
 Pour simplifier cela, on crée un fichier nommé `Cablage.h` ou `RobotMap.h` qui contient des constantes utilisées dans les autres fichiers :
 
@@ -75,12 +78,13 @@ Pour simplifier cela, on crée un fichier nommé `Cablage.h` ou `RobotMap.h` qui
     ```c++
     #define C 5553
     ```
-    Par exemple, ici, toutes les occurrences de `C` présentes dans les fichiers incluant `Cablage.h` seront remplacées par `5553` (trés dangereux car `int Count` devient ainsi `int 5553ount` avant la compilation>`_
+    Par exemple, ici, toutes les occurrences de `C` présentes dans les fichiers incluant `Cablage.h` seront remplacées par `5553` (trés dangereux car `int Count` devient ainsi `int 5553ount` avant la compilation)
 
 Grâce à la présence de ca fichier, il est maintenant facile de savoir où chacun des contrôleur moteur doit être branché, quels sont les port PWM libres, ect ...
 
 
-## Le Programme Principal
+Le Programme Principal
+----------------------
 
 Maintenant que les classes permettant de contrôler les subsystems existent, il faut les intégrer dans notre classe principale `Robot`. Pour cela, on a juste à créer une instance de chacune des classes dans `Robot`. Pour la partie Teleopérée, le but du programme principal est d'utiliser des `if` qui, en fonction des entrée du joystick, appelent certaines fonctions.
 
@@ -93,26 +97,26 @@ Maintenant que les classes permettant de contrôler les subsystems existent, il 
 class Robot : public frc::TimedRobot
 {
 public:
-    void TeleopPeriodic(>`_ override
+    void TeleopPeriodic() override
     {
-        if(m_joystick.GetRawButton(1>`_>`_
+        if(m_joystick.GetRawButton(1))
         {
-            m_pince.Attraper(>`_;
+            m_pince.Attraper();
         }
-        else if(m_joystick.GetRawButton(2>`_>`_
+        else if(m_joystick.GetRawButton(2))
         {
-            m_pince.Ejecter(>`_;
+            m_pince.Ejecter();
         }
         else
         {
-            m_pince.Stop(>`_;
+            m_pince.Stop();
         }
 
-        m_baseRoulante.Drive(m_joystick.GetX(>`_, m_joystick.GetY(>`_>`_;
+        m_baseRoulante.Drive(m_joystick.GetX(), m_joystick.GetY());
     }
 
 private:
-    frc::Joystick m_joystick(0>`_;
+    frc::Joystick m_joystick(0);
     BaseRoulante m_baseRoulante;
     Pince m_pince;
 };

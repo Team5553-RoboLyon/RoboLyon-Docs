@@ -25,13 +25,14 @@ PID, ça veut dire quoi ?
 Le PID est une méthode pour contrôler les mécanismes efficacement. C'est la boucle de contrôle la plus utilisée dans l'industrie car elle peut s'appliquer à de nombreuses situations (thermostat, régulateur de position, de vitesse). C'est un acronyme signifiant : **Proportionnel**, **Intégral**, **Dérivé**, les 3 termes qui composent le PID.
 
 L'équation d'un contrôleur PID est la somme de ces 3 termes :
-\begin{align}
-output = P \times erreur + I \times \sum erreur + D \times \frac{\Delta erreur}{\Delta t}
-\end{align}
+
+.. math::
+    output = P \times erreur + I \times \sum erreur + D \times \frac{\Delta erreur}{\Delta t}
+
 
 Proportionnel
 ~~~~~~~~~~~~~
-\(P \times erreur\)
+:math:`P \times erreur`
 
 .. image:: https://upload.wikimedia.org/wikipedia/commons/a/a3/PID_varyingP.jpg
    :width: 400px
@@ -40,7 +41,7 @@ Le terme proportionnel est égal au produit d'un coefficient constant (**kP** ou
 
 Intégral
 ~~~~~~~~
-\(I \times \sum erreur\)
+:math:`I \times \sum erreur`
 
 .. image:: https://upload.wikimedia.org/wikipedia/commons/c/c0/Change_with_Ki.png
    :width: 400px
@@ -49,14 +50,14 @@ En utilisant seulement le terme proportionnel, le mécanisme peut osciller (kP t
 
 Dérivé
 ~~~~~~
-\(D \times \frac{\Delta erreur}{\Delta t}\)
+:math:`D \times \frac{\Delta erreur}{\Delta t}`
 
 .. image:: https://upload.wikimedia.org/wikipedia/commons/c/c7/Change_with_Kd.png
    :width: 400px
 
 Le terme `dérivé <https://couleur-science.eu/?d=94f1c0--les-fonctions-derivees-en-math>`_ est égal à la variation de l'erreur sur la variation du temps. C'est la "pente" de l'erreur.  Dans le code du robot, le delta temps sera toujours le même entre 2 itérations. On peut donc résumer le terme dérivé en la variation de l'erreur entre 2 itérations soit la différence entre l'erreur actuelle et l'erreur précédente.
 
-\(D \times (erreur - erreurPrecedente)\)
+:math:`D \times (erreur - erreurPrecedente)`
 
 Le coefficient kD est souvent négatif afin de réguler "l'accélération" du mécanisme. Si l'accélération est trop élevée, le terme dérivé sera alors d'autant plus important et ralentira le mécanisme.
 
@@ -67,7 +68,7 @@ Au PID on peut ajouter un 4ème terme, le terme F pour feed forward. Il peut êt
 
 **Élévateur** : Pour contrer la gravité exercée sur un élévateur, le voltage nécessaire peut être calculé en fonction de la masse de l'élévateur, du torque du moteur et du ratio de la gearbox.
 
-**Pivot** : Pour contrer la gravité exercée sur le bras du pivot, le terme F peut être calculé en fonction de l'angle \(\theta\) du bras : \(k \cos \theta\)
+**Pivot** : Pour contrer la gravité exercée sur le bras du pivot, le terme F peut être calculé en fonction de l'angle :math:`\theta` du bras : :math:`k \cos \theta`
 
 Il existe d'autres cas comme les bases roulantes où le terme F peut être utile pour contrer les forces de frottement ou d'accélération.
 
@@ -188,12 +189,12 @@ Le réglage d'un PID se fait souvent de façon empirique (au talent) Il existe c
 
     Par exemple, pour un élévateur dont l'erreur sera au maximum égale à 1,5 (m), on veut commencer avec un output maximum inférieur à 0,1.
 
-    \(P \times erreur = output\)
+    :math:`P \times erreur = output`
 
-    \(P \times erreurMax < outputMax\)
+    :math:`P \times erreurMax < outputMax`
 
-    \(P \times 1.5 < 0.1\)
+    :math:`P \times 1.5 < 0.1`
 
-    \(P < 0.06666\)
+    :math:`P < 0.06666`
 
-    On peut donc commencer avec un coefficient P aux alentours de 0.06666 sans prendre trop de risques. En revanche, si la distance parcourue par l'élévateur était exprimée en cm, un coefficient de 0.06666 serait beaucoup trop élevé et dangereux (\(0.06666 \times 150 = 10)_ !!!).
+    On peut donc commencer avec un coefficient P aux alentours de 0.06666 sans prendre trop de risques. En revanche, si la distance parcourue par l'élévateur était exprimée en cm, un coefficient de 0.06666 serait beaucoup trop élevé et dangereux (:math:`0.06666 \times 150 = 10` !!!).

@@ -7,7 +7,7 @@ Pour l'instant, tout le code que nous écrivions était uniquement dans la class
 
 Pour organiser le programme du Robot, il est donc nécessaire de le structurer en plusieurs fichiers. Chacun gérant une fonctionnalité différente du code.
 
-Une première méthode pour structurer le code peut être de créer une classe pour chacun des mécanismes du robot (ou subsystems) :
+Une première méthode pour structurer le code peut être de créer une classe pour chacun des mécanismes du robot (ou subsystems>`_ :
 
 ```
 subsystems/
@@ -23,19 +23,19 @@ Chacune de ses classes contient ainsi les méthodes nécessaires au fonctionneme
 class BaseRoulante
 {
   public:
-    BaseRoulante();
+    BaseRoulante(>`_;
 
-    void Drive(double x, double y);
-    void Stop();
+    void Drive(double x, double y>`_;
+    void Stop(>`_;
 
-    void ActiverVitesse1();
-    void ActiverVitesse2();
-    void ChangerVitesse();
+    void ActiverVitesse1(>`_;
+    void ActiverVitesse2(>`_;
+    void ChangerVitesse(>`_;
 
-    double GetDistanceDroite();
-    double GetDistanceGauche();
-    double GetAngle();
-    void ResetCapteurs();
+    double GetDistanceDroite(>`_;
+    double GetDistanceGauche(>`_;
+    double GetAngle(>`_;
+    void ResetCapteurs(>`_;
 
   private:
     // Variables, objets et méthodes
@@ -47,7 +47,7 @@ class BaseRoulante
 
 ## Cablage.h ou RobotMap.h
 
-En séparant les subsystems en plusieurs classes/fichiers, on sépare aussi les objets qu'ils contiennent (contrôleurs moteur, capteurs, ...). Il peut ainsi, par exemple, être compliqué de savoir si le port X du RoboRio est déjà utilisé. Sur quels ports sont branchés les encodeurs de la base ?
+En séparant les subsystems en plusieurs classes/fichiers, on sépare aussi les objets qu'ils contiennent (contrôleurs moteur, capteurs, ...>`_. Il peut ainsi, par exemple, être compliqué de savoir si le port X du RoboRio est déjà utilisé. Sur quels ports sont branchés les encodeurs de la base ?
 
 Pour simplifier cela, on crée un fichier nommé `Cablage.h` ou `RobotMap.h` qui contient des constantes utilisées dans les autres fichiers :
 
@@ -72,11 +72,11 @@ Pour simplifier cela, on crée un fichier nommé `Cablage.h` ou `RobotMap.h` qui
 ```
 
 !!!note Note
-    L'instruction `#define` est, comme `#include`, une directive [exécutée avant la compilation du code](https://fr.wikibooks.org/wiki/Programmation_C%2B%2B/Le_pr%C3%A9processeur). `#define` permet de remplacer toutes les occurrences d'un certain mot par un autre.
+    L'instruction `#define` est, comme `#include`, une directive `exécutée avant la compilation du code <https://fr.wikibooks.org/wiki/Programmation_C%2B%2B/Le_pr%C3%A9processeur>`_. `#define` permet de remplacer toutes les occurrences d'un certain mot par un autre.
     ```c++
     #define C 5553
     ```
-    Par exemple, ici, toutes les occurrences de `C` présentes dans les fichiers incluant `Cablage.h` seront remplacées par `5553` (trés dangereux car `int Count` devient ainsi `int 5553ount` avant la compilation)
+    Par exemple, ici, toutes les occurrences de `C` présentes dans les fichiers incluant `Cablage.h` seront remplacées par `5553` (trés dangereux car `int Count` devient ainsi `int 5553ount` avant la compilation>`_
 
 Grâce à la présence de ca fichier, il est maintenant facile de savoir où chacun des contrôleur moteur doit être branché, quels sont les port PWM libres, ect ...
 
@@ -94,26 +94,26 @@ Maintenant que les classes permettant de contrôler les subsystems existent, il 
 class Robot : public frc::TimedRobot
 {
 public:
-    void TeleopPeriodic() override
+    void TeleopPeriodic(>`_ override
     {
-        if(m_joystick.GetRawButton(1))
+        if(m_joystick.GetRawButton(1>`_>`_
         {
-            m_pince.Attraper();
+            m_pince.Attraper(>`_;
         }
-        else if(m_joystick.GetRawButton(2))
+        else if(m_joystick.GetRawButton(2>`_>`_
         {
-            m_pince.Ejecter();
+            m_pince.Ejecter(>`_;
         }
         else
         {
-            m_pince.Stop();
+            m_pince.Stop(>`_;
         }
 
-        m_baseRoulante.Drive(m_joystick.GetX(), m_joystick.GetY());
+        m_baseRoulante.Drive(m_joystick.GetX(>`_, m_joystick.GetY(>`_>`_;
     }
 
 private:
-    frc::Joystick m_joystick(0);
+    frc::Joystick m_joystick(0>`_;
     BaseRoulante m_baseRoulante;
     Pince m_pince;
 };

@@ -8,7 +8,7 @@ Maintenant que nous savons contrôler les moteurs et lire les informations des c
 Le setpoint est l'objectif que le mécanisme doit atteindre. Pour un élévateur, le setpoint est la hauteur désirée. Pour un pivot, c'est un angle. On peut aussi imaginer un shooter dont le setpoint serait la vitesse de rotation adéquate pour lancer l'objet à la bonne distance.
 
 ### Erreur
-L'erreur est la différence entre le setpoint et l'état (position, vitesse) du mécanisme à un instant donné. Pour un élévateur, c'est la distance (positive ou négative) qu'il reste à parcourir pour atteindre le setpoint.
+L'erreur est la différence entre le setpoint et l'état (position, vitesse>`_ du mécanisme à un instant donné. Pour un élévateur, c'est la distance (positive ou négative>`_ qu'il reste à parcourir pour atteindre le setpoint.
 
 ### Output
 L'output est la correction exercé sur le mécanisme pour le rapprocher du setpoint. Il peut être exprimé sur une échelle de -1 à 1 représentant la puissance donnée au moteur ou bien en volts.
@@ -16,7 +16,7 @@ L'output est la correction exercé sur le mécanisme pour le rapprocher du setpo
 
 ## PID, ça veut dire quoi ?
 
-Le PID est une méthode pour contrôler les mécanismes efficacement. C'est la boucle de contrôle la plus utilisée dans l'industrie car elle peut s'appliquer à de nombreuses situations (thermostat, régulateur de position, de vitesse). C'est un acronyme signifiant : **Proportionnel**, **Intégral**, **Dérivé**, les 3 termes qui composent le PID.
+Le PID est une méthode pour contrôler les mécanismes efficacement. C'est la boucle de contrôle la plus utilisée dans l'industrie car elle peut s'appliquer à de nombreuses situations (thermostat, régulateur de position, de vitesse>`_. C'est un acronyme signifiant : **Proportionnel**, **Intégral**, **Dérivé**, les 3 termes qui composent le PID.
 
 L'équation d'un contrôleur PID est la somme de ces 3 termes :
 \begin{align}
@@ -24,27 +24,27 @@ output = P \times erreur + I \times \sum erreur + D \times \frac{\Delta erreur}{
 \end{align}
 
 ### Proportionnel
-\(P \times erreur\)
+\(P \times erreur\>`_
 
-![Variation kP](https://upload.wikimedia.org/wikipedia/commons/a/a3/PID_varyingP.jpg){ width=400px }
+!`Variation kP <https://upload.wikimedia.org/wikipedia/commons/a/a3/PID_varyingP.jpg>`_{ width=400px }
 
-Le terme proportionnel est égal au produit d'un coefficient constant (**kP** ou **P gain**) et de l'erreur. Ce terme est ainsi élevé quand l'erreur est élevé (au début) et diminue lorsque le mécanisme se rapproche du setpoint. Plus le coefficient est élevé, plus la réponse du système sera rapide mais plus le mécanisme risquera d'osciller.
+Le terme proportionnel est égal au produit d'un coefficient constant (**kP** ou **P gain**>`_ et de l'erreur. Ce terme est ainsi élevé quand l'erreur est élevé (au début>`_ et diminue lorsque le mécanisme se rapproche du setpoint. Plus le coefficient est élevé, plus la réponse du système sera rapide mais plus le mécanisme risquera d'osciller.
 
 ### Intégral
-\(I \times \sum erreur\)
+\(I \times \sum erreur\>`_
 
-![Variation kI](https://upload.wikimedia.org/wikipedia/commons/c/c0/Change_with_Ki.png){ width=400px }
+!`Variation kI <https://upload.wikimedia.org/wikipedia/commons/c/c0/Change_with_Ki.png>`_{ width=400px }
 
-En utilisant seulement le terme proportionnel, le mécanisme peut osciller (kP trop élevé) ou bien rester en dessous du setpoint (kP trop faible). Pour cela, on peut utiliser le terme [intégral](https://couleur-science.eu/?d=211a43--les-integrales-en-math). Celui-ci est égal à la somme de toutes les erreurs depuis le début. Ce terme va ainsi augmenter de plus en plus si le mécanisme reste en dessous du setpoint trop longtemps.
+En utilisant seulement le terme proportionnel, le mécanisme peut osciller (kP trop élevé>`_ ou bien rester en dessous du setpoint (kP trop faible>`_. Pour cela, on peut utiliser le terme `intégral <https://couleur-science.eu/?d=211a43--les-integrales-en-math>`_. Celui-ci est égal à la somme de toutes les erreurs depuis le début. Ce terme va ainsi augmenter de plus en plus si le mécanisme reste en dessous du setpoint trop longtemps.
 
 ### Dérivé
-\(D \times \frac{\Delta erreur}{\Delta t}\)
+\(D \times \frac{\Delta erreur}{\Delta t}\>`_
 
-![Variation kD](https://upload.wikimedia.org/wikipedia/commons/c/c7/Change_with_Kd.png){ width=400px }
+!`Variation kD <https://upload.wikimedia.org/wikipedia/commons/c/c7/Change_with_Kd.png>`_{ width=400px }
 
-Le terme [dérivé](https://couleur-science.eu/?d=94f1c0--les-fonctions-derivees-en-math) est égal à la variation de l'erreur sur la variation du temps. C'est la "pente" de l'erreur.  Dans le code du robot, le delta temps sera toujours le même entre 2 itérations. On peut donc résumer le terme dérivé en la variation de l'erreur entre 2 itérations soit la différence entre l'erreur actuelle et l'erreur précédente.
+Le terme `dérivé <https://couleur-science.eu/?d=94f1c0--les-fonctions-derivees-en-math>`_ est égal à la variation de l'erreur sur la variation du temps. C'est la "pente" de l'erreur.  Dans le code du robot, le delta temps sera toujours le même entre 2 itérations. On peut donc résumer le terme dérivé en la variation de l'erreur entre 2 itérations soit la différence entre l'erreur actuelle et l'erreur précédente.
 
-\(D \times (erreur - erreurPrecedente)\)
+\(D \times (erreur - erreurPrecedente>`_\>`_
 
 Le coefficient kD est souvent négatif afin de réguler "l'accélération" du mécanisme. Si l'accélération est trop élevée, le terme dérivé sera alors d'autant plus important et ralentira le mécanisme.
 
@@ -54,7 +54,7 @@ Au PID on peut ajouter un 4ème terme, le terme F pour feed forward. Il peut êt
 
 **Élévateur** : Pour contrer la gravité exercée sur un élévateur, le voltage nécessaire peut être calculé en fonction de la masse de l'élévateur, du torque du moteur et du ratio de la gearbox.
 
-**Pivot** : Pour contrer la gravité exercée sur le bras du pivot, le terme F peut être calculé en fonction de l'angle \(\theta\) du bras : \(k \cos \theta\)
+**Pivot** : Pour contrer la gravité exercée sur le bras du pivot, le terme F peut être calculé en fonction de l'angle \(\theta\>`_ du bras : \(k \cos \theta\>`_
 
 Il existe d'autres cas comme les bases roulantes où le terme F peut être utile pour contrer les forces de frottement ou d'accélération.
 
@@ -76,16 +76,16 @@ Maintenant que nous avons appris la théorie du PID, utilisons le pour déplacer
     class Robot : public frc::TimedRobot
     {
     public:
-        void RobotInit() override
+        void RobotInit(>`_ override
         {
             // Le sens de rotation du moteur
-            m_moteur.SetInverted(false);
+            m_moteur.SetInverted(false>`_;
 
             // Le sens dans lequel compte l'encodeur
-            m_encodeur.SetReverseDirection(false);
+            m_encodeur.SetReverseDirection(false>`_;
 
             // Conversion ticks -> mètres
-            m_encodeur.SetDistancePerPulse(m_distanceParTick);
+            m_encodeur.SetDistancePerPulse(m_distanceParTick>`_;
 
             m_setpoint = 0.0;
             m_erreur = 0.0;
@@ -94,9 +94,9 @@ Maintenant que nous avons appris la théorie du PID, utilisons le pour déplacer
             m_derivee = 0.0;
         }
 
-        void RobotPeriodic () override
+        void RobotPeriodic (>`_ override
         {
-            position = m_encodeur.GetDistance();
+            position = m_encodeur.GetDistance(>`_;
 
             m_erreur = m_setpoint - position;
             m_sommeErreurs += m_erreur;
@@ -104,24 +104,24 @@ Maintenant que nous avons appris la théorie du PID, utilisons le pour déplacer
 
             double output = m_P * m_erreur + m_I * m_sommeErreurs + m_D * derivee + m_F;
 
-            m_moteur.Set(output);
+            m_moteur.Set(output>`_;
 
             m_erreurPrecedente = m_erreur;
         }
 
-        void TeleopPeriodic() override
+        void TeleopPeriodic(>`_ override
         {
             // En fonction des actions du pilote :
             // Utiliser la fonction SetSetpoint pour déplacer l'élévateur
         }
 
-        void SetSetpoint(double setpoint)
+        void SetSetpoint(double setpoint>`_
         {
-            if(setpoint < m_minSetpoint)
+            if(setpoint < m_minSetpoint>`_
             {
                 m_setpoint = m_minSetpoint;
             }
-            else if(setpoint > m_maxSetpoint)
+            else if(setpoint > m_maxSetpoint>`_
             {
                 m_setpoint = m_maxSetpoint:
             }
@@ -133,8 +133,8 @@ Maintenant que nous avons appris la théorie du PID, utilisons le pour déplacer
 
     private:
         // Moteurs et Capteurs
-        frc::VictorSP m_moteur(0);
-        frc::Encoder m_encodeur(0, 1);
+        frc::VictorSP m_moteur(0>`_;
+        frc::Encoder m_encodeur(0, 1>`_;
 
         // Facteur de conversion des ticks vers une distance en mètre
         const double m_distanceParTick = 0.05;
@@ -160,23 +160,23 @@ Maintenant que nous avons appris la théorie du PID, utilisons le pour déplacer
 
 ### Le Réglage
 
-L'étape de tuning (de réglage) du PID consiste à trouver les bonnes valeurs pour les 3 coefficients P, I et D. Il faut commencer avec I et D à zéro et en réglant seulement P. C'est le coefficient P qui va determiner la "vitesse de réaction" du mécanisme. Ensuite, si il y a besoin, on peut ajuster les 2 autres coefficients afin d'améliorer le PID.
+L'étape de tuning (de réglage>`_ du PID consiste à trouver les bonnes valeurs pour les 3 coefficients P, I et D. Il faut commencer avec I et D à zéro et en réglant seulement P. C'est le coefficient P qui va determiner la "vitesse de réaction" du mécanisme. Ensuite, si il y a besoin, on peut ajuster les 2 autres coefficients afin d'améliorer le PID.
 
-![PID Tuning](https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif)
+!`PID Tuning <https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif>`_
 
-Le réglage d'un PID se fait souvent de façon empirique (au talent) Il existe cependant [différentes méthodes](https://en.wikipedia.org/wiki/PID_controller#Overview_of_tuning_methods) censées faciliter cette étape mais souvent régler le PID à l'instinct suffit.
+Le réglage d'un PID se fait souvent de façon empirique (au talent>`_ Il existe cependant `différentes méthodes <https://en.wikipedia.org/wiki/PID_controller#Overview_of_tuning_methods>`_ censées faciliter cette étape mais souvent régler le PID à l'instinct suffit.
 
 !!! warning "Safety First"
     Régler un PID peu s'avérer très dangereux si des précautions ne sont pas prises. Pensez, au tout début, à calculer l'ordre de grandeur de vos coefficients en fonction des valeurs de l'erreur.
 
-    Par exemple, pour un élévateur dont l'erreur sera au maximum égale à 1,5 (m), on veut commencer avec un output maximum inférieur à 0,1.
+    Par exemple, pour un élévateur dont l'erreur sera au maximum égale à 1,5 (m>`_, on veut commencer avec un output maximum inférieur à 0,1.
 
-    \(P \times erreur = output\)
+    \(P \times erreur = output\>`_
 
-    \(P \times erreurMax < outputMax\)
+    \(P \times erreurMax < outputMax\>`_
 
-    \(P \times 1.5 < 0.1\)
+    \(P \times 1.5 < 0.1\>`_
 
-    \(P < 0.06666\)
+    \(P < 0.06666\>`_
 
-    On peut donc commencer avec un coefficient P aux alentours de 0.06666 sans prendre trop de risques. En revanche, si la distance parcourue par l'élévateur était exprimée en cm, un coefficient de 0.06666 serait beaucoup trop élevé et dangereux (\(0.06666 \times 150 = 10\) !!!).
+    On peut donc commencer avec un coefficient P aux alentours de 0.06666 sans prendre trop de risques. En revanche, si la distance parcourue par l'élévateur était exprimée en cm, un coefficient de 0.06666 serait beaucoup trop élevé et dangereux (\(0.06666 \times 150 = 10\>`_ !!!>`_.

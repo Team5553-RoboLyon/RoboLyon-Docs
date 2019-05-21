@@ -19,51 +19,58 @@ Dans le Code
 ------------
 
 WpiLib fournit une classe `Joystick <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Joystick.html>`_ qui nous permet de récupérer les infos de celui-ci. Son constructeur attend en argument le numéro du joystick. Les numéros sont attribués selon l'ordre de branchement : le 1er joystick sera le 0, le 2ème le 1, ect ... Si on a un seul joystick, il aura donc pour numéro 0 :
-```c++
-#include <frc/Joystick.h>
 
-frc::Joystick mon_joystick(0);
-```
+.. code-block:: c++
+
+    #include <frc/Joystick.h>
+
+    frc::Joystick mon_joystick(0);
+
 
 Pour récupérer l'état d'un bouton (appuyé/relâché, on peut utiliser la méthode `bool GetRawButton(int button)` qui attend en argument le numéro du bouton et qui renvoi `true` si le bouton est appuyé et `false` si il est relâché.
-```c++
-// Récupère l'état de la gâchette (trigger)
-bool gachetteAppuyee = mon_joystick.GetRawButton(1);
-```
+
+.. code-block:: c++
+
+    // Récupère l'état de la gâchette (trigger)
+    bool gachetteAppuyee = mon_joystick.GetRawButton(1);
+
 
 Pour récupérer la position d'un axe entre -1 et 1, on peut utiliser les méthodes `double GetX()`, `double GetY()`, `double GetZ()` (ou `GetTwist()`) et `double GetThrottle()`.
-```c++
-// Récupère l'état de chaque axe
-double x = mon_joystick.GetX();
-double y = mon_joystick.GetY();
-double twist = mon_joystick.GetTwist();
-double throttle = mon_joystick.GetThrottle();
-```
+
+.. code-block:: c++
+
+    // Récupère l'état de chaque axe
+    double x = mon_joystick.GetX();
+    double y = mon_joystick.GetY();
+    double twist = mon_joystick.GetTwist();
+    double throttle = mon_joystick.GetThrottle();
+
 
 On a aussi la méthode `int GetPOV()` qui renvoi l'angle formé par le POV ou -1 si il est situé au centre.
-```c++
-int pov = mon_joystick.GetPOV();
 
-switch (pov)
-{
-    case -1:
-        // Centre
-        break;
+.. code-block:: c++
 
-    case 0:
-        // Haut
-        break;
+    int pov = mon_joystick.GetPOV();
 
-    case 180:
-        // Bas
-        break;
+    switch (pov)
+    {
+        case -1:
+            // Centre
+            break;
 
-    case 90
-        // Droite
-        break;
+        case 0:
+            // Haut
+            break;
 
-    case 270
-        // Gauche
-        break;
-}
-```
+        case 180:
+            // Bas
+            break;
+
+        case 90
+            // Droite
+            break;
+
+        case 270
+            // Gauche
+            break;
+    }

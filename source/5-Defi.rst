@@ -14,35 +14,35 @@ Coder la méthode TeleopPeriodic d'un TimedRobot pour répondre à ces objectifs
 ??? note "**Correction**"
     Normalement, votre programme sera séparé en 2 fichiers différents : Robot.h et Robot.cpp. Ici, le programme est dans un seul fichier pour plus de simplicité :
 
-    ```c++
-    #include <frc/TimedRobot.h>
-    #include <frc/VictorSP.h>
-    #include <frc/Joystick.h>
+    .. code-block:: c++
 
-    class Robot : public frc::TimedRobot
-    {
-    public:
-        void TeleopPeriodic() override
+        #include <frc/TimedRobot.h>
+        #include <frc/VictorSP.h>
+        #include <frc/Joystick.h>
+
+        class Robot : public frc::TimedRobot
         {
-            if(Joystick.GetButton(1))
+        public:
+            void TeleopPeriodic() override
             {
-                moteur.Set(0);
-            }
-            else
-            {
-                double y = Joystick.GetY();
-
-                if(y < 0.2 && y > -0.2)
+                if(Joystick.GetButton(1))
                 {
-                    y = 0;
+                    moteur.Set(0);
                 }
+                else
+                {
+                    double y = Joystick.GetY();
 
-                moteur.Set(y);
+                    if(y < 0.2 && y > -0.2)
+                    {
+                        y = 0;
+                    }
+
+                    moteur.Set(y);
+                }
             }
-        }
 
-    private:
-        frc::Joystick m_joystick(0);
-        frc::VictorSP m_moteur(0);
-    };
-    ```
+        private:
+            frc::Joystick m_joystick(0);
+            frc::VictorSP m_moteur(0);
+        };

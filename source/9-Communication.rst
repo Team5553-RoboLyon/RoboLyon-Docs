@@ -22,13 +22,15 @@ SmartDashboard
 Afficher des informations avec `cout` pose un problème : si on affiche régulièrement plusieurs messages, il peut devenir très compliqué de suivre le défilement de ceux-ci. Pour cela, une alternative existe : c'est le `SmartDashboard <https://wpilib.screenstepslive.com/s/currentCS/m/smartdashboard/c/92705>`_. Pour l'ouvrir dans VS Code : ++ctrl+shift+p++ puis `Start Tool` et sélectionner `SmartDashboard`.
 
 Pour utiliser le SmartDashboard, il n'y a pas besoin de déclarer une instance de la classe `SmartDashboard <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html>`_. On peut appeler les méthodes de celle-ci avec l'opérateur de résolution de portée `::`. Pour afficher des données sur le SmartDashboard, il faut fournir 2 choses : une **key** qui identifie la donnée et sa **valeur**. Il existe plusieurs fonctions selon le type de donnée à afficher (texte, nombre ou booléen) :
-```c++
-#include <frc/smartdashboard/SmartDashboard.h>
 
-frc::SmartDashboard::PutString("2020 Game","WaterGame");
-frc::SmartDashboard::PutNumber("Best Team", 5553);
-frc::SmartDashboard::PutBoolean("148+254=5553", false);
-```
+.. code-block:: c++
+
+    #include <frc/smartdashboard/SmartDashboard.h>
+
+    frc::SmartDashboard::PutString("2020 Game","WaterGame");
+    frc::SmartDashboard::PutNumber("Best Team", 5553);
+    frc::SmartDashboard::PutBoolean("148+254=5553", false);
+
 
 La fonction `PutNumber` attend comme argument un `double`. Ici, le int 5553 sera converti en un double.
 
@@ -44,28 +46,35 @@ Pour assurer la communication entre le robot et l'ordinateur, le SmartDashboard 
 L'OutlineViewer permet de lire toutes les données transférées via les NetworkTables. On voit ainsi apparaître un "dossier" (une Table) nommé `/SmartDashboard` dans lequel on retrouve toutes les données (key + valeur) créées. Chaque Table est identifiable par une chaîne de caractères. Elle peut posséder plusieurs données (key + valeur) qui peuvent être, comme pour le SmartDashboard, des `string`, des `double` ou des `bool`.
 
 Pour accéder à ces données, on peut passer par la classe `NetworkTable <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classnt_1_1NetworkTable.html>`_. Premièrement, il faut créer et récupérer une l'instance de la classe NetworkTable grâce au nom de la Table :
-```c++
-#include <networktables/NetworkTable.h>
-auto table = NetworkTable::GetTable("datatable");
-```
+
+.. code-block:: c++
+
+    #include <networktables/NetworkTable.h>
+    auto table = NetworkTable::GetTable("datatable");
+
 .. note::
     Le mot clé `auto` remplace la déclaration du type d'une variable ou d'un objet. Le type est automatiquement déduit. Par exemple, ici, la variable `x` sera automatiquement un `int` :
-    ```c++
-    int i = 5553;
-    auto x = i;
-    ```
+    
+    .. code-block:: c++
+
+        int i = 5553;
+        auto x = i;
+
 
 Ensuite, on peut utiliser la NetworkTable (son pointeur en fait) comme avec le SmartDashboard :
-```c++
-table->PutNumber("PositionPivot", encodeur.GetDistance());
-table->PutBoolean("Pince ouverte", isPinceOuverte);
-table->PutString("Alliance", "Rouge");
-```
+
+.. code-block:: c++
+
+    table->PutNumber("PositionPivot", encodeur.GetDistance());
+    table->PutBoolean("Pince ouverte", isPinceOuverte);
+    table->PutString("Alliance", "Rouge");
+
 
 Les Tables sont automatiquement synchronisées à intervalles réguliers. Mais pour plus de performances, il existe une fonction qui syncronise immédiatement tous les changements efectués sur les NetworkTables quand on l'appelle :
-```c++
-nt::NetworkTable::Flush();
-```
+
+.. code-block:: c++
+
+    nt::NetworkTable::Flush();
 
 
 ShuffleBoard

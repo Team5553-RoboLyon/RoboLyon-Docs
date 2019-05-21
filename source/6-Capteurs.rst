@@ -22,18 +22,20 @@ Dans le Code
 ~~~~~~~~~~~
 
 Pour programmer un limit switch, créez une instance de la classe `DigitalInput <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1DigitalInput.html>`_, son constructeur attend comme argument le port DIO sur lequel le switch est branché :
-```c++
-#include <frc/DigitalInput.h>
-frc::DigitalInput mon_switch(0);
-```
+
+.. code-block:: c++
+
+    #include <frc/DigitalInput.h>
+    frc::DigitalInput mon_switch(0);
+
 
 La méthode `bool Get()` renvoie `true` ou `false` suivant la position du switch (appuyé/relâché) et ses branchements (NO/NC) :
-```c++
-bool switchPresse = mon_switch.Get();
-```
+
+.. code-block:: c++
+
+    bool switchPresse = mon_switch.Get();
 
 
- <br>
 Encodeurs
 ---------
 
@@ -52,35 +54,43 @@ Dans le Code
 ~~~~~~~~~~~~
 
 Pour programmer un encodeur, créez une instance de la classe `Encoder <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Encoder.html>`_, son constructeur attend comme argument les port DIO sur lesquels l'encodeur est branché :
-```c++
-#include <frc/Encoder.h>
-frc::Encoder mon_encodeur(0, 1);
-```
+
+.. code-block:: c++
+
+    #include <frc/Encoder.h>
+    frc::Encoder mon_encodeur(0, 1);
+
 
 La méthode `int Get()` renvoie la distance angulaire mesurée par l'encodeur en ticks. Selon le modèle, un tour équivaut à 360 ticks, 22 ticks, ... :
-```c++
-double distance = mon_encodeur.Get();
-```
+
+.. code-block:: c++
+
+    double distance = mon_encodeur.Get();
+
 
 La méthode `void Reset()` remet le compteur à zéro :
-```c++
-mon_encodeur.Reset();
-```
+
+.. code-block:: c++
+
+    mon_encodeur.Reset();
+
 
 Les méthodes `void 	SetDistancePerPulse(double distancePerPulse)` et `double GetDistance()` permettent de convertir automatiquement les tick en une autre unité :
-```c++
-// 1 tour équivaut à 360 ticks
-mon_encodeur.SetDistancePerPulse(1.0/360);
-double nombreDeTours = mon_encodeur.GetDistance();
-```
+
+.. code-block:: c++
+
+    // 1 tour équivaut à 360 ticks
+    mon_encodeur.SetDistancePerPulse(1.0/360);
+    double nombreDeTours = mon_encodeur.GetDistance();
+
 
 La méthode `void GetRate()` renvoie la vitesse actuelle convertie en distance selon le facteur de conversion (1 par défaut) :
-```c++
-double vitesse = mon_encodeur.GetRate();
-```
+
+.. code-block:: c++
+
+    double vitesse = mon_encodeur.GetRate();
 
 
- <br>
 Gyroscopes
 ----------
 
@@ -93,28 +103,36 @@ Dans le Code
 ~~~~~~~~~~~~
 
 Pour programmer un gyroscope, créez une instance de la classe `ADXRS450_Gyro <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1ADXRS450__Gyro.html>`_ (SPI) ou `AnalogGyro <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1AnalogGyro.html>`_ (Analog In) en fonction du gyroscope. Le constructeur d'`AnalogGyro` attend comme argument le port Analog In (0 ou 1) sur lequel le gyroscope est branché :
-```c++
-#include <frc/ADXRS450_Gyro.h>
-frc::ADXRS450_Gyro mon_gyro();
-```
-```c++
-#include <frc/AnalogGyro.h>
-frc::AnalogGyro mon_gyro(0);
-```
+
+.. code-block:: c++
+
+    #include <frc/ADXRS450_Gyro.h>
+    frc::ADXRS450_Gyro mon_gyro();
+
+.. code-block:: c++
+
+    #include <frc/AnalogGyro.h>
+    frc::AnalogGyro mon_gyro(0);
+
 
 La méthode `double GetAngle()` renvoie l'angle du robot en degrés dans le sens des aiguilles d'une montre :
-```c++
-double angle = mon_gyro.GetAngle();
-```
+
+.. code-block:: c++
+
+    double angle = mon_gyro.GetAngle();
+
 
 La méthode `double GetRate()` renvoie la vitesse de rotation du robot en degrés par secondes dans le sens des aiguilles d'une montre :
-```c++
-double vitesseRotation = mon_gyro.GetRate();
-```
+
+.. code-block:: c++
+
+    double vitesseRotation = mon_gyro.GetRate();
+
 
 La méthode `void Calibrate()` calibre le gyroscope en définissant son centre. La méthode `void Reset()` remet le gyroscope à zéro :
-```c++
-// Initialisation du gyro
-mon_gyro.Calibrate();
-mon_gyro.Reset();
-```
+
+.. code-block:: c++
+
+    // Initialisation du gyro
+    mon_gyro.Calibrate();
+    mon_gyro.Reset();

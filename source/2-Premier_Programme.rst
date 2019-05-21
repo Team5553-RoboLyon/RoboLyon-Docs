@@ -6,24 +6,24 @@ A quoi ressemble un programme de robot ?
 
 Quand on crée un nouveau projet, on a plusieurs choix : `SampleRobot`, `IterativeRobot`, `TimedRobot` et `CommandBasedRobot`. Pour commencer choisissez `TimedRobot Skeleton`. Voici à quoi cela ressemble :
 
-```c++
-#include <frc/TimedRobot.h>
+.. code-block:: c++
 
-class Robot : public frc::TimedRobot
-{
- public:
-  void RobotInit() override;
+  #include <frc/TimedRobot.h>
 
-  void AutonomousInit() override;
-  void AutonomousPeriodic() override;
+  class Robot : public frc::TimedRobot
+  {
+  public:
+    void RobotInit() override;
 
-  void TeleopInit() override;
-  void TeleopPeriodic() override;
+    void AutonomousInit() override;
+    void AutonomousPeriodic() override;
 
-  void TestInit() override;
-  void TestPeriodic() override;
-};
-```
+    void TeleopInit() override;
+    void TeleopPeriodic() override;
+
+    void TestInit() override;
+    void TestPeriodic() override;
+  };
 
 **Mais où est le main() ?**
 
@@ -61,34 +61,38 @@ Utiliser WpiLib
 ---------------
 
 Pour l'instant, on utilise une seule classe fournie par WpiLib, la classe `TimedRobot`. Elle est incluse grâce à la ligne :
-```c++
-#include <frc/TimedRobot.h>
-```
+
+.. code-block:: c++
+
+  #include <frc/TimedRobot.h>
 
 Mais pour programmer le robot nous allons avoir besoin des autres classes WpiLib pour controller les moteurs, les capteurs, ... Une façon très rapide d'inclure toutes ces classes à la fois est d'écrire cette ligne au début de notre programme :
-```c++
-#include <frc/WPILib.h>
-```
+
+.. code-block:: c++
+
+  #include <frc/WPILib.h>
+
 Vous pouvez jeter un coup d'oeil à l'intérieur de ce ficher. Il inclut en fait à son tour toutes les classes de WpiLib (dont TimedRobot).
-```c++
-#include "frc/ADXL345_I2C.h"
-#include "frc/ADXL345_SPI.h"
-#include "frc/ADXL362.h"
-#include "frc/ADXRS450_Gyro.h"
-#include "frc/AnalogAccelerometer.h"
-#include "frc/AnalogGyro.h"
-#include "frc/AnalogInput.h"
-#include "frc/AnalogOutput.h"
-#include "frc/AnalogPotentiometer.h"
-#include "frc/AnalogTrigger.h"
-#include "frc/AnalogTriggerOutput.h"
-#include "frc/BuiltInAccelerometer.h"
-#include "frc/Compressor.h"
-#include "frc/ControllerPower.h"
-#include "frc/Counter.h"
-#include "frc/DMC60.h"
-#include "frc/DigitalInput.h"
-#include "frc/DigitalOutput.h"
-........
-......
-```
+
+.. code-block:: c++
+
+  #include "frc/ADXL345_I2C.h"
+  #include "frc/ADXL345_SPI.h"
+  #include "frc/ADXL362.h"
+  #include "frc/ADXRS450_Gyro.h"
+  #include "frc/AnalogAccelerometer.h"
+  #include "frc/AnalogGyro.h"
+  #include "frc/AnalogInput.h"
+  #include "frc/AnalogOutput.h"
+  #include "frc/AnalogPotentiometer.h"
+  #include "frc/AnalogTrigger.h"
+  #include "frc/AnalogTriggerOutput.h"
+  #include "frc/BuiltInAccelerometer.h"
+  #include "frc/Compressor.h"
+  #include "frc/ControllerPower.h"
+  #include "frc/Counter.h"
+  #include "frc/DMC60.h"
+  #include "frc/DigitalInput.h"
+  #include "frc/DigitalOutput.h"
+  ........
+  ......

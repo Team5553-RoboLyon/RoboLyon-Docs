@@ -21,30 +21,30 @@ subsystems/
 
 Chacune de ses classes contient ainsi les méthodes nécessaires au fonctionnement du subsytem. Par exemple, voici à quoi pourrait ressembler le fichier BaseRoulante.h :
 
-```c++
-class BaseRoulante
-{
-  public:
-    BaseRoulante();
+.. code-block:: c++
 
-    void Drive(double x, double y);
-    void Stop();
+    class BaseRoulante
+    {
+    public:
+        BaseRoulante();
 
-    void ActiverVitesse1();
-    void ActiverVitesse2();
-    void ChangerVitesse();
+        void Drive(double x, double y);
+        void Stop();
 
-    double GetDistanceDroite();
-    double GetDistanceGauche();
-    double GetAngle();
-    void ResetCapteurs();
+        void ActiverVitesse1();
+        void ActiverVitesse2();
+        void ChangerVitesse();
 
-  private:
-    // Variables, objets et méthodes
-    // Privés pour gérer en interne le subsystem
+        double GetDistanceDroite();
+        double GetDistanceGauche();
+        double GetAngle();
+        void ResetCapteurs();
 
-};
-```
+    private:
+        // Variables, objets et méthodes
+        // Privés pour gérer en interne le subsystem
+
+    };
 
 
 Cablage.h ou RobotMap.h
@@ -54,30 +54,33 @@ En séparant les subsystems en plusieurs classes/fichiers, on sépare aussi les 
 
 Pour simplifier cela, on crée un fichier nommé `Cablage.h` ou `RobotMap.h` qui contient des constantes utilisées dans les autres fichiers :
 
-```c++
-// PWM MOTORS
-#define PWM_ROUES_PINCE 0
-#define PWM_BASE_DROITE_1 1
-#define PWM_BASE_DROITE_2 2
-#define PWM_BASE_GAUCHE_1 3
-#define PWM_BASE_GAUCHE_2 4
+.. code-block:: c++
 
-// CAN MOTORS
-#define CAN_PIVOT 1
+    // PWM MOTORS
+    #define PWM_ROUES_PINCE 0
+    #define PWM_BASE_DROITE_1 1
+    #define PWM_BASE_DROITE_2 2
+    #define PWM_BASE_GAUCHE_1 3
+    #define PWM_BASE_GAUCHE_2 4
 
-// DIO ENCODEURS
-#define DIO_ENCODEUR_PIVOT_A 0
-#define DIO_ENCODEUR_PIVOT_B 1
+    // CAN MOTORS
+    #define CAN_PIVOT 1
 
-// PCM PNEUMATICS
-#define PCM_PINCE_A 0
-#define PCM_PINCE_B 1
-```
+    // DIO ENCODEURS
+    #define DIO_ENCODEUR_PIVOT_A 0
+    #define DIO_ENCODEUR_PIVOT_B 1
+
+    // PCM PNEUMATICS
+    #define PCM_PINCE_A 0
+    #define PCM_PINCE_B 1
+
 .. note::
     L'instruction `#define` est, comme `#include`, une directive `exécutée avant la compilation du code <https://fr.wikibooks.org/wiki/Programmation_C%2B%2B/Le_pr%C3%A9processeur>`_. `#define` permet de remplacer toutes les occurrences d'un certain mot par un autre.
-    ```c++
-    #define C 5553
-    ```
+    
+    .. code-block:: c++
+    
+        #define C 5553
+    
     Par exemple, ici, toutes les occurrences de `C` présentes dans les fichiers incluant `Cablage.h` seront remplacées par `5553` (trés dangereux car `int Count` devient ainsi `int 5553ount` avant la compilation)
 
 Grâce à la présence de ca fichier, il est maintenant facile de savoir où chacun des contrôleur moteur doit être branché, quels sont les port PWM libres, ect ...
@@ -88,38 +91,38 @@ Le Programme Principal
 
 Maintenant que les classes permettant de contrôler les subsystems existent, il faut les intégrer dans notre classe principale `Robot`. Pour cela, on a juste à créer une instance de chacune des classes dans `Robot`. Pour la partie Teleopérée, le but du programme principal est d'utiliser des `if` qui, en fonction des entrée du joystick, appelent certaines fonctions.
 
-```c++
-#include <frc/TimedRobot.h>
-#include <frc/Joystick.h>
-#include "BaseRoulante.h"
-#include "Pince.h"
+.. code-block:: c++
 
-class Robot : public frc::TimedRobot
-{
-public:
-    void TeleopPeriodic() override
+    #include <frc/TimedRobot.h>
+    #include <frc/Joystick.h>
+    #include "BaseRoulante.h"
+    #include "Pince.h"
+
+    class Robot : public frc::TimedRobot
     {
-        if(m_joystick.GetRawButton(1))
+    public:
+        void TeleopPeriodic() override
         {
-            m_pince.Attraper();
-        }
-        else if(m_joystick.GetRawButton(2))
-        {
-            m_pince.Ejecter();
-        }
-        else
-        {
-            m_pince.Stop();
+            if(m_joystick.GetRawButton(1))
+            {
+                m_pince.Attraper();
+            }
+            else if(m_joystick.GetRawButton(2))
+            {
+                m_pince.Ejecter();
+            }
+            else
+            {
+                m_pince.Stop();
+            }
+
+            m_baseRoulante.Drive(m_joystick.GetX(), m_joystick.GetY());
         }
 
-        m_baseRoulante.Drive(m_joystick.GetX(), m_joystick.GetY());
-    }
-
-private:
-    frc::Joystick m_joystick(0);
-    BaseRoulante m_baseRoulante;
-    Pince m_pince;
-};
-```
+    private:
+        frc::Joystick m_joystick(0);
+        BaseRoulante m_baseRoulante;
+        Pince m_pince;
+    };
 
 .. attention:: Encore une fois, les méthodes appelées par le programme principal ne doivent pas durer dans le temps au risque de rester bloqué dans une des fonctions. Les boucles `while`, `do while` et `for` sont donc interdites partout dans le code.

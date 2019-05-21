@@ -82,96 +82,97 @@ Maintenant que nous avons appris la théorie du PID, utilisons le pour déplacer
 
 ??? note "**Correction**"
     Normalement, votre programme sera séparé en 2 fichiers différents : Robot.h et Robot.cpp. Ici, le programme est dans un seul fichier pour plus de simplicité :
+    
+    .. code-block:: c++
 
-    ```c++
-    #include <frc/TimedRobot.h>
-    #include <frc/VictorSP.h>
-    #include <frc/Encoder.h>
+        #include <frc/TimedRobot.h>
+        #include <frc/VictorSP.h>
+        #include <frc/Encoder.h>
 
-    class Robot : public frc::TimedRobot
-    {
-    public:
-        void RobotInit() override
+        class Robot : public frc::TimedRobot
         {
-            // Le sens de rotation du moteur
-            m_moteur.SetInverted(false);
-
-            // Le sens dans lequel compte l'encodeur
-            m_encodeur.SetReverseDirection(false);
-
-            // Conversion ticks -> mètres
-            m_encodeur.SetDistancePerPulse(m_distanceParTick);
-
-            m_setpoint = 0.0;
-            m_erreur = 0.0;
-            m_erreurPrecedente = 0.0;
-            m_sommeErreurs = 0.0;
-            m_derivee = 0.0;
-        }
-
-        void RobotPeriodic () override
-        {
-            position = m_encodeur.GetDistance();
-
-            m_erreur = m_setpoint - position;
-            m_sommeErreurs += m_erreur;
-            m_derivee = m_erreur - m_erreurPrecedente;
-
-            double output = m_P * m_erreur + m_I * m_sommeErreurs + m_D * derivee + m_F;
-
-            m_moteur.Set(output);
-
-            m_erreurPrecedente = m_erreur;
-        }
-
-        void TeleopPeriodic() override
-        {
-            // En fonction des actions du pilote :
-            // Utiliser la fonction SetSetpoint pour déplacer l'élévateur
-        }
-
-        void SetSetpoint(double setpoint)
-        {
-            if(setpoint < m_minSetpoint)
+        public:
+            void RobotInit() override
             {
-                m_setpoint = m_minSetpoint;
+                // Le sens de rotation du moteur
+                m_moteur.SetInverted(false);
+
+                // Le sens dans lequel compte l'encodeur
+                m_encodeur.SetReverseDirection(false);
+
+                // Conversion ticks -> mètres
+                m_encodeur.SetDistancePerPulse(m_distanceParTick);
+
+                m_setpoint = 0.0;
+                m_erreur = 0.0;
+                m_erreurPrecedente = 0.0;
+                m_sommeErreurs = 0.0;
+                m_derivee = 0.0;
             }
-            else if(setpoint > m_maxSetpoint)
+
+            void RobotPeriodic () override
             {
-                m_setpoint = m_maxSetpoint:
+                position = m_encodeur.GetDistance();
+
+                m_erreur = m_setpoint - position;
+                m_sommeErreurs += m_erreur;
+                m_derivee = m_erreur - m_erreurPrecedente;
+
+                double output = m_P * m_erreur + m_I * m_sommeErreurs + m_D * derivee + m_F;
+
+                m_moteur.Set(output);
+
+                m_erreurPrecedente = m_erreur;
             }
-            else
+
+            void TeleopPeriodic() override
             {
-                m_setpoint = setpoint;
+                // En fonction des actions du pilote :
+                // Utiliser la fonction SetSetpoint pour déplacer l'élévateur
             }
-        }
 
-    private:
-        // Moteurs et Capteurs
-        frc::VictorSP m_moteur(0);
-        frc::Encoder m_encodeur(0, 1);
+            void SetSetpoint(double setpoint)
+            {
+                if(setpoint < m_minSetpoint)
+                {
+                    m_setpoint = m_minSetpoint;
+                }
+                else if(setpoint > m_maxSetpoint)
+                {
+                    m_setpoint = m_maxSetpoint:
+                }
+                else
+                {
+                    m_setpoint = setpoint;
+                }
+            }
 
-        // Facteur de conversion des ticks vers une distance en mètre
-        const double m_distanceParTick = 0.05;
+        private:
+            // Moteurs et Capteurs
+            frc::VictorSP m_moteur(0);
+            frc::Encoder m_encodeur(0, 1);
 
-        // Variables du PID
-        double m_setpoint;
-        double m_erreur;
-        double m_erreurPrecedente;
-        double m_sommeErreurs;
-        double m_derivee;
+            // Facteur de conversion des ticks vers une distance en mètre
+            const double m_distanceParTick = 0.05;
 
-        // Valeurs déterminées scientifiquement
-        const double m_P = 0.8;
-        const double m_I = 0.01;
-        const double m_D = - 0.2;
-        const double m_F = 0.15;
+            // Variables du PID
+            double m_setpoint;
+            double m_erreur;
+            double m_erreurPrecedente;
+            double m_sommeErreurs;
+            double m_derivee;
 
-        // L'élévateur peut aller de 0 m jusqu'à 1.5 m de hauteur
-        const double m_minSetpoint = 0.0;
-        const double m_maxSetpoint = 1.5;
-    };
-    ```
+            // Valeurs déterminées scientifiquement
+            const double m_P = 0.8;
+            const double m_I = 0.01;
+            const double m_D = - 0.2;
+            const double m_F = 0.15;
+
+            // L'élévateur peut aller de 0 m jusqu'à 1.5 m de hauteur
+            const double m_minSetpoint = 0.0;
+            const double m_maxSetpoint = 1.5;
+        };
+
 
 Le Réglage
 ~~~~~~~~~~

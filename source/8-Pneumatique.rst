@@ -23,16 +23,20 @@ Dans le code
 ~~~~~~~~~~~~
 
 Pour programmer un solénoïde simple, il faut créer une instance de la classe `Solenoid <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Solenoid.html>`_, son constructeur attend comme argument le port sur lequel le solenoid est branché :
-```c++
-#include <frc/Solenoid.h>
-frc::Solenoid mon_solenoide(0);
-```
+
+.. code-block:: c++
+
+    #include <frc/Solenoid.h>
+    frc::Solenoid mon_solenoide(0);
+
 
 La méthode `void Set(bool on)` permet d'ouvrir ou de fermer le solénoïde :
-```c++
-// Je sors le vérin
-mon_solenoide.Set(true);
-```
+
+.. code-block:: c++
+
+    // Je sors le vérin
+    mon_solenoide.Set(true);
+
 
 .. note:: Quand on déclare une instance d'un solénoïde (simple ou double), le compresseur est automatiquement mis en route.
 
@@ -49,19 +53,22 @@ Dans le code
 ~~~~~~~~~~~~
 
 La classe `DoubleSolenoid <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1DoubleSolenoid.html>`_ est similaire à la classe Solenoid. Son constructeur attend comme argument les 2 ports (Forward et Reverse) sur lequel le solenoid est branché :
-```c++
-#include <frc/DoubleSolenoid.h>
-frc::DoubleSolenoid mon_solenoide(0, 1);
-```
+
+.. code-block:: c++
+
+    #include <frc/DoubleSolenoid.h>
+    frc::DoubleSolenoid mon_solenoide(0, 1);
+
 
 La méthode `void Set(Value value)` permet de contrôler l'état du solénoïde. Il attend en argument une des valeur de l'enum `Value` : Off, Forward or Reverse : 
-```c++
-// Je sors le vérin
-mon_solenoide.Set(frc::DoubleSolenoid::Value::kForward);
 
-// Je rentre le vérin
-mon_solenoide.Set(frc::DoubleSolenoid::Value::kReverse);
+.. code-block:: c++
 
-// Je laisse le vérin libre
-mon_solenoide.Set(frc::DoubleSolenoid::Value::kOff);
-```
+    // Je sors le vérin
+    mon_solenoide.Set(frc::DoubleSolenoid::Value::kForward);
+
+    // Je rentre le vérin
+    mon_solenoide.Set(frc::DoubleSolenoid::Value::kReverse);
+
+    // Je laisse le vérin libre
+    mon_solenoide.Set(frc::DoubleSolenoid::Value::kOff);

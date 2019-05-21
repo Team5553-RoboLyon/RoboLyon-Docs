@@ -44,8 +44,7 @@ Pour accéder à ces données, on peut passer par la classe `NetworkTable <https
 #include <networktables/NetworkTable.h>
 auto table = NetworkTable::GetTable("datatable">`_;
 ```
-
-!!! note
+.. note::
     Le mot clé `auto` remplace la déclaration du type d'une variable ou d'un objet. Le type est automatiquement déduit. Par exemple, ici, la variable `x` sera automatiquement un `int` :
     ```c++
     int i = 5553;

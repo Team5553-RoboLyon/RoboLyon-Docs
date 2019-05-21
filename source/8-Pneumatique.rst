@@ -31,8 +31,7 @@ La méthode `void Set(bool on>`_` permet d'ouvrir ou de fermer le solénoïde :
 mon_solenoide.Set(true>`_;
 ```
 
-!!! note "Note"
-    Quand on déclare une instance d'un solénoïde (simple ou double>`_, le compresseur est automatiquement mis en route.
+.. note:: Quand on déclare une instance d'un solénoïde (simple ou double>`_, le compresseur est automatiquement mis en route.
 
 
 ## Solénoïdes doubles

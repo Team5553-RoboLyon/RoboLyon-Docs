@@ -70,8 +70,7 @@ Pour simplifier cela, on crée un fichier nommé `Cablage.h` ou `RobotMap.h` qui
 #define PCM_PINCE_A 0
 #define PCM_PINCE_B 1
 ```
-
-!!!note Note
+.. note::
     L'instruction `#define` est, comme `#include`, une directive `exécutée avant la compilation du code <https://fr.wikibooks.org/wiki/Programmation_C%2B%2B/Le_pr%C3%A9processeur>`_. `#define` permet de remplacer toutes les occurrences d'un certain mot par un autre.
     ```c++
     #define C 5553

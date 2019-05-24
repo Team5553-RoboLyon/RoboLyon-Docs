@@ -11,7 +11,7 @@ La première méthode à notre disposition est d'utiliser l'affichage console cl
 
 .. image:: img/DsOutput.jpg
 
-On peut aussi lire le flux de sortie du robot avec le RioLog. On peut lancer le RioLog dans VS Code en entrant `riolog` dans la palette de commandes (++ctrl+shift+p++) puis en sélectionnant `WpiLib: Start RioLog`.
+On peut aussi lire le flux de sortie du robot avec le RioLog. On peut lancer le RioLog dans VS Code en entrant `riolog` dans la palette de commandes (Ctrl + Shift + P) puis en sélectionnant `WpiLib: Start RioLog`.
 
 .. image:: img/RioLog.jpg
 
@@ -19,7 +19,7 @@ On peut aussi lire le flux de sortie du robot avec le RioLog. On peut lancer le 
 SmartDashboard
 --------------
 
-Afficher des informations avec `cout` pose un problème : si on affiche régulièrement plusieurs messages, il peut devenir très compliqué de suivre le défilement de ceux-ci. Pour cela, une alternative existe : c'est le `SmartDashboard <https://wpilib.screenstepslive.com/s/currentCS/m/smartdashboard/c/92705>`_. Pour l'ouvrir dans VS Code : ++ctrl+shift+p++ puis `Start Tool` et sélectionner `SmartDashboard`.
+Afficher des informations avec `cout` pose un problème : si on affiche régulièrement plusieurs messages, il peut devenir très compliqué de suivre le défilement de ceux-ci. Pour cela, une alternative existe : c'est le `SmartDashboard <https://wpilib.screenstepslive.com/s/currentCS/m/smartdashboard/c/92705>`_. Pour l'ouvrir dans VS Code : Ctrl + Shift + P puis `Start Tool` et sélectionner `SmartDashboard`.
 
 Pour utiliser le SmartDashboard, il n'y a pas besoin de déclarer une instance de la classe `SmartDashboard <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html>`_. On peut appeler les méthodes de celle-ci avec l'opérateur de résolution de portée `::`. Pour afficher des données sur le SmartDashboard, il faut fournir 2 choses : une **key** qui identifie la donnée et sa **valeur**. Il existe plusieurs fonctions selon le type de donnée à afficher (texte, nombre ou booléen) :
 
@@ -41,7 +41,7 @@ Le pilote peut aussi modifier le `widget <https://wpilib.screenstepslive.com/s/c
 NetworkTables
 -------------
 
-Pour assurer la communication entre le robot et l'ordinateur, le SmartDashboard utilise en fait un protocole de communication créé par WpiLib : les `NetworkTables <https://wpilib.screenstepslive.com/s/currentCS/m/75361>`_. Pour le voir, il suffit d'ouvrir l'OutlineViewer : ++ctrl+shift+p++ puis `Start Tool` puis `OutlineViewer`.
+Pour assurer la communication entre le robot et l'ordinateur, le SmartDashboard utilise en fait un protocole de communication créé par WpiLib : les `NetworkTables <https://wpilib.screenstepslive.com/s/currentCS/m/75361>`_. Pour le voir, il suffit d'ouvrir l'OutlineViewer : Ctrl + Shift + P puis `Start Tool` puis `OutlineViewer`.
 
 L'OutlineViewer permet de lire toutes les données transférées via les NetworkTables. On voit ainsi apparaître un "dossier" (une Table) nommé `/SmartDashboard` dans lequel on retrouve toutes les données (key + valeur) créées. Chaque Table est identifiable par une chaîne de caractères. Elle peut posséder plusieurs données (key + valeur) qui peuvent être, comme pour le SmartDashboard, des `string`, des `double` ou des `bool`.
 

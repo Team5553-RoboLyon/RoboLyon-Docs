@@ -16,7 +16,7 @@ L'un des types de capteur les plus simple à utiliser est le limit switch. C'est
 
 Ce capteur nous permet de savoir si un mécanisme a atteint un certain point. Par exemple, un limit switch situé au bout d'un bras pivotant peut nous dire si le bras touche le bord du robot.
 
-Un limit switch se branche aux ports DIO du Roborio grâce à deux cables. Un va sur le ground (&#9178;) et l'autre sur le signal (S). Pourtant, le switch possède souvent 3 connecteurs : Normally Open (NO), Normally Closed (NC), et ground (C ou COM). Normally Open signifie que le switch est normalement non-pressé. Quand il sera pressé, un message sera envoyé au Roborio. Normally Closed signifie le contraire. Connectez un des cables au connecteur NO ou NC, et l'autre au ground.
+Un limit switch se branche aux ports DIO du Roborio grâce à deux cables. Un va sur le ground (|ground| .. |ground| unicode:: 9178) et l'autre sur le signal (S). Pourtant, le switch possède souvent 3 connecteurs : Normally Open (NO), Normally Closed (NC), et ground (C ou COM). Normally Open signifie que le switch est normalement non-pressé. Quand il sera pressé, un message sera envoyé au Roborio. Normally Closed signifie le contraire. Connectez un des cables au connecteur NO ou NC, et l'autre au ground.
 
 Dans le Code
 ~~~~~~~~~~~

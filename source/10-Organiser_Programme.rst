@@ -11,13 +11,13 @@ Pour organiser le programme du Robot, il est donc nécessaire de le structurer e
 
 Une première méthode pour structurer le code peut être de créer une classe pour chacun des mécanismes du robot (ou subsystems) :
 
-```
-subsystems/
-    BaseRoulante/
-    Grimpeur/
-    Pince/
-    Pivot/
-```
+.. code-block:: text
+
+    subsystems/
+    ├── BaseRoulante/
+    ├── Grimpeur/
+    ├── Pince/
+    └── Pivot/
 
 Chacune de ses classes contient ainsi les méthodes nécessaires au fonctionnement du subsytem. Par exemple, voici à quoi pourrait ressembler le fichier BaseRoulante.h :
 

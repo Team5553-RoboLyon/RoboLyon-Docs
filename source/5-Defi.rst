@@ -10,39 +10,45 @@ Coder la méthode TeleopPeriodic d'un TimedRobot pour répondre à ces objectifs
 
 - Quand la gâchette (bouton 1) du joystick est appuyée, le moteur tourne pas
 
+.. raw:: html
 
-??? note "**Correction**"
-    Normalement, votre programme sera séparé en 2 fichiers différents : Robot.h et Robot.cpp. Ici, le programme est dans un seul fichier pour plus de simplicité :
+    <details><summary><b>Correction</b></summary>
 
-    .. code-block:: c++
+Normalement, votre programme sera séparé en 2 fichiers différents : Robot.h et Robot.cpp. Ici, le programme est dans un seul fichier pour plus de simplicité :
 
-        #include <frc/TimedRobot.h>
-        #include <frc/VictorSP.h>
-        #include <frc/Joystick.h>
+.. code-block:: c++
 
-        class Robot : public frc::TimedRobot
+    #include <frc/TimedRobot.h>
+    #include <frc/VictorSP.h>
+    #include <frc/Joystick.h>
+
+    class Robot : public frc::TimedRobot
+    {
+    public:
+        void TeleopPeriodic() override
         {
-        public:
-            void TeleopPeriodic() override
+            if(Joystick.GetButton(1))
             {
-                if(Joystick.GetButton(1))
-                {
-                    moteur.Set(0);
-                }
-                else
-                {
-                    double y = Joystick.GetY();
-
-                    if(y < 0.2 && y > -0.2)
-                    {
-                        y = 0;
-                    }
-
-                    moteur.Set(y);
-                }
+                moteur.Set(0);
             }
+            else
+            {
+                double y = Joystick.GetY();
 
-        private:
-            frc::Joystick m_joystick(0);
-            frc::VictorSP m_moteur(0);
-        };
+                if(y < 0.2 && y > -0.2)
+                {
+                    y = 0;
+                }
+
+                moteur.Set(y);
+            }
+        }
+
+    private:
+        frc::Joystick m_joystick(0);
+        frc::VictorSP m_moteur(0);
+    };
+
+.. raw:: html
+
+    </details>

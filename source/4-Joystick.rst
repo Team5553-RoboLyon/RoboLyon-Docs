@@ -27,7 +27,7 @@ WpiLib fournit une classe `Joystick <http://first.wpi.edu/FRC/roborio/release/do
     frc::Joystick mon_joystick(0);
 
 
-Pour récupérer l'état d'un bouton (appuyé/relâché, on peut utiliser la méthode `bool GetRawButton(int button)` qui attend en argument le numéro du bouton et qui renvoi `true` si le bouton est appuyé et `false` si il est relâché.
+Pour récupérer l'état d'un bouton (appuyé/relâché, on peut utiliser la méthode ``bool GetRawButton(int button)`` qui attend en argument le numéro du bouton et qui renvoi ``true`` si le bouton est appuyé et ``false`` si il est relâché.
 
 .. code-block:: c++
 
@@ -35,7 +35,7 @@ Pour récupérer l'état d'un bouton (appuyé/relâché, on peut utiliser la mé
     bool gachetteAppuyee = mon_joystick.GetRawButton(1);
 
 
-Pour récupérer la position d'un axe entre -1 et 1, on peut utiliser les méthodes `double GetX()`, `double GetY()`, `double GetZ()` (ou `GetTwist()`) et `double GetThrottle()`.
+Pour récupérer la position d'un axe entre -1 et 1, on peut utiliser les méthodes ``double GetX()``, ``double GetY()``, ``double GetZ()`` (ou ``GetTwist()``) et ``double GetThrottle()``.
 
 .. code-block:: c++
 
@@ -46,7 +46,7 @@ Pour récupérer la position d'un axe entre -1 et 1, on peut utiliser les métho
     double throttle = mon_joystick.GetThrottle();
 
 
-On a aussi la méthode `int GetPOV()` qui renvoi l'angle formé par le POV ou -1 si il est situé au centre.
+On a aussi la méthode ``int GetPOV()`` qui renvoi l'angle formé par le POV ou -1 si il est situé au centre.
 
 .. code-block:: c++
 

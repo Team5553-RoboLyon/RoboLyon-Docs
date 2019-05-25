@@ -9,7 +9,7 @@ Son but est de permettre aux rookies de s'initier à la programmation d'un robot
 
 Toute idée d'amélioration est la bienvenue. Pour en proposer, `créez une issue <https://github.com/Team5553-RoboLyon/Cours-WpiLib/issues/new>`_ dans le projet github ou contactez l'équipe.
 
-Si vous voulez contribuer à ce cours, vous pouvez soumettre une pull request sur le `projet github <https://github.com/Team5553-RoboLyon/Cours-WpiLib>`_ du cours. Les sources sont dans le dossier `docs/` et sont écrites en Markdown. C'est un langage de balisage très facile à prendre en main, voici `un guide <https://guides.github.com/features/mastering-markdown/>`_ pour apprendre sa syntaxe.
+Si vous voulez contribuer à ce cours, vous pouvez soumettre une pull request sur le `projet github <https://github.com/Team5553-RoboLyon/Cours-WpiLib>`_ du cours. Les sources sont dans le dossier ``docs/`` et sont écrites en Markdown. C'est un langage de balisage très facile à prendre en main, voici `un guide <https://guides.github.com/features/mastering-markdown/>`_ pour apprendre sa syntaxe.
 
 
 .. toctree::

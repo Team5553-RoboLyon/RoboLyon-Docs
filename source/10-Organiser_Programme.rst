@@ -5,7 +5,7 @@ Organiser son Programme
 Diviser le programme en Classes
 -------------------------------
 
-Pour l'instant, tout le code que nous écrivions était uniquement dans la classe principale `Robot`. Cependant, pour des projets plus importants, la quantité de code commence à être trop grande pour se située dans un unique fichier.
+Pour l'instant, tout le code que nous écrivions était uniquement dans la classe principale ``Robot``. Cependant, pour des projets plus importants, la quantité de code commence à être trop grande pour se située dans un unique fichier.
 
 Pour organiser le programme du Robot, il est donc nécessaire de le structurer en plusieurs fichiers. Chacun gérant une fonctionnalité différente du code.
 
@@ -52,7 +52,7 @@ Cablage.h ou RobotMap.h
 
 En séparant les subsystems en plusieurs classes/fichiers, on sépare aussi les objets qu'ils contiennent (contrôleurs moteur, capteurs, ...). Il peut ainsi, par exemple, être compliqué de savoir si le port X du RoboRio est déjà utilisé. Sur quels ports sont branchés les encodeurs de la base ?
 
-Pour simplifier cela, on crée un fichier nommé `Cablage.h` ou `RobotMap.h` qui contient des constantes utilisées dans les autres fichiers :
+Pour simplifier cela, on crée un fichier nommé ``Cablage.h`` ou ``RobotMap.h`` qui contient des constantes utilisées dans les autres fichiers :
 
 .. code-block:: c++
 
@@ -75,13 +75,13 @@ Pour simplifier cela, on crée un fichier nommé `Cablage.h` ou `RobotMap.h` qui
     #define PCM_PINCE_B 1
 
 .. note::
-    L'instruction `#define` est, comme `#include`, une directive `exécutée avant la compilation du code <https://fr.wikibooks.org/wiki/Programmation_C%2B%2B/Le_pr%C3%A9processeur>`_. `#define` permet de remplacer toutes les occurrences d'un certain mot par un autre.
+    L'instruction ``#define`` est, comme ``#include``, une directive `exécutée avant la compilation du code <https://fr.wikibooks.org/wiki/Programmation_C%2B%2B/Le_pr%C3%A9processeur>`_. ``#define`` permet de remplacer toutes les occurrences d'un certain mot par un autre.
     
     .. code-block:: c++
     
         #define C 5553
     
-    Par exemple, ici, toutes les occurrences de `C` présentes dans les fichiers incluant `Cablage.h` seront remplacées par `5553` (trés dangereux car `int Count` devient ainsi `int 5553ount` avant la compilation)
+    Par exemple, ici, toutes les occurrences de ``C`` présentes dans les fichiers incluant ``Cablage.h`` seront remplacées par ``5553`` (trés dangereux car ``int Count`` devient ainsi ``int 5553ount`` avant la compilation)
 
 Grâce à la présence de ca fichier, il est maintenant facile de savoir où chacun des contrôleur moteur doit être branché, quels sont les port PWM libres, ect ...
 
@@ -89,7 +89,7 @@ Grâce à la présence de ca fichier, il est maintenant facile de savoir où cha
 Le Programme Principal
 ----------------------
 
-Maintenant que les classes permettant de contrôler les subsystems existent, il faut les intégrer dans notre classe principale `Robot`. Pour cela, on a juste à créer une instance de chacune des classes dans `Robot`. Pour la partie Teleopérée, le but du programme principal est d'utiliser des `if` qui, en fonction des entrée du joystick, appelent certaines fonctions.
+Maintenant que les classes permettant de contrôler les subsystems existent, il faut les intégrer dans notre classe principale ``Robot``. Pour cela, on a juste à créer une instance de chacune des classes dans ``Robot``. Pour la partie Teleopérée, le but du programme principal est d'utiliser des ``if`` qui, en fonction des entrée du joystick, appelent certaines fonctions.
 
 .. code-block:: c++
 
@@ -125,4 +125,4 @@ Maintenant que les classes permettant de contrôler les subsystems existent, il 
         Pince m_pince;
     };
 
-.. attention:: Encore une fois, les méthodes appelées par le programme principal ne doivent pas durer dans le temps au risque de rester bloqué dans une des fonctions. Les boucles `while`, `do while` et `for` sont donc interdites partout dans le code.
+.. attention:: Encore une fois, les méthodes appelées par le programme principal ne doivent pas durer dans le temps au risque de rester bloqué dans une des fonctions. Les boucles ``while``, ``do while`` et ``for`` sont donc interdites partout dans le code.

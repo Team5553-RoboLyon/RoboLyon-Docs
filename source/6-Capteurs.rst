@@ -16,7 +16,9 @@ L'un des types de capteur les plus simple à utiliser est le limit switch. C'est
 
 Ce capteur nous permet de savoir si un mécanisme a atteint un certain point. Par exemple, un limit switch situé au bout d'un bras pivotant peut nous dire si le bras touche le bord du robot.
 
-Un limit switch se branche aux ports DIO du Roborio grâce à deux cables. Un va sur le ground (|ground| .. |ground| unicode:: 9178) et l'autre sur le signal (S). Pourtant, le switch possède souvent 3 connecteurs : Normally Open (NO), Normally Closed (NC), et ground (C ou COM). Normally Open signifie que le switch est normalement non-pressé. Quand il sera pressé, un message sera envoyé au Roborio. Normally Closed signifie le contraire. Connectez un des cables au connecteur NO ou NC, et l'autre au ground.
+Un limit switch se branche aux ports DIO du Roborio grâce à deux cables. Un va sur le ground (|ground|) et l'autre sur le signal (S). Pourtant, le switch possède souvent 3 connecteurs : Normally Open (NO), Normally Closed (NC), et ground (C ou COM). Normally Open signifie que le switch est normalement non-pressé. Quand il sera pressé, un message sera envoyé au Roborio. Normally Closed signifie le contraire. Connectez un des cables au connecteur NO ou NC, et l'autre au ground.
+
+.. |ground| unicode:: 9178
 
 Dans le Code
 ~~~~~~~~~~~
@@ -29,7 +31,7 @@ Pour programmer un limit switch, créez une instance de la classe `DigitalInput 
     frc::DigitalInput mon_switch(0);
 
 
-La méthode `bool Get()` renvoie `true` ou `false` suivant la position du switch (appuyé/relâché) et ses branchements (NO/NC) :
+La méthode ``bool Get()`` renvoie `true` ou `false` suivant la position du switch (appuyé/relâché) et ses branchements (NO/NC) :
 
 .. code-block:: c++
 
@@ -61,21 +63,21 @@ Pour programmer un encodeur, créez une instance de la classe `Encoder <http://f
     frc::Encoder mon_encodeur(0, 1);
 
 
-La méthode `int Get()` renvoie la distance angulaire mesurée par l'encodeur en ticks. Selon le modèle, un tour équivaut à 360 ticks, 22 ticks, ... :
+La méthode ``int Get()`` renvoie la distance angulaire mesurée par l'encodeur en ticks. Selon le modèle, un tour équivaut à 360 ticks, 22 ticks, ... :
 
 .. code-block:: c++
 
     double distance = mon_encodeur.Get();
 
 
-La méthode `void Reset()` remet le compteur à zéro :
+La méthode ``void Reset()`` remet le compteur à zéro :
 
 .. code-block:: c++
 
     mon_encodeur.Reset();
 
 
-Les méthodes `void 	SetDistancePerPulse(double distancePerPulse)` et `double GetDistance()` permettent de convertir automatiquement les tick en une autre unité :
+Les méthodes ``void 	SetDistancePerPulse(double distancePerPulse)`` et ``double GetDistance()`` permettent de convertir automatiquement les tick en une autre unité :
 
 .. code-block:: c++
 
@@ -84,7 +86,7 @@ Les méthodes `void 	SetDistancePerPulse(double distancePerPulse)` et `double Ge
     double nombreDeTours = mon_encodeur.GetDistance();
 
 
-La méthode `void GetRate()` renvoie la vitesse actuelle convertie en distance selon le facteur de conversion (1 par défaut) :
+La méthode ``void GetRate()`` renvoie la vitesse actuelle convertie en distance selon le facteur de conversion (1 par défaut) :
 
 .. code-block:: c++
 
@@ -115,21 +117,21 @@ Pour programmer un gyroscope, créez une instance de la classe `ADXRS450_Gyro <h
     frc::AnalogGyro mon_gyro(0);
 
 
-La méthode `double GetAngle()` renvoie l'angle du robot en degrés dans le sens des aiguilles d'une montre :
+La méthode ``double GetAngle()`` renvoie l'angle du robot en degrés dans le sens des aiguilles d'une montre :
 
 .. code-block:: c++
 
     double angle = mon_gyro.GetAngle();
 
 
-La méthode `double GetRate()` renvoie la vitesse de rotation du robot en degrés par secondes dans le sens des aiguilles d'une montre :
+La méthode ``double GetRate()`` renvoie la vitesse de rotation du robot en degrés par secondes dans le sens des aiguilles d'une montre :
 
 .. code-block:: c++
 
     double vitesseRotation = mon_gyro.GetRate();
 
 
-La méthode `void Calibrate()` calibre le gyroscope en définissant son centre. La méthode `void Reset()` remet le gyroscope à zéro :
+La méthode ``void Calibrate()`` calibre le gyroscope en définissant son centre. La méthode ``void Reset()`` remet le gyroscope à zéro :
 
 .. code-block:: c++
 

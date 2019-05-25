@@ -30,7 +30,7 @@ Pour programmer un solénoïde simple, il faut créer une instance de la classe 
     frc::Solenoid mon_solenoide(0);
 
 
-La méthode `void Set(bool on)` permet d'ouvrir ou de fermer le solénoïde :
+La méthode ``void Set(bool on)`` permet d'ouvrir ou de fermer le solénoïde :
 
 .. code-block:: c++
 
@@ -60,7 +60,7 @@ La classe `DoubleSolenoid <http://first.wpi.edu/FRC/roborio/release/docs/cpp/cla
     frc::DoubleSolenoid mon_solenoide(0, 1);
 
 
-La méthode `void Set(Value value)` permet de contrôler l'état du solénoïde. Il attend en argument une des valeur de l'enum `Value` : Off, Forward or Reverse : 
+La méthode ``void Set(Value value)`` permet de contrôler l'état du solénoïde. Il attend en argument une des valeur de l'enum ``Value`` : ``Off``, ``Forward`` or ``Reverse`` : 
 
 .. code-block:: c++
 

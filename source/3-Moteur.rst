@@ -32,7 +32,7 @@ Du côté du RoboRio, il nous suffit de créer un objet correspondant au contrô
     #include <frc/Spark.h>
     #include <frc/PWMVictorSPX.h>
 
-Remarquez que `VictorSPX` est précédé de `PWM`, c'est parce qu'il peut être contrôlé via le CAN. Pour différencier les 2 classes (qui sont totalement différentes, c)elui-ci se nomme donc `PWMVictorSPX`.
+Remarquez que ``VictorSPX`` est précédé de ``PWM``, c'est parce qu'il peut être contrôlé via le CAN. Pour différencier les 2 classes (qui sont totalement différentes, c)elui-ci se nomme donc ``PWMVictorSPX``.
 
 Quand on crée un objet qui représente un contrôleur PWM, on doit spécifier dans le constructeur le port sur lequel il est branché. Par exemple, pour un VictorSP branché sur le port n°0 :
 
@@ -43,14 +43,14 @@ Quand on crée un objet qui représente un contrôleur PWM, on doit spécifier d
 
 On a ensuite accès à tout un tas de méthodes qui nous permettent de contrôler le moteur.
 
-Pour "donner" une puissance voulue à un moteur, on utilise la méthode : `void Set(double value)` qui attend en argument un double entre -1 (pleine puissance vers l'arrière) et 1 (pleine puissance vers l'avant). Si je veux faire tourner mon moteur à la moitié de sa vitesse maximum :
+Pour "donner" une puissance voulue à un moteur, on utilise la méthode : ``void Set(double value)`` qui attend en argument un double entre -1 (pleine puissance vers l'arrière) et 1 (pleine puissance vers l'avant). Si je veux faire tourner mon moteur à la moitié de sa vitesse maximum :
 
 .. code-block:: c++
 
     mon_moteur.Set(0.5);
 
 
-On a aussi `void StopMotor()` qui remplace `Set(0)` et `void SetInverted(bool isInverted)` qui inverse la direction du moteur si on lui donne comme argument `true`.
+On a aussi ``void StopMotor()`` qui remplace ``Set(0)`` et ``void SetInverted(bool isInverted)`` qui inverse la direction du moteur si on lui donne comme argument ``true``.
 
 .. code-block:: c++
 

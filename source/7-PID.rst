@@ -79,7 +79,7 @@ Coder un PID
 Le Code
 ~~~~~~~
 
-Maintenant que nous avons appris la théorie du PID, utilisons le pour déplacer notre élévateur de façon autonome. Pour l'exemple, un dira que l'unique moteur de l'élévateur sera contrôlé par un `VictorSP` et que la position de l'élévateur nous sera donnée par un `Encoder`. A vous de jouer.
+Maintenant que nous avons appris la théorie du PID, utilisons le pour déplacer notre élévateur de façon autonome. Pour l'exemple, un dira que l'unique moteur de l'élévateur sera contrôlé par un ``VictorSP`` et que la position de l'élévateur nous sera donnée par un ``Encoder``. A vous de jouer.
 
 ??? note "**Correction**"
     Normalement, votre programme sera séparé en 2 fichiers différents : Robot.h et Robot.cpp. Ici, le programme est dans un seul fichier pour plus de simplicité :

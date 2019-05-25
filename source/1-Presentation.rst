@@ -16,7 +16,7 @@ Voici un schéma des branchements du robot pour mieux comprendre :
 
 .. image:: img/Schema.jpg
 
-Sur l'ordinateur du pilote, c'est le programme appelé `FRC Driver Station` qui permet de communiquer avec le robot. Celui-ci permet au pilote de contrôler le robot avec son joystick.
+Sur l'ordinateur du pilote, c'est le programme appelé ``FRC Driver Station`` qui permet de communiquer avec le robot. Celui-ci permet au pilote de contrôler le robot avec son joystick.
 
 
 Et WpiLib dans tout ça ?

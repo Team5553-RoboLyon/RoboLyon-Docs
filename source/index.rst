@@ -12,15 +12,39 @@ Toute idée d'amélioration est la bienvenue. Pour en proposer, `créez une issu
 Si vous voulez contribuer à ce cours, vous pouvez soumettre une pull request sur le `projet github <https://github.com/Team5553-RoboLyon/Cours-WpiLib>`_ du cours. Les sources sont dans le dossier ``docs/`` et sont écrites en Markdown. C'est un langage de balisage très facile à prendre en main, voici `un guide <https://guides.github.com/features/mastering-markdown/>`_ pour apprendre sa syntaxe.
 
 
+Sommaire
+========
+
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Premiers pas avec WpiLib
+
+   docs/1-Presentation.rst
+   docs/2-Premier_Programme.rst
 
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Contrôler un robot
 
-Indices and tables
-==================
+   docs/3-Moteur.rst
+   docs/4-Joystick.rst
+   docs/5-Defi.rst
+   docs/6-Capteurs.rst
+   docs/7-PID.rst
+   docs/8-Pneumatique.rst
+   docs/9-Communication.rst
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Command-Based programming
+
+   docs/10-Organiser_Programme.rst
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: En plus
+
+   docs/Liens.rst

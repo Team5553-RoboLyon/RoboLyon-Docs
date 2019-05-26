@@ -21,8 +21,8 @@ project = 'Cours-WpiLib'
 copyright = "2019, Robo'Lyon"
 author = "Robo'Lyon"
 
-html_favicon = 'img/favicon.ico'
-html_logo = 'img/favicon.ico'
+html_favicon = 'docs/img/favicon.ico'
+html_logo = 'docs/img/favicon.ico'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0'

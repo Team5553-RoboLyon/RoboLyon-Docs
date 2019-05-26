@@ -21,7 +21,7 @@ Un limit switch se branche aux ports DIO du Roborio grâce à deux cables. Un va
 .. |ground| unicode:: 9178
 
 Dans le Code
-~~~~~~~~~~~
+~~~~~~~~~~~~
 
 Pour programmer un limit switch, créez une instance de la classe `DigitalInput <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1DigitalInput.html>`_, son constructeur attend comme argument le port DIO sur lequel le switch est branché :
 

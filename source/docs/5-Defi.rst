@@ -4,9 +4,11 @@
 
 Coder la méthode TeleopPeriodic d'un TimedRobot pour répondre à ces objectifs :
 
-- Quand le joystick est proche de zéro (entre -0.2 et 0.2), le moteur ne tourne pas.
+- Quand le joystick est proche de zéro (entre -0.2 et 0.2), le moteur ne
+  tourne pas.
 
-- Sinon, le moteur tourne à une vitesse proportionnelle à la position du joystick
+- Sinon, le moteur tourne à une vitesse proportionnelle à la position du
+  joystick
 
 - Quand la gâchette (bouton 1) du joystick est appuyée, le moteur tourne pas
 
@@ -14,7 +16,9 @@ Coder la méthode TeleopPeriodic d'un TimedRobot pour répondre à ces objectifs
 
     <details><summary><b>Correction</b></summary>
 
-Normalement, votre programme sera séparé en 2 fichiers différents : Robot.h et Robot.cpp. Ici, le programme est dans un seul fichier pour plus de simplicité :
+Normalement, votre programme sera séparé en 2 fichiers différents : Robot.h
+et Robot.cpp. Ici, le programme est dans un seul fichier pour plus de
+simplicité :
 
 .. code-block:: c++
 

@@ -5,6 +5,9 @@
 # Required
 version: 2
 
+# Build the docs in additional formats such as PDF and ePub
+formats: all
+
 # Set the requirements to build the docs
 python:
   install:

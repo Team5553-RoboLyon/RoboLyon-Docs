@@ -31,7 +31,7 @@ choisissez ``TimedRobot Skeleton``. Voici à quoi cela ressemble :
 
 
 En effet, le programme du robot est différent de ce que l'on a l'habitude
-de voir. Au lieu d'avoir un `int main()` et beaucoup de fonctions, le
+de voir. Au lieu d'avoir un ``int main()`` et beaucoup de fonctions, le
 programme est une classe. Bien sûr, il existe quelque par un main; mais il
 ne change jamais et il est déjà écrit pour nous.
 

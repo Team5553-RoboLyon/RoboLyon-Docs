@@ -1,2 +1,6 @@
+
+build/
+source/_build/
 .vscode/
-site/
+temp.md
+temp.rst

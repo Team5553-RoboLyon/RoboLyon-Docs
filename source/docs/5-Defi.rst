@@ -1,19 +1,27 @@
-# 1er Défi : Contrôler un moteur grâce au joystick
+1er Défi : Contrôler un moteur grâce au joystick
+================================================
 
 
 Coder la méthode TeleopPeriodic d'un TimedRobot pour répondre à ces objectifs :
 
-- Quand le joystick est proche de zéro (entre -0.2 et 0.2), le moteur ne tourne pas.
+- Quand le joystick est proche de zéro (entre -0.2 et 0.2), le moteur ne
+  tourne pas.
 
-- Sinon, le moteur tourne à une vitesse proportionnelle à la position du joystick
+- Sinon, le moteur tourne à une vitesse proportionnelle à la position du
+  joystick
 
 - Quand la gâchette (bouton 1) du joystick est appuyée, le moteur tourne pas
 
+.. raw:: html
 
-??? note "**Correction**"
-    Normalement, votre programme sera séparé en 2 fichiers différents : Robot.h et Robot.cpp. Ici, le programme est dans un seul fichier pour plus de simplicité :
+    <details><summary><b>Correction</b></summary>
 
-    ```c++
+Normalement, votre programme sera séparé en 2 fichiers différents : Robot.h
+et Robot.cpp. Ici, le programme est dans un seul fichier pour plus de
+simplicité :
+
+.. code-block:: c++
+
     #include <frc/TimedRobot.h>
     #include <frc/VictorSP.h>
     #include <frc/Joystick.h>
@@ -44,4 +52,7 @@ Coder la méthode TeleopPeriodic d'un TimedRobot pour répondre à ces objectifs
         frc::Joystick m_joystick(0);
         frc::VictorSP m_moteur(0);
     };
-    ```
+
+.. raw:: html
+
+    </details>

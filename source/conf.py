@@ -21,6 +21,10 @@ project = 'Cours-WpiLib'
 copyright = "2019, Robo'Lyon"
 author = "Robo'Lyon"
 
+# Name of "Master" document
+master_doc = 'index'
+
+# Path to favicon and logo
 html_favicon = 'docs/img/favicon.ico'
 html_logo = 'docs/img/favicon.ico'
 

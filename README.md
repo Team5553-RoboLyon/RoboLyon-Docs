@@ -1,6 +1,8 @@
 # Cours WpiLib
 
-[![Build Status](https://travis-ci.com/Team5553-RoboLyon/Cours-WpiLib.svg?branch=master)](https://travis-ci.com/Team5553-RoboLyon/Cours-WpiLib)
+Read the docs | Travis
+--------------|-------
+[![Documentation Status](https://readthedocs.org/projects/cours-wpilib/badge/?version=latest)](https://cours-wpilib.readthedocs.io/fr/latest/?badge=latest) | [![Build Status](https://travis-ci.com/Team5553-RoboLyon/Cours-WpiLib.svg?branch=master)](https://travis-ci.com/Team5553-RoboLyon/Cours-WpiLib)
 
 Bienvenue dans ce tutoriel écrit par l'équipe 5553, Robo'Lyon, de France.
 

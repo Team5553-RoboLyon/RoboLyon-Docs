@@ -3,11 +3,26 @@ language: python
 python:
   - "3.6"
 
+# Installation des dépendances requises
 install:
   - pip install -r source/requirements.txt
 
+# Compilation des docs
 script:
   - make html
+
+# Compilation des docs en une page unique et conversion en pdf
+before_deploy:
+  - sphinx-build -b singlehtml source singlehtml
+  - apt-get install wkhtmltopdf
+  - wkhtmltopdf singlehtml/index.html Tutoriel.pdf
+
+# Creation d'une release Github du pdf
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: "Tutoriel.pdf"
+  skip_cleanup: true
 
 branches:
   only:

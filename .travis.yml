@@ -14,7 +14,7 @@ script:
 # Compilation des docs en une page unique et conversion en pdf
 before_deploy:
   - sphinx-build -b singlehtml source singlehtml
-  - apt-get install wkhtmltopdf
+  - sudo apt-get install wkhtmltopdf
   - wkhtmltopdf singlehtml/index.html Tutoriel.pdf
 
 # Creation d'une release Github du pdf

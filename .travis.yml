@@ -3,6 +3,11 @@ language: python
 python:
   - "3.6"
 
+# Fake X Server for wkhtmltopdf
+dist: xenial
+services:
+  - xvfb
+
 # Installation des dépendances requises
 install:
   - pip install -r source/requirements.txt
@@ -14,8 +19,8 @@ script:
 # Compilation des docs en une page unique et conversion en pdf
 before_deploy:
   - sphinx-build -b singlehtml source singlehtml
-  - sudo apt-get update && sudo apt-get install -y wkhtmltopdf xvfb
-  - xvfb-run wkhtmltopdf ./singlehtml/index.html Tutoriel.pdf
+  - sudo apt-get update && sudo apt-get install -y wkhtmltopdf
+  - wkhtmltopdf ./singlehtml/index.html Tutoriel.pdf
 
 # Creation d'une release Github du pdf
 deploy:

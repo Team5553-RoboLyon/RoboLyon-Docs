@@ -11,6 +11,7 @@ services:
 # Installation des dépendances requises
 install:
   - pip install -r source/requirements.txt
+  - sudo apt-get update && sudo apt-get install -y texlive-full
 
 # Compilation des docs
 script:
@@ -19,7 +20,7 @@ script:
 # Compilation des docs en une page unique et conversion en pdf
 before_deploy:
   - sphinx-build -b singlehtml source build/singlehtml
-  - sudo apt-get update && sudo apt-get install -y wkhtmltopdf
+  - sudo apt-get install -y wkhtmltopdf
   - wkhtmltopdf ./build/singlehtml/index.html Tutoriel.pdf
 
 # Creation d'une release Github du pdf
@@ -27,7 +28,7 @@ deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   file: "Tutoriel.pdf"
-  name: Build n°${TRAVIS_BUILD_ID} - $(date +'%d.%m.%Y')
+  name: Build n°${TRAVIS_BUILD_NUMBER} - $(date +'%d.%m.%Y')
   skip_cleanup: true
 
 branches:

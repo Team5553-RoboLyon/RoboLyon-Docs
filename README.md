@@ -53,6 +53,7 @@ De même que Read the Docs, [travis-ci](https://travis-ci.com/) lance un `build`
 ```yml
 install:
   - pip install -r source/requirements.txt
+  - sudo apt-get update && sudo apt-get install -y texlive-latex-extra dvipng
 ```
 
 Puis le site est généré grâce à la commande `make html` :
@@ -69,7 +70,7 @@ Premièrement, les docs vont être générées au sein d'une unique page web. Pu
 ```yml
 before_deploy:
   - sphinx-build -b singlehtml source build/singlehtml
-  - sudo apt-get update && sudo apt-get install -y wkhtmltopdf
+  - sudo apt-get install -y wkhtmltopdf
   - wkhtmltopdf ./build/singlehtml/index.html Tutoriel.pdf
 ```
 
@@ -79,6 +80,7 @@ deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   file: "Tutoriel.pdf"
+  name: Build n°${TRAVIS_BUILD_NUMBER} - $(date +'%d.%m.%Y')
   skip_cleanup: true
 ```
 

@@ -26,6 +26,9 @@ apprendre sa syntaxe.
 Sommaire
 ========
 
+.. globalindex::
+   :maxdepth: 1
+
 .. toctree::
    :maxdepth: 1
    :caption: Premiers pas avec WpiLib

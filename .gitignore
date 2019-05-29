@@ -1,6 +1,7 @@
 
 build/
 source/_build/
+extensions/__pycache__/
 .vscode/
 temp.md
 temp.rst

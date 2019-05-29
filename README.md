@@ -68,9 +68,9 @@ De plus, Travis est aussi utilisé pour générer et mettre en ligne un fichier 
 Premièrement, les docs vont être générées au sein d'une unique page web. Puis le programme [wkhtmltopdf](https://wkhtmltopdf.org/) va installé et appelé pour convertir la page en un fichier pdf, `Tutoriel.pdf` :
 ```yml
 before_deploy:
-  - sphinx-build -b singlehtml source singlehtml
+  - sphinx-build -b singlehtml source build/singlehtml
   - sudo apt-get update && sudo apt-get install -y wkhtmltopdf
-  - wkhtmltopdf ./singlehtml/index.html Tutoriel.pdf
+  - wkhtmltopdf ./build/singlehtml/index.html Tutoriel.pdf
 ```
 
 Enfin, Travis va deployer le fichier `Tutoriel.pdf` par l'intermédiaire d'une release Github que l'on pourra retrouver dans l'onglet `releases` du repository :
@@ -85,3 +85,22 @@ deploy:
 Pour déployer le pdf, travis à besoin d'avoir les droits d'écriture sur ce repository. Une [variable environnement](https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings) nommée `GITHUB_TOKEN` doit donc être configurée. Elle a pour valeur l'ID d'un [token github](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) qui permet d'avoir les droits d'écriture sur ce repository. Il faut donc cocher l'option `repo` pendant la création du token.
 
 [Générer un token github](https://github.com/settings/tokens/new?description=Cours-Wpilib-Autodeploy&scopes=repo)
+
+
+## Extensions
+
+Deux extensions sont utilisées dans le projet. Elle sont incluses par le fichier [conf.py](source/conf.py) avec l'instruction :
+```py
+extensions = ['sphinx.ext.imgmath', 'globalindex']
+```
+
+### Global Index
+
+L'extension [Global Index](http://fnch.users.sourceforge.net/sphinxindexinsinglehtml.html) permet d'afficher le sommaire dans la page web unique (la page web regroupant toutes les sections) et donc dans le document pdf généré par Travis. En effet, avec la commande `sphinx-build -b singlehtml`, les directives `.. toctree::` (qui permettent de créer le sommaire) placées dans [index.rst](source/index.rst) ne sont pas affichées.
+
+Cette extension explique la présence du fichier [globalindex.py](extensions/globalindex.py) dans le dossier `extensions`.
+
+
+### Imgmath
+
+L'extension [Imgmath](https://www.sphinx-doc.org/en/1.8/usage/extensions/math.html#module-sphinx.ext.imgmath) permet de convertir les expressions mathématiques en images. Ceci est encore une fois utile pour la création du pdf qui ne peux pas afficher les expressions mathématiques.

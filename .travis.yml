@@ -11,7 +11,7 @@ services:
 # Installation des dépendances requises
 install:
   - pip install -r source/requirements.txt
-  - sudo apt-get update && sudo apt-get install -y texlive-full
+  - sudo apt-get update && sudo apt-get install -y texlive-latex-base dvipng
 
 # Compilation des docs
 script:

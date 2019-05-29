@@ -26,9 +26,9 @@ pip install -r source/requirements.txt
 
 ## Tester et déployer le site
 
-- Pour tester le site en local, exécuter la commande `make livehtml` et aller à l'adresse : http://127.0.0.1:8000, la page sera rafraîchie automatiquement à chaque modification des sources.
+- Pour tester le site en local, exécuter la commande `make livehtml` (`.\make livehtml` sur Windows) et aller à l'adresse : http://127.0.0.1:8000, la page sera rafraîchie automatiquement à chaque modification des sources.
 
-- Pour build le site en local, entrer la commande `make html`. Les sources du site seront générées dans le dossier `build/html`.
+- Pour build le site en local, entrer la commande `make html` (`.\make html` sur Windows). Les sources du site seront générées dans le dossier `build/html`.
 
 
 ## Déploiement automatique et Tests

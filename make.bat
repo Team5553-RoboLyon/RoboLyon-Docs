@@ -11,6 +11,7 @@ set SOURCEDIR=source
 set BUILDDIR=build
 
 if "%1" == "" goto help
+if "%1" == "livehtml" goto livehtml
 
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
@@ -27,6 +28,9 @@ if errorlevel 9009 (
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
 goto end
+
+:livehtml
+sphinx-autobuild -b html %SOURCEDIR% %BUILDDIR%\html
 
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%

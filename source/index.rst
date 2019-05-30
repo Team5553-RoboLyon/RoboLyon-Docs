@@ -17,10 +17,10 @@ dans le projet github ou contactez l'équipe.
 
 Si vous voulez contribuer à ce cours, vous pouvez soumettre une pull request
 sur le `projet github <https://github.com/Team5553-RoboLyon/Cours-WpiLib>`_
-du cours. Les sources sont dans le dossier ``docs/`` et sont écrites en
-Markdown. C'est un langage de balisage très facile à prendre en main, voici
-`un guide <https://guides.github.com/features/mastering-markdown/>`_ pour
-apprendre sa syntaxe.
+du cours. Les sources sont dans le dossier ``source/docs`` et sont écrites en
+reStructuredText. C'est un langage de balisage très facile à prendre en main,
+voici `un guide <https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst/>`_
+pour apprendre sa syntaxe.
 
 
 Sommaire

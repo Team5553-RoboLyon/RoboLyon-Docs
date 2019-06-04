@@ -25,7 +25,7 @@ copyright = "2019, Robo'Lyon"
 author = "Robo'Lyon"
 
 # Name of "Master" document
-master_doc = 'docs/index'
+master_doc = 'index'
 
 # Path to favicon and logo
 html_favicon = 'favicon.ico'

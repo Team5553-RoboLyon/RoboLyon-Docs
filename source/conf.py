@@ -25,11 +25,11 @@ copyright = "2019, Robo'Lyon"
 author = "Robo'Lyon"
 
 # Name of "Master" document
-master_doc = 'index'
+master_doc = 'docs/index'
 
 # Path to favicon and logo
-html_favicon = 'docs/img/favicon.ico'
-html_logo = 'docs/img/favicon.ico'
+html_favicon = 'favicon.ico'
+html_logo = 'favicon.ico'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0'

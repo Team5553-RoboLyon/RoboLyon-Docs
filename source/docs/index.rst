@@ -33,32 +33,32 @@ Sommaire
    :maxdepth: 1
    :caption: Premiers pas avec WpiLib
 
-   docs/1-Presentation.rst
-   docs/2-Premier_Programme.rst
+   1-Premiers_pas_avec_WPILib/1-Presentation.rst
+   1-Premiers_pas_avec_WPILib/2-Premier_Programme.rst
 
 
 .. toctree::
    :maxdepth: 1
    :caption: Contrôler un robot
 
-   docs/3-Moteur.rst
-   docs/4-Joystick.rst
-   docs/5-Defi.rst
-   docs/6-Capteurs.rst
-   docs/7-PID.rst
-   docs/8-Pneumatique.rst
-   docs/9-Communication.rst
+   2-Controler_un_robot/1-Moteur.rst
+   2-Controler_un_robot/2-Joystick.rst
+   2-Controler_un_robot/3-Defi.rst
+   2-Controler_un_robot/4-Capteurs.rst
+   2-Controler_un_robot/5-PID.rst
+   2-Controler_un_robot/6-Pneumatique.rst
+   2-Controler_un_robot/7-Communication.rst
 
 
 .. toctree::
    :maxdepth: 1
    :caption: Command-Based programming
 
-   docs/10-Organiser_Programme.rst
+   3-Command-Based_programming/1-Organiser_Programme.rst
 
 
 .. toctree::
    :maxdepth: 1
    :caption: En plus
 
-   docs/Liens.rst
+   4-En_plus/1-Liens.rst

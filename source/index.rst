@@ -48,6 +48,7 @@ Sommaire
    docs/2-Controler_un_robot/5-PID.rst
    docs/2-Controler_un_robot/6-Pneumatique.rst
    docs/2-Controler_un_robot/7-Communication.rst
+   docs/2-Controler_un_robot/8-Camera.rst
 
 
 .. toctree::

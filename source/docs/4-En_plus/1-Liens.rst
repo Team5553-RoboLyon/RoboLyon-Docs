@@ -4,9 +4,8 @@ Lien utiles et sources
 Tutos, Cours
 ~~~~~~~~~~~~
 
-- `Wpilib Screensteps <https://wpilib.screenstepslive.com/s/currentCS>`_
+- `Frc-docs <https://frc-docs.readthedocs.io/en/latest/>`_ : documentation officielle
 - `Frc Programming Done Right <https://frc-pdr.readthedocs.io/en/latest/>`_
-- `Frc-docs <https://frc-docs.readthedocs.io/en/latest/>`_ (+ `version develop <https://frc-docs.readthedocs.io/en/develop/>`_)
 - `Frc Electrical Bible <https://mililanirobotics.gitbooks.io/frc-electrical-bible/content/index.html>`_
 - `WpiLib Tutorial <http://hal7df.github.io/pauls-tutorials/wpi/index.html>`_
 - `Command-Based Programming by Team 3847 Spectrum <https://www.dropbox.com/s/wy0hjaw6mtldbkg/FRC%20Java%20-%20Commands%20%26%20Subsystems.pptx>`_
@@ -40,8 +39,9 @@ PID et Motion profiling
 Visual Processing
 ~~~~~~~~~~~~~~~~~
 - `Conférence de 254 sur le sujet <https://www.team254.com/documents/vision-control/>`_
-- `Raspberry-Vision <https://github.com/Team5553-RoboLyon/Raspberry-Vision>`_ : utiliser OpenCV sur raspberry pi
-- `Image de Raspberry pour la Frc <http://wpilib.screenstepslive.com/s/currentCS/m/85074>`_
+- `LyonVision-pi-gen <https://github.com/Team5553-RoboLyon/LyonVision-pi-gen>`_ : image de Raspberry custom pour faire la reconnaissance visuelle
+- `LyonVision-Template <https://github.com/Team5553-RoboLyon/LyonVision-Template>`_ : template (= exemple) de projet sur lequel se baser pour faire la reconnaissance visuelle
+- `LyonVision-Calibration <https://github.com/Team5553-RoboLyon/LyonVision-Calibration>`_ : programme pour calibrer une caméra sur RaspberryPi (basé sur LyonVision-Template)
 
 
 Git et Github
@@ -49,6 +49,7 @@ Git et Github
 
 - `Cours OpenClassroom <https://openclassrooms.com/fr/courses/2342361-gerez-votre-code-avec-git-et-github>`_
 - `Cheat Sheet <https://github.github.com/training-kit/downloads/fr/github-git-cheat-sheet/>`_
+- `Github de Robo'Lyon <https://github.com/Team5553-RoboLyon>`_
 
 
 Forums et Communauté

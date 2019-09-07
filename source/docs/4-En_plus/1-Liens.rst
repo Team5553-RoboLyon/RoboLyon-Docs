@@ -4,7 +4,7 @@ Lien utiles et sources
 Tutos, Cours
 ~~~~~~~~~~~~
 
-- `Frc-docs <https://frc-docs.readthedocs.io/en/latest/>`_ : documentation officielle
+- `Frc-docs <https://docs.wpilib.org>`_ : documentation officielle
 - `Frc Programming Done Right <https://frc-pdr.readthedocs.io/en/latest/>`_
 - `Frc Electrical Bible <https://mililanirobotics.gitbooks.io/frc-electrical-bible/content/index.html>`_
 - `WpiLib Tutorial <http://hal7df.github.io/pauls-tutorials/wpi/index.html>`_

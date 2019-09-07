@@ -30,7 +30,7 @@ SmartDashboard
 Afficher des informations avec ``cout`` pose un problème : si on affiche
 régulièrement plusieurs messages, il peut devenir très compliqué de suivre
 le défilement de ceux-ci. Pour cela, une alternative existe : c'est
-`le SmartDashboard <https://wpilib.screenstepslive.com/s/currentCS/m/smartdashboard/c/92705>`_.
+`le SmartDashboard <https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/smartdashboard/>`_.
 Pour l'ouvrir dans VS Code : Ctrl + Shift + P puis ``Start Tool`` et
 sélectionner ``SmartDashboard``.
 
@@ -61,8 +61,8 @@ aussi les modifier. On peut alors récupérer ces valeurs avec les fonctions
 `GetBoolean <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html#a3c591d2abb4660f70425e1220fff3998>`_.
 Il faut alors donner en argument la **key** de la donnée et une valeur qui sera
 renvoyée si la donnée n'existe pas.
-Le pilote peut aussi modifier le `widget <https://wpilib.screenstepslive.com/s/currentCS/m/smartdashboard/l/255417-changing-the-display-widget-type-for-a-value>`_
-qui affiche une donnée et ses `propriétés <https://wpilib.screenstepslive.com/s/currentCS/m/smartdashboard/l/255415-changing-the-display-properties-of-a-value>`_.
+Le pilote peut aussi `modifier le widget <https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/smartdashboard/changing-display-properties.html>`_
+qui affiche une donnée et ses propriétés.
 
 
 NetworkTables
@@ -70,7 +70,7 @@ NetworkTables
 
 Pour assurer la communication entre le robot et l'ordinateur, le SmartDashboard
 utilise en fait un protocole de communication créé par WpiLib : les
-`NetworkTables <https://wpilib.screenstepslive.com/s/currentCS/m/75361>`_.
+`NetworkTables <https://docs.wpilib.org/en/latest/docs/software/networktables>`_.
 Pour le voir, il suffit d'ouvrir l'OutlineViewer : Ctrl + Shift + P puis
 ``Start Tool`` puis ``OutlineViewer``.
 
@@ -131,4 +131,4 @@ plus plaisant et peut avoir plusieurs fenêtres (ou tabs).
 Sa principale utilité vis-à-vis du SmartDashboard est que l'on peut configurer
 dans le code du robot la disposition des widgets et par example changer de
 fenêtre avec le Joystick. Pour découvrir toutes ses fonctionnalités : voici
-`la documentation <https://wpilib.screenstepslive.com/s/currentCS/m/shuffleboard>`_.
+`la documentation <https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/shuffleboard>`_.

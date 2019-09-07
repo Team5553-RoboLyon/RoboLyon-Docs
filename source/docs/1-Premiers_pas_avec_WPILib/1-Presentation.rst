@@ -50,13 +50,13 @@ Pour programmer le robot en C++ et en Java, WpiLib propose d'utiliser Visual
 Studio Code qui est l'IDE officiellement supporté. Pour installer
 l'environnement de programmation, un installer Windows est disponible. Les
 instructions sont à retrouver
-`ici <https://wpilib.screenstepslive.com/s/currentCS/m/cpp/l/1027500-installing-c-and-java-development-tools-for-frc>`_.
+`ici <https://docs.wpilib.org/en/latest/docs/software/getting-started>`_.
 
 VS Code permet l'utilisation des classes de WpiLib mais aussi de déployer le
 programme sur le robot.
 
 Pour contrôler le robot, il faut aussi avoir la Driver Station. Voici
-`les instructions <https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/1004055-installing-the-frc-update-suite-all-languages>`_
+`les instructions <https://docs.wpilib.org/en/latest/docs/software/driverstation/frc-update-suite.html>`_
 pour l'installer l'installer.
 
 

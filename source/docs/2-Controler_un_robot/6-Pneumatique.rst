@@ -37,7 +37,7 @@ Dans le code
 ~~~~~~~~~~~~
 
 Pour programmer un solénoïde simple, il faut créer une instance de la classe
-`Solenoid <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Solenoid.html>`_,
+`Solenoid <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Solenoid.html>`__,
 son constructeur attend comme argument le port sur lequel le solenoid est
 branché :
 
@@ -74,7 +74,7 @@ ou bien le laisser "libre".
 Dans le code
 ~~~~~~~~~~~~
 
-La classe `DoubleSolenoid <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1DoubleSolenoid.html>`_
+La classe `DoubleSolenoid <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1DoubleSolenoid.html>`__
 est similaire à la classe Solenoid. Son constructeur attend comme argument les
 2 ports (Forward et Reverse) sur lequel le solenoid est branché :
 

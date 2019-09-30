@@ -37,7 +37,7 @@ Dans le Code
 ~~~~~~~~~~~~
 
 Pour programmer un limit switch, créez une instance de la classe
-`DigitalInput <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1DigitalInput.html>`_,
+`DigitalInput <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1DigitalInput.html>`__,
 son constructeur attend comme argument le port DIO sur lequel le switch est
 branché :
 
@@ -77,7 +77,7 @@ Dans le Code
 ~~~~~~~~~~~~
 
 Pour programmer un encodeur, créez une instance de la classe
-`Encoder <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Encoder.html>`_,
+`Encoder <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1Encoder.html>`__,
 son constructeur attend comme argument les port DIO sur lesquels l'encodeur
 est branché :
 
@@ -136,8 +136,8 @@ Dans le Code
 ~~~~~~~~~~~~
 
 Pour programmer un gyroscope, créez une instance de la classe
-`ADXRS450_Gyro <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1ADXRS450__Gyro.html>`_ (SPI) ou
-`AnalogGyro <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1AnalogGyro.html>`_ (Analog In)
+`ADXRS450_Gyro <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1ADXRS450__Gyro.html>`__ (SPI) ou
+`AnalogGyro <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1AnalogGyro.html>`__ (Analog In)
 en fonction du gyroscope. Le constructeur d'`AnalogGyro` attend comme argument
 le port Analog In (0 ou 1) sur lequel le gyroscope est branché :
 

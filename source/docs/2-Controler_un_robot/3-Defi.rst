@@ -56,3 +56,5 @@ simplicité :
 .. raw:: html
 
     </details>
+
+|

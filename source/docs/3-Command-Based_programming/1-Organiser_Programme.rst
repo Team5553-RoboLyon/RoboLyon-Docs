@@ -53,16 +53,16 @@ le fichier BaseRoulante.h :
   };
 
 
-Cablage.h ou RobotMap.h
------------------------
+Cablage.h ou Constants.h
+------------------------
 
 En séparant les subsystems en plusieurs classes/fichiers, on sépare aussi les
 objets qu'ils contiennent (contrôleurs moteur, capteurs, ...). Il peut ainsi,
 par exemple, être compliqué de savoir si le port X du RoboRio est déjà utilisé.
 Sur quels ports sont branchés les encodeurs de la base ?
 
-Pour simplifier cela, on crée un fichier nommé ``Cablage.h`` ou ``RobotMap.h``
-qui contient des constantes utilisées dans les autres fichiers :
+Pour simplifier cela, on crée un fichier nommé ``Cablage.h`` ou
+``Constants.h`` qui contient des constantes utilisées dans les autres fichiers :
 
 .. code-block:: c++
 
@@ -86,7 +86,7 @@ qui contient des constantes utilisées dans les autres fichiers :
 
 .. note::
   L'instruction ``#define`` est, comme ``#include``, une directive
-  `exécutée avant la compilation du code <https://fr.wikibooks.org/wiki/Programmation_C%2B%2B/Le_pr%C3%A9processeur>`_.
+  `exécutée avant la compilation du code <https://fr.wikibooks.org/wiki/Programmation_C%2B%2B/Le_pr%C3%A9processeur>`__.
   ``#define`` permet de remplacer toutes les occurrences d'un certain mot
   par un autre.
 

@@ -67,7 +67,7 @@ Intégral
 En utilisant seulement le terme proportionnel, le mécanisme peut osciller
 (kP trop élevé) ou bien rester en dessous du setpoint (kP trop faible). Pour
 cela, on peut utiliser le terme
-`intégral <https://couleur-science.eu/?d=211a43--les-integrales-en-math>`_.
+`intégral <https://couleur-science.eu/?d=211a43--les-integrales-en-math>`__.
 Celui-ci est égal à la somme de toutes les erreurs depuis le début. Ce terme
 va ainsi augmenter de plus en plus si le mécanisme reste en dessous du setpoint
 trop longtemps.
@@ -79,7 +79,7 @@ Dérivé
 .. image:: https://upload.wikimedia.org/wikipedia/commons/c/c7/Change_with_Kd.png
    :width: 400px
 
-Le terme `dérivé <https://couleur-science.eu/?d=94f1c0--les-fonctions-derivees-en-math>`_
+Le terme `dérivé <https://couleur-science.eu/?d=94f1c0--les-fonctions-derivees-en-math>`__
 est égal à la variation de l'erreur sur la variation du temps. C'est la "pente"
 de l'erreur.  Dans le code du robot, le delta temps sera toujours le même entre
 2 itérations. On peut donc résumer le terme dérivé en la variation de l'erreur
@@ -223,6 +223,7 @@ simplicité :
 
     </details>
 
+|
 
 Le Réglage
 ~~~~~~~~~~
@@ -236,7 +237,7 @@ coefficients afin d'améliorer le PID.
 .. image:: https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif
 
 Le réglage d'un PID se fait souvent de façon empirique (au talent) Il existe
-cependant `différentes méthodes <https://en.wikipedia.org/wiki/PID_controller#Overview_of_tuning_methods>`_
+cependant `différentes méthodes <https://en.wikipedia.org/wiki/PID_controller#Overview_of_tuning_methods>`__
 censées faciliter cette étape mais souvent régler le PID à l'instinct suffit.
 
 .. attention::

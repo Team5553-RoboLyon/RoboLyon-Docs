@@ -30,12 +30,12 @@ SmartDashboard
 Afficher des informations avec ``cout`` pose un problème : si on affiche
 régulièrement plusieurs messages, il peut devenir très compliqué de suivre
 le défilement de ceux-ci. Pour cela, une alternative existe : c'est
-`le SmartDashboard <https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/smartdashboard/>`_.
+`le SmartDashboard <https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/smartdashboard/>`__.
 Pour l'ouvrir dans VS Code : Ctrl + Shift + P puis ``Start Tool`` et
 sélectionner ``SmartDashboard``.
 
 Pour utiliser le SmartDashboard, il n'y a pas besoin de déclarer une instance
-de la classe `SmartDashboard <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html>`_.
+de la classe `SmartDashboard <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html>`__.
 On peut appeler les méthodes de celle-ci avec l'opérateur de résolution de
 portée ``::``. Pour afficher des données sur le SmartDashboard, il faut fournir
 2 choses : une **key** qui identifie la donnée et sa **valeur**. Il existe
@@ -56,12 +56,12 @@ La fonction ``PutNumber`` attend comme argument un ``double``. Ici, le int
 
 Du côté du pilote, on peut lire les valeurs sur le SmartDashboard et on peut
 aussi les modifier. On peut alors récupérer ces valeurs avec les fonctions
-`GetString <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html#acf485540bd3f46fc8076c2dd45ed3a93>`_,
-`GetNumber <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html#a7a258c665a9ee54ef34b77637cc39a87>`_ et
-`GetBoolean <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html#a3c591d2abb4660f70425e1220fff3998>`_.
+`GetString <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html#acf485540bd3f46fc8076c2dd45ed3a93>`__,
+`GetNumber <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html#a7a258c665a9ee54ef34b77637cc39a87>`__ et
+`GetBoolean <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html#a3c591d2abb4660f70425e1220fff3998>`__.
 Il faut alors donner en argument la **key** de la donnée et une valeur qui sera
 renvoyée si la donnée n'existe pas.
-Le pilote peut aussi `modifier le widget <https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/smartdashboard/changing-display-properties.html>`_
+Le pilote peut aussi `modifier le widget <https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/smartdashboard/changing-display-properties.html>`__
 qui affiche une donnée et ses propriétés.
 
 
@@ -70,7 +70,7 @@ NetworkTables
 
 Pour assurer la communication entre le robot et l'ordinateur, le SmartDashboard
 utilise en fait un protocole de communication créé par WpiLib : les
-`NetworkTables <https://docs.wpilib.org/en/latest/docs/software/networktables>`_.
+`NetworkTables <https://docs.wpilib.org/en/latest/docs/software/networktables>`__.
 Pour le voir, il suffit d'ouvrir l'OutlineViewer : Ctrl + Shift + P puis
 ``Start Tool`` puis ``OutlineViewer``.
 
@@ -82,7 +82,7 @@ posséder plusieurs données (key + valeur) qui peuvent être, comme pour le
 SmartDashboard, des ``string``, des ``double`` ou des ``bool``.
 
 Pour accéder à ces données, on peut passer par la classe
-`NetworkTable <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classnt_1_1NetworkTable.html>`_.
+`NetworkTable <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classnt_1_1NetworkTable.html>`__.
 Premièrement, il faut créer et récupérer une l'instance de la classe
 NetworkTable grâce au nom de la Table :
 
@@ -131,4 +131,4 @@ plus plaisant et peut avoir plusieurs fenêtres (ou tabs).
 Sa principale utilité vis-à-vis du SmartDashboard est que l'on peut configurer
 dans le code du robot la disposition des widgets et par example changer de
 fenêtre avec le Joystick. Pour découvrir toutes ses fonctionnalités : voici
-`la documentation <https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/shuffleboard>`_.
+`la documentation <https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/shuffleboard>`__.

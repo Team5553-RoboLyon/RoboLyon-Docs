@@ -37,9 +37,9 @@ Dans le Code
 
 Du côté du RoboRio, il nous suffit de créer un objet correspondant au
 contrôleur pour pouvoir asservir le moteur. WpiLib propose une classe pour
-chaque contrôleur. En fait, avec le PWM, ces classes sont toutes identiques
-car elles dérivent toutes de la même classe
-`PWMSpeedController <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1PWMSpeedController.html>`_.
+chaque contrôleur. En fait, avec le PWM, ces classes sont toutes presques
+identiques car elles dérivent toutes de la même classe
+`PWMSpeedController <http://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1PWMSpeedController.html>`__.
 Cependant, elles ont été dérivées sous plusieurs noms :
 
 .. code-block:: c++

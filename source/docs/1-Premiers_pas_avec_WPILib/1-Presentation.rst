@@ -50,13 +50,13 @@ Pour programmer le robot en C++ et en Java, WpiLib propose d'utiliser Visual
 Studio Code qui est l'IDE officiellement supporté. Pour installer
 l'environnement de programmation, un installer Windows est disponible. Les
 instructions sont à retrouver
-`ici <https://docs.wpilib.org/en/latest/docs/software/getting-started>`_.
+`ici <https://docs.wpilib.org/en/latest/docs/software/getting-started>`__.
 
 VS Code permet l'utilisation des classes de WpiLib mais aussi de déployer le
 programme sur le robot.
 
 Pour contrôler le robot, il faut aussi avoir la Driver Station. Voici
-`les instructions <https://docs.wpilib.org/en/latest/docs/software/driverstation/frc-update-suite.html>`_
+`les instructions <https://docs.wpilib.org/en/latest/docs/software/driverstation/frc-update-suite.html>`__
 pour l'installer l'installer.
 
 
@@ -66,6 +66,6 @@ Documentation
 
 Pour obtenir des informations sur la librairie, savoir à quoi sert quelle
 classe, quelles fonctions sont disponibles, ect...,
-`une documentation <http://first.wpi.edu/FRC/roborio/release/docs/cpp/>`_
+`une documentation <http://first.wpi.edu/FRC/roborio/release/docs/cpp/>`__
 est disponible. Chaque classe y est répertoriée avec la description de chacune
 des méthodes qu'elle propose.

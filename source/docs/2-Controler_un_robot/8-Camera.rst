@@ -28,7 +28,7 @@ Bien évidement, WPILib a créé une classe afin de streamer le flux vidéo d'un
 caméra USB. Il s'agit de la classe `CameraServer <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1CameraServer.html>`__.
 
 Le constructeur de cette classe est privé, on ne peut donc pas créer
-d'instances de cette classe. Au lieu de cela, il est possible de recupérer
+d'instances de cette classe. Au lieu de cela, il est possible de récupérer
 l'unique instance de la classe grâce à la méthode ``static CameraServer* GetInstance ()``.
 
 .. note::
@@ -37,7 +37,7 @@ l'unique instance de la classe grâce à la méthode ``static CameraServer* GetI
     déclarée ``static`` a ainsi la particularité de pouvoir être appelée sans
     devoir instancier la classe.
 
-Après avoir recupérer un pointeur sur l'instance de la classe, on peut
+Après avoir récupérer un pointeur sur l'instance de la classe, on peut
 utiliser ses méthodes :
 
 La fonction `cs::UsbCamera StartAutomaticCapture() <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1CameraServer.html#af4b39b0179578e1959aaa41dcf5e1790>`__
@@ -50,7 +50,7 @@ créée :
     #include <CameraServer.h>
     CameraServer::GetInstance()->StartAutomaticCapture();
 
-Il existe aussi d'autres méthodes qui permettent de recupérer les images du
+Il existe aussi d'autres méthodes qui permettent de récupérer les images du
 flux pour, par exemple, les analyser. 
 
 

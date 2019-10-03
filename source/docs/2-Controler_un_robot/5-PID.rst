@@ -69,8 +69,8 @@ En utilisant seulement le terme proportionnel, le mécanisme peut osciller
 cela, on peut utiliser le terme
 `intégral <https://couleur-science.eu/?d=211a43--les-integrales-en-math>`__.
 Celui-ci est égal à la somme de toutes les erreurs depuis le début. Ce terme
-va ainsi augmenter de plus en plus si le mécanisme reste en dessous du setpoint
-trop longtemps.
+va ainsi augmenter de plus en plus si le mécanisme reste en dessous du
+setpoint trop longtemps.
 
 Dérivé
 ~~~~~~
@@ -80,11 +80,11 @@ Dérivé
    :width: 400px
 
 Le terme `dérivé <https://couleur-science.eu/?d=94f1c0--les-fonctions-derivees-en-math>`__
-est égal à la variation de l'erreur sur la variation du temps. C'est la "pente"
-de l'erreur.  Dans le code du robot, le delta temps sera toujours le même entre
-2 itérations. On peut donc résumer le terme dérivé en la variation de l'erreur
-entre 2 itérations soit la différence entre l'erreur actuelle et l'erreur
-précédente.
+est égal à la variation de l'erreur sur la variation du temps. C'est la
+"pente" de l'erreur.  Dans le code du robot, le delta temps sera toujours le
+même entre 2 itérations. On peut donc résumer le terme dérivé en la variation
+de l'erreur entre 2 itérations soit la différence entre l'erreur actuelle et
+l'erreur précédente.
 
 :math:`D \times (erreur - erreurPrecedente)`
 
@@ -231,8 +231,8 @@ Le Réglage
 L'étape de tuning (de réglage) du PID consiste à trouver les bonnes valeurs
 pour les 3 coefficients P, I et D. Il faut commencer avec I et D à zéro et en
 réglant seulement P. C'est le coefficient P qui va determiner la "vitesse de
-réaction" du mécanisme. Ensuite, si il y a besoin, on peut ajuster les 2 autres
-coefficients afin d'améliorer le PID.
+réaction" du mécanisme. Ensuite, si il y a besoin, on peut ajuster les 2
+autres coefficients afin d'améliorer le PID.
 
 .. image:: https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif
 

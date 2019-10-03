@@ -37,10 +37,10 @@ sélectionner ``SmartDashboard``.
 Pour utiliser le SmartDashboard, il n'y a pas besoin de déclarer une instance
 de la classe `SmartDashboard <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html>`__.
 On peut appeler les méthodes de celle-ci avec l'opérateur de résolution de
-portée ``::``. Pour afficher des données sur le SmartDashboard, il faut fournir
-2 choses : une **key** qui identifie la donnée et sa **valeur**. Il existe
-plusieurs fonctions selon le type de donnée à afficher (texte, nombre ou
-booléen) :
+portée ``::``. Pour afficher des données sur le SmartDashboard, il faut
+fournir 2 choses : une **key** qui identifie la donnée et sa **valeur**. Il
+existe plusieurs fonctions selon le type de donnée à afficher (texte, nombre
+ou booléen) :
 
 .. code-block:: c++
 
@@ -59,8 +59,8 @@ aussi les modifier. On peut alors récupérer ces valeurs avec les fonctions
 `GetString <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html#acf485540bd3f46fc8076c2dd45ed3a93>`__,
 `GetNumber <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html#a7a258c665a9ee54ef34b77637cc39a87>`__ et
 `GetBoolean <https://first.wpi.edu/FRC/roborio/release/docs/cpp/classfrc_1_1SmartDashboard.html#a3c591d2abb4660f70425e1220fff3998>`__.
-Il faut alors donner en argument la **key** de la donnée et une valeur qui sera
-renvoyée si la donnée n'existe pas.
+Il faut alors donner en argument la **key** de la donnée et une valeur qui
+sera renvoyée si la donnée n'existe pas.
 Le pilote peut aussi `modifier le widget <https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/smartdashboard/changing-display-properties.html>`__
 qui affiche une donnée et ses propriétés.
 
@@ -68,9 +68,9 @@ qui affiche une donnée et ses propriétés.
 NetworkTables
 -------------
 
-Pour assurer la communication entre le robot et l'ordinateur, le SmartDashboard
-utilise en fait un protocole de communication créé par WpiLib : les
-`NetworkTables <https://docs.wpilib.org/en/latest/docs/software/networktables>`__.
+Pour assurer la communication entre le robot et l'ordinateur, le
+SmartDashboard utilise en fait un protocole de communication créé par WpiLib :
+les `NetworkTables <https://docs.wpilib.org/en/latest/docs/software/networktables>`__.
 Pour le voir, il suffit d'ouvrir l'OutlineViewer : Ctrl + Shift + P puis
 ``Start Tool`` puis ``OutlineViewer``.
 

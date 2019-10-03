@@ -5,9 +5,10 @@ Organiser son Programme
 Diviser le programme en Classes
 -------------------------------
 
-Pour l'instant, tout le code que nous écrivions était uniquement dans la classe
-principale ``Robot``. Cependant, pour des projets plus importants, la quantité
-de code commence à être trop grande pour se située dans un unique fichier.
+Pour l'instant, tout le code que nous écrivions était uniquement dans la
+classe principale ``Robot``. Cependant, pour des projets plus importants,
+la quantité de code commence à être trop grande pour se située dans un
+unique fichier.
 
 Pour organiser le programme du Robot, il est donc nécessaire de le structurer
 en plusieurs fichiers. Chacun gérant une fonctionnalité différente du code.

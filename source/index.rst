@@ -1,6 +1,9 @@
 Cours WpiLib
 ============
 
+Version : |today|
+-----------------
+
 Bienvenue dans ce tutoriel écrit par l'équipe 5553, Robo'Lyon, de France.
 
 Son but est de permettre aux rookies de s'initier à la programmation d'un

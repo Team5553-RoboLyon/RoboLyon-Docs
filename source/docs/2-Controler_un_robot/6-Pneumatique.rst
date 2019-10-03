@@ -30,8 +30,8 @@ Solénoïdes simples
 Les solénoïdes simples peuvent seulement appliquer ou bloquer la pression de
 leur unique sortie. Ils ne peuvent ainsi appliquer une pression qu'à une seule
 entrée d'un vérin. Ils sont utiles lorsqu'une force extérieur (gravité, ...)
-permet de rentrer/sortir le vérin ou bien lorsque le vérin n'est utilisé qu'une
-seule fois (Sorti mais jamais rentré).
+permet de rentrer/sortir le vérin ou bien lorsque le vérin n'est utilisé
+qu'une seule fois (Sorti mais jamais rentré).
 
 Dans le code
 ~~~~~~~~~~~~
@@ -85,8 +85,8 @@ est similaire à la classe Solenoid. Son constructeur attend comme argument les
 
 
 La méthode ``void Set(Value value)`` permet de contrôler l'état du solénoïde.
-Il attend en argument une des valeur de l'enum ``Value`` : ``Off``, ``Forward``
-or ``Reverse`` :
+Il attend en argument une des valeur de l'enum ``Value`` : ``Off``,
+``Forward`` or ``Reverse`` :
 
 .. code-block:: c++
 

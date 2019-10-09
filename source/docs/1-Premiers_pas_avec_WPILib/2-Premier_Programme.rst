@@ -1,12 +1,23 @@
 Notre premier programme
 =======================
 
+Créer un nouveau projet sur VS Code
+-----------------------------------
+
+.. image:: img/Create_new_project.gif
+
+Pour créer un nouveau projet, cliquez sur l'icône WPILib puis sur
+``WPILib: Create a new project``. Une page s'ouvre, choisissez ``Template``,
+``c++`` et ``TimedRobot Skeleton (Advanced)``. Remplissez les autres champs et
+appuyez sur ``Generate Project`` : c'est fait !
+
+
 A quoi ressemble un programme de robot ?
 ----------------------------------------
 
-Quand on crée un nouveau projet, on a plusieurs choix : ``SampleRobot``,
-``IterativeRobot``, ``TimedRobot`` et ``CommandBasedRobot``. Pour commencer
-choisissez ``TimedRobot Skeleton``. Voici à quoi cela ressemble :
+Le programme du robot créé est séparé en 2 fichiers
+``src/main/include/Robot.h`` et ``src/main/cpp/Robot.cpp``. Voici à quoi le
+fichier ``Robot.h`` ressemble :
 
 .. code-block:: c++
 

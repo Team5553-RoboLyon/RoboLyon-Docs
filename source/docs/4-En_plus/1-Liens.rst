@@ -7,24 +7,20 @@ Tutos, Cours
 - `Frc-docs <https://docs.wpilib.org>`__ : documentation officielle
 - `Frc Programming Done Right <https://frc-pdr.readthedocs.io/en/latest/>`__
 - `Frc Electrical Bible <https://mililanirobotics.gitbooks.io/frc-electrical-bible/content/index.html>`__
-- `WpiLib Tutorial <http://hal7df.github.io/pauls-tutorials/wpi/index.html>`__
-- `Command-Based Programming by Team 3847 Spectrum <https://www.dropbox.com/s/wy0hjaw6mtldbkg/FRC%20Java%20-%20Commands%20%26%20Subsystems.pptx>`__
-
 
 Autres librairies
 ~~~~~~~~~~~~~~~~~
 
 - `Cross The Road Electronics <https://phoenix-documentation.readthedocs.io/en/latest/index.html>`__ : pour contrôler les Victor SPX, Talon SRX, ... via le bus CAN
 - `Rev <http://www.revrobotics.com/sparkmax-software/>`__ : pour contrôler le Spark MAX, seul contrôleur moteur disponible pour le NEO
-- `Pathfinder <https://github.com/JacisNonsense/Pathfinder>`__ (`pour C++ <https://github.com/JacisNonsense/Pathfinder/wiki/Pathfinder-for-FRC---CPP>`__ et `coordonnées <https://www.chiefdelphi.com/t/pathfinder-coordinate-system/159870/4?u=nathan_5553>`__) : pour générer et suivre des trajectoires courbes
 - `OpenCV <https://docs.opencv.org/master/d9/df8/tutorial_root.html>`__ : pour faire de la reconnaissance visuelle
 
 Documentations
 ~~~~~~~~~~~~~~
 
 - `WpiLib <http://first.wpi.edu/FRC/roborio/release/docs/cpp/>`__
-- `Rev <http://www.revrobotics.com/content/sw/max/sw-docs/cpp/index.html>`__
 - `Cross The Road Electronics <http://www.ctr-electronics.com/downloads/api/cpp/html/index.html>`__
+- `Rev <http://www.revrobotics.com/content/sw/max/sw-docs/cpp/index.html>`__
 - `OpenCV <https://docs.opencv.org/master/index.html>`__
 
 

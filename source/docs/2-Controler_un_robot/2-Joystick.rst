@@ -59,6 +59,12 @@ méthodes ``double GetX()``, ``double GetY()``, ``double GetZ()``
     double twist = mon_joystick.GetTwist();
     double throttle = mon_joystick.GetThrottle();
 
+.. note::
+    Pour adoucir les valeurs du joystick, il est possible d'ajouter une
+    deadband : une zone dans laquelle les valeur sont rejetées car trop
+    petites. Pour en apprendre plus sur les deadbands, voici
+    `un site trés intéressant <http://www.mimirgames.com/articles/games/joystick-input-and-using-deadbands/>`__.
+
 
 On a aussi la méthode ``int GetPOV()`` qui renvoi l'angle formé par le POV
 ou -1 si il est situé au centre.

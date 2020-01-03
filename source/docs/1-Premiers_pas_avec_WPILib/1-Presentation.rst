@@ -56,7 +56,7 @@ VS Code permet l'utilisation des classes de WpiLib mais aussi de déployer le
 programme sur le robot.
 
 Pour contrôler le robot, il faut aussi avoir la Driver Station. Voici
-`les instructions <https://docs.wpilib.org/en/latest/docs/getting-started/getting-started-frc-control-system/frc-update-suite.html>`__
+`les instructions <https://docs.wpilib.org/en/latest/docs/getting-started/getting-started-frc-control-system/frc-game-tools.html>`__
 pour l'installer l'installer.
 
 

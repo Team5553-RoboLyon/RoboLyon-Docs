@@ -61,3 +61,8 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+
+
+# Determine how to format the current date, used as the replacement for |today|.
+# "%d %B, %Y" -> "05 avril, 2020"
+today_fmt = "%d %B, %Y"

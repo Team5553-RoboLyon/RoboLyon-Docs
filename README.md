@@ -66,7 +66,7 @@ Ainsi Travis permet de tester chaque Pull Request avant qu'elle ne soit "mergée
 
 De plus, Travis est aussi utilisé pour générer et mettre en ligne un fichier pdf avec la totalité du cours. Ainsi, si l'étape `script` est réussie, les étapes `before_deploy` et `deploy` vont être éxecutées.
 
-Premièrement, les docs vont être générées au sein d'une unique page web. Puis le programme [wkhtmltopdf](https://wkhtmltopdf.org/) va installé et appelé pour convertir la page en un fichier pdf, `Tutoriel.pdf` :
+Premièrement, les docs vont être générées au sein d'une unique page web. Puis le programme [wkhtmltopdf](https://wkhtmltopdf.org/) va être installé et appelé pour convertir la page en un fichier pdf, `Tutoriel.pdf` :
 ```yml
 before_deploy:
   - sphinx-build -b singlehtml source build/singlehtml

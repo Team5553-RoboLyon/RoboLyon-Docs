@@ -141,34 +141,34 @@ simplicité :
         void RobotInit() override
         {
             // Le sens de rotation du moteur
-            m_moteur.SetInverted(false);
+            m_Moteur.SetInverted(false);
 
             // Le sens dans lequel compte l'encodeur
-            m_encodeur.SetReverseDirection(false);
+            m_Encodeur.SetReverseDirection(false);
 
             // Conversion ticks -> mètres
-            m_encodeur.SetDistancePerPulse(m_distanceParTick);
+            m_Encodeur.SetDistancePerPulse(m_DistanceParTick);
 
-            m_setpoint = 0.0;
-            m_erreur = 0.0;
-            m_erreurPrecedente = 0.0;
-            m_sommeErreurs = 0.0;
-            m_derivee = 0.0;
+            m_Setpoint = 0.0;
+            m_Erreur = 0.0;
+            m_ErreurPrecedente = 0.0;
+            m_SommeErreurs = 0.0;
+            m_Derivee = 0.0;
         }
 
         void RobotPeriodic () override
         {
-            position = m_encodeur.GetDistance();
+            position = m_Encodeur.GetDistance();
 
-            m_erreur = m_setpoint - position;
-            m_sommeErreurs += m_erreur;
-            m_derivee = m_erreur - m_erreurPrecedente;
+            m_Erreur = m_Setpoint - position;
+            m_SommeErreurs += m_Erreur;
+            m_Derivee = m_Erreur - m_ErreurPrecedente;
 
-            double output = m_P * m_erreur + m_I * m_sommeErreurs + m_D * derivee + m_F;
+            double output = m_P * m_Erreur + m_I * m_SommeErreurs + m_D * m_Derivee + m_F;
 
-            m_moteur.Set(output);
+            m_Moteur.Set(output);
 
-            m_erreurPrecedente = m_erreur;
+            m_ErreurPrecedente = m_Erreur;
         }
 
         void TeleopPeriodic() override
@@ -179,34 +179,34 @@ simplicité :
 
         void SetSetpoint(double setpoint)
         {
-            if(setpoint < m_minSetpoint)
+            if(setpoint < m_MinSetpoint)
             {
-                m_setpoint = m_minSetpoint;
+                m_Setpoint = m_MinSetpoint;
             }
-            else if(setpoint > m_maxSetpoint)
+            else if(setpoint > m_MaxSetpoint)
             {
-                m_setpoint = m_maxSetpoint:
+                m_Setpoint = m_MaxSetpoint:
             }
             else
             {
-                m_setpoint = setpoint;
+                m_Setpoint = setpoint;
             }
         }
 
     private:
         // Moteurs et Capteurs
-        frc::VictorSP m_moteur(0);
-        frc::Encoder m_encodeur(0, 1);
+        frc::VictorSP m_Moteur(0);
+        frc::Encoder m_Encodeur(0, 1);
 
         // Facteur de conversion des ticks vers une distance en mètre
-        const double m_distanceParTick = 0.05;
+        const double m_DistanceParTick = 0.05;
 
         // Variables du PID
-        double m_setpoint;
-        double m_erreur;
-        double m_erreurPrecedente;
-        double m_sommeErreurs;
-        double m_derivee;
+        double m_Setpoint;
+        double m_Erreur;
+        double m_ErreurPrecedente;
+        double m_SommeErreurs;
+        double m_Derivee;
 
         // Valeurs déterminées scientifiquement
         const double m_P = 0.8;
@@ -215,8 +215,8 @@ simplicité :
         const double m_F = 0.15;
 
         // L'élévateur peut aller de 0 m jusqu'à 1.5 m de hauteur
-        const double m_minSetpoint = 0.0;
-        const double m_maxSetpoint = 1.5;
+        const double m_MinSetpoint = 0.0;
+        const double m_MaxSetpoint = 1.5;
     };
 
 .. raw:: html

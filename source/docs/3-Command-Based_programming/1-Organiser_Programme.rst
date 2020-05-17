@@ -68,37 +68,22 @@ Pour simplifier cela, on crée un fichier nommé ``Cablage.h`` ou
 .. code-block:: c++
 
   // PWM MOTORS
-  #define PWM_ROUES_PINCE 0
-  #define PWM_BASE_DROITE_1 1
-  #define PWM_BASE_DROITE_2 2
-  #define PWM_BASE_GAUCHE_1 3
-  #define PWM_BASE_GAUCHE_2 4
+  constexpr int PWM_ROUES_PINCE = 0;
+  constexpr int PWM_BASE_DROITE_1 = 1;
+  constexpr int PWM_BASE_DROITE_2 = 2;
+  constexpr int PWM_BASE_GAUCHE_1 = 3;
+  constexpr int PWM_BASE_GAUCHE_2 = 4;
 
   // CAN MOTORS
-  #define CAN_PIVOT 1
+  constexpr int CAN_PIVOT = 1;
 
   // DIO ENCODEURS
-  #define DIO_ENCODEUR_PIVOT_A 0
-  #define DIO_ENCODEUR_PIVOT_B 1
+  constexpr int DIO_ENCODEUR_PIVOT_A = 0;
+  constexpr int DIO_ENCODEUR_PIVOT_B = 1;
 
   // PCM PNEUMATICS
-  #define PCM_PINCE_A 0
-  #define PCM_PINCE_B 1
-
-.. note::
-  L'instruction ``#define`` est, comme ``#include``, une directive
-  `exécutée avant la compilation du code <https://fr.wikibooks.org/wiki/Programmation_C%2B%2B/Le_pr%C3%A9processeur>`__.
-  ``#define`` permet de remplacer toutes les occurrences d'un certain mot
-  par un autre.
-
-  .. code-block:: c++
-
-    #define C 5553
-
-  Par exemple, ici, toutes les occurrences de ``C`` présentes dans les
-  fichiers incluant ``Cablage.h`` seront remplacées par ``5553``
-  (très dangereux car ``int Count`` devient ainsi ``int 5553ount`` avant
-  la compilation)
+  constexpr int PCM_PINCE_A = 0;
+  constexpr int PCM_PINCE_B = 1;
 
 Grâce à la présence de ca fichier, il est maintenant facile de savoir où
 chacun des contrôleur moteur doit être branché, quels sont les port PWM
@@ -126,26 +111,26 @@ qui, en fonction des entrée du joystick, appellent certaines fonctions.
   public:
     void TeleopPeriodic() override
     {
-      if(m_joystick.GetRawButton(1))
+      if(m_Joystick.GetRawButton(1))
       {
-        m_pince.Attraper();
+        m_Pince.Attraper();
       }
-      else if(m_joystick.GetRawButton(2))
+      else if(m_Joystick.GetRawButton(2))
       {
-        m_pince.Ejecter();
+        m_Pince.Ejecter();
       }
       else
       {
-        m_pince.Stop();
+        m_Pince.Stop();
       }
 
-      m_baseRoulante.Drive(m_joystick.GetX(), m_joystick.GetY());
+      m_BaseRoulante.Drive(m_Joystick.GetX(), m_Joystick.GetY());
     }
 
   private:
-    frc::Joystick m_joystick(0);
-    BaseRoulante m_baseRoulante;
-    Pince m_pince;
+    frc::Joystick m_Joystick(0);
+    BaseRoulante m_BaseRoulante;
+    Pince m_Pince;
   };
 
 .. attention::

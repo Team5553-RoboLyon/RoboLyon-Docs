@@ -31,26 +31,26 @@ simplicité :
     public:
         void TeleopPeriodic() override
         {
-            if(Joystick.GetButton(1))
+            if(m_Joystick.GetButton(1))
             {
-                moteur.Set(0);
+                m_Moteur.Set(0);
             }
             else
             {
-                double y = Joystick.GetY();
+                double y = m_Joystick.GetY();
 
                 if(y < 0.2 && y > -0.2)
                 {
                     y = 0;
                 }
 
-                moteur.Set(y);
+                m_Moteur.Set(y);
             }
         }
 
     private:
-        frc::Joystick m_joystick(0);
-        frc::VictorSP m_moteur(0);
+        frc::Joystick m_Joystick(0);
+        frc::VictorSP m_Moteur(0);
     };
 
 .. raw:: html

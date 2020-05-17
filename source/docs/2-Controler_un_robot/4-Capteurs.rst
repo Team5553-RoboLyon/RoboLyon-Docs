@@ -110,7 +110,7 @@ en une autre unité :
 
     // 1 tour équivaut à 360 ticks
     mon_encodeur.SetDistancePerPulse(1.0/360);
-    double nombreDeTours = mon_encodeur.GetDistance();
+    double nombre_de_tours = mon_encodeur.GetDistance();
 
 
 La méthode ``void GetRate()`` renvoie la vitesse actuelle convertie en
@@ -165,7 +165,7 @@ degrés par secondes dans le sens des aiguilles d'une montre :
 
 .. code-block:: c++
 
-    double vitesseRotation = mon_gyro.GetRate();
+    double vitesse_rotation = mon_gyro.GetRate();
 
 
 La méthode ``void Calibrate()`` calibre le gyroscope en définissant son

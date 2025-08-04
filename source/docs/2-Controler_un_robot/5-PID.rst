@@ -1,262 +1,280 @@
-Le contrôleur PID
+Le Contrôleur PID
 =================
 
-Contrôler un mécanisme
-----------------------
-
-Maintenant que nous savons contrôler les moteurs et lire les informations des
-capteurs, il faut les utiliser ensemble pour contrôler intelligemment et
-efficacement vos mécanismes. Voici quelques termes qui seront utiles pour la
-suite :
-
-Setpoint
-~~~~~~~~
-Le setpoint est l'objectif que le mécanisme doit atteindre. Pour un élévateur,
-le setpoint est la hauteur désirée. Pour un pivot, c'est un angle. On peut
-aussi imaginer un shooter dont le setpoint serait la vitesse de rotation
-adéquate pour lancer l'objet à la bonne distance.
-
-Erreur
-~~~~~~
-L'erreur est la différence entre le setpoint et l'état (position, vitesse) du
-mécanisme à un instant donné. Pour un élévateur, c'est la distance (positive
-ou négative) qu'il reste à parcourir pour atteindre le setpoint.
-
-Output
-~~~~~~
-L'output est la correction exercé sur le mécanisme pour le rapprocher du
-setpoint. Il peut être exprimé sur une échelle de -1 à 1 représentant la
-puissance donnée au moteur ou bien en volts.
-
-
-PID, ça veut dire quoi ?
-------------------------
-
-Le PID est une méthode pour contrôler les mécanismes efficacement. C'est la
-boucle de contrôle la plus utilisée dans l'industrie car elle peut s'appliquer
-à de nombreuses situations (thermostat, régulateur de position, de vitesse).
-C'est un acronyme signifiant : **Proportionnel**, **Intégral**, **Dérivé**,
-les 3 termes qui composent le PID.
-
-L'équation d'un contrôleur PID est la somme de ces 3 termes :
-
-.. math::
-    output = P \times erreur + I \times \sum erreur + D \times \frac{\Delta erreur}{\Delta t}
-
-
-Proportionnel
-~~~~~~~~~~~~~
-:math:`P \times erreur`
-
-.. image:: https://upload.wikimedia.org/wikipedia/commons/a/a3/PID_varyingP.jpg
-   :width: 400px
-
-Le terme proportionnel est égal au produit d'un coefficient constant (**kP**
-ou **P gain**) et de l'erreur. Ce terme est ainsi élevé quand l'erreur est
-élevé (au début) et diminue lorsque le mécanisme se rapproche du setpoint.
-Plus le coefficient est élevé, plus la réponse du système sera rapide mais
-plus le mécanisme risquera d'osciller.
-
-Intégral
-~~~~~~~~
-:math:`I \times \sum erreur`
-
-.. image:: https://upload.wikimedia.org/wikipedia/commons/c/c0/Change_with_Ki.png
-   :width: 400px
-
-En utilisant seulement le terme proportionnel, le mécanisme peut osciller
-(kP trop élevé) ou bien rester en dessous du setpoint (kP trop faible). Pour
-cela, on peut utiliser le terme
-`intégral <https://couleur-science.eu/?d=211a43--les-integrales-en-math>`__.
-Celui-ci est égal à la somme de toutes les erreurs depuis le début. Ce terme
-va ainsi augmenter de plus en plus si le mécanisme reste en dessous du
-setpoint trop longtemps.
-
-Dérivé
-~~~~~~
-:math:`D \times \frac{\Delta erreur}{\Delta t}`
-
-.. image:: https://upload.wikimedia.org/wikipedia/commons/c/c7/Change_with_Kd.png
-   :width: 400px
-
-Le terme `dérivé <https://couleur-science.eu/?d=94f1c0--les-fonctions-derivees-en-math>`__
-est égal à la variation de l'erreur sur la variation du temps. C'est la
-"pente" de l'erreur.  Dans le code du robot, le delta temps sera toujours le
-même entre 2 itérations. On peut donc résumer le terme dérivé en la variation
-de l'erreur entre 2 itérations soit la différence entre l'erreur actuelle et
-l'erreur précédente.
-
-:math:`D \times (erreur - erreurPrecedente)`
-
-Le coefficient kD est souvent négatif afin de réguler "l'accélération" du
-mécanisme. Si l'accélération est trop élevée, le terme dérivé sera alors
-d'autant plus important et ralentira le mécanisme.
-
-Feed-Forward
-~~~~~~~~~~~~
-
-Au PID on peut ajouter un 4ème terme, le terme F pour feed forward. Il peut
-être calculé en connaissant les caractéristiques du mécanisme :
-
-**Élévateur** : Pour contrer la gravité exercée sur un élévateur, le voltage
-nécessaire peut être calculé en fonction de la masse de l'élévateur, du torque
-du moteur et du ratio de la gearbox.
-
-**Pivot** : Pour contrer la gravité exercée sur le bras du pivot, le terme F
-peut être calculé en fonction de l'angle :math:`\theta` du bras :
-:math:`k \cos \theta`
-
-Il existe d'autres cas comme les bases roulantes où le terme F peut être utile
-pour contrer les forces de frottement ou d'accélération.
-
-
-Coder un PID
+Introduction
 ------------
 
-Le Code
-~~~~~~~
+Quand on veut que le robot atteigne une position précise, suive une trajectoire, ou maintienne une vitesse constante, 
+il ne suffit pas de lui dire "avance" ou "tourne". Il faut contrôler *comment* il s'en approche, et avec quelle précision. 
+C’est là qu’intervient le **PID**, un algorithme de régulation très utilisé en robotique, industrie, aéronautique… et bien sûr, 
+en robotique.
 
-Maintenant que nous avons appris la théorie du PID, utilisons le pour déplacer
-notre élévateur de façon autonome. Pour l'exemple, un dira que l'unique moteur
-de l'élévateur sera contrôlé par un ``VictorSP`` et que la position de
-l'élévateur nous sera donnée par un ``Encoder``. A vous de jouer.
+Qu’est-ce qu’un PID ?
+---------------------
 
-.. raw:: html
+Le terme **PID** est l’acronyme de **Proportionnel – Intégral – Dérivé**. C’est un type de contrôleur (régulateur), 
+c’est-à-dire un système qui ajuste une commande (ex. vitesse moteur) 
+pour atteindre une consigne (ex. position cible). Il compare en permanence la position actuelle du système avec la cible, 
+et corrige l’écart intelligemment.
 
-    <details><summary><b>Correction</b></summary>
+Ce type de régulateur a été formalisé dans les années 1920 par Nicolas Minorsky, 
+à l’origine pour contrôler des systèmes industriels (vannes, moteurs, etc.) et la navigation maritime. 
+Sa simplicité, sa robustesse et son efficacité en font encore aujourd’hui une solution de référence dans de très nombreux domaines
+techniques et industriels.
 
-Normalement, votre programme sera séparé en 2 fichiers différents : Robot.h
-et Robot.cpp. Ici, le programme est dans un seul fichier pour plus de
-simplicité :
+À quoi sert un PID ?
+--------------------
 
-.. code-block:: c++
+Un PID sert à **réduire une erreur**, c’est-à-dire l’écart entre une mesure (position réelle, vitesse, etc.) et une consigne 
+(autrement dit un objectif tel qu'une position désirée, une vitesse cible, etc.) comme ceci :
+.. math::
 
-    #include <frc/TimedRobot.h>
-    #include <frc/VictorSP.h>
-    #include <frc/Encoder.h>
+   \text{erreur} = \text{consigne} - \text{mesure}
 
-    class Robot : public frc::TimedRobot
-    {
-    public:
-        void RobotInit() override
-        {
-            // Le sens de rotation du moteur
-            m_Moteur.SetInverted(false);
+Le PID agit sur une commande (par exemple, la puissance envoyée à un moteur) pour diminuer cet écart de façon 
+stable, performante et réactive.
 
-            // Le sens dans lequel compte l'encodeur
-            m_Encodeur.SetReverseDirection(false);
+**Exemple courant :**
 
-            // Conversion ticks -> mètres
-            m_Encodeur.SetDistancePerPulse(m_DistanceParTick);
+Tu veux que ton élévateur atteigne la position 1.2 m. Sans PID, tu pourrais simplement "mettre de la puissance", mais :
 
-            m_Setpoint = 0.0;
-            m_Erreur = 0.0;
-            m_ErreurPrecedente = 0.0;
-            m_SommeErreurs = 0.0;
-            m_Derivee = 0.0;
-        }
+- S’il y a trop de puissance, il dépasse la cible.
+- Pas assez ? Il n’y arrive jamais.
+- Un changement de poids ou de friction ? Il se dérègle.
 
-        void RobotPeriodic () override
-        {
-            position = m_Encodeur.GetDistance();
+Un PID ajuste la commande à chaque instant pour que l'élévateur atteigne exactement 1.2 m, sans oscillations ni erreur finale.
 
-            m_Erreur = m_Setpoint - position;
-            m_SommeErreurs += m_Erreur;
-            m_Derivee = m_Erreur - m_ErreurPrecedente;
+Le terme Proportionnel (P)
+--------------------------
 
-            double output = m_P * m_Erreur + m_I * m_SommeErreurs + m_D * m_Derivee + m_F;
+Introduction
+^^^^^^^^^^^^
 
-            m_Moteur.Set(output);
+Le **terme proportionnel** est la partie la plus simple du PID. Il applique une correction proportionnelle à l’erreur actuelle : 
+plus l’erreur est grande, plus la correction est forte et rapide. C’est comme si tu disais "plus je suis loin de la cible, plus j’accélère".
+Et si tu es proche, la correction est faible.
 
-            m_ErreurPrecedente = m_Erreur;
-        }
+Formule
+^^^^^^^
 
-        void TeleopPeriodic() override
-        {
-            // En fonction des actions du pilote :
-            // Utiliser la fonction SetSetpoint pour déplacer l'élévateur
-        }
+.. math::
 
-        void SetSetpoint(double setpoint)
-        {
-            if(setpoint < m_MinSetpoint)
-            {
-                m_Setpoint = m_MinSetpoint;
-            }
-            else if(setpoint > m_MaxSetpoint)
-            {
-                m_Setpoint = m_MaxSetpoint:
-            }
-            else
-            {
-                m_Setpoint = setpoint;
-            }
-        }
+   \text{Commande}_P = k_P \times \text{erreur}
 
-    private:
-        // Moteurs et Capteurs
-        frc::VictorSP m_Moteur(0);
-        frc::Encoder m_Encodeur(0, 1);
+- ``kP`` est un **coefficient fixe** que tu choisis.
+- L’**erreur** est la différence entre la consigne et la mesure.
 
-        // Facteur de conversion des ticks vers une distance en mètre
-        const double m_DistanceParTick = 0.05;
+Exemple
+^^^^^^^
 
-        // Variables du PID
-        double m_Setpoint;
-        double m_Erreur;
-        double m_ErreurPrecedente;
-        double m_SommeErreurs;
-        double m_Derivee;
+Si ton élévateur est à 0.8 m, et que tu veux aller à 1.2 m :
 
-        // Valeurs déterminées scientifiquement
-        const double m_P = 0.8;
-        const double m_I = 0.01;
-        const double m_D = - 0.2;
-        const double m_F = 0.15;
+- erreur = 1.2 - 0.8 = 0.4 m  
+- si kP = 5.0, la correction sera : 5.0 × 0.4 = 2.0 (par exemple, 2.0 V envoyés au moteur)
 
-        // L'élévateur peut aller de 0 m jusqu'à 1.5 m de hauteur
-        const double m_MinSetpoint = 0.0;
-        const double m_MaxSetpoint = 1.5;
-    };
+Code minimaliste
+^^^^^^^^^^^^^^^^^^^^
+.. tabs::
 
-.. raw:: html
+   .. tab:: C++
 
-    </details>
+      .. code-block:: cpp
 
-|
+        double setpoint = 1.2;     // Position cible en mètres
+        double current = getPosition(); // Position mesurée
+        double error = setpoint - current; 
 
-Le Réglage
-~~~~~~~~~~
+        double kP = 5.0;
+        double output = kP * error;
 
-L'étape de tuning (de réglage) du PID consiste à trouver les bonnes valeurs
-pour les 3 coefficients P, I et D. Il faut commencer avec I et D à zéro et en
-réglant seulement P. C'est le coefficient P qui va determiner la "vitesse de
-réaction" du mécanisme. Ensuite, si il y a besoin, on peut ajuster les 2
-autres coefficients afin d'améliorer le PID.
+        setMotorVoltage(output);
 
-.. image:: https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif
+   .. tab:: Java
 
-Le réglage d'un PID se fait souvent de façon empirique (au talent) Il existe
-cependant `différentes méthodes <https://en.wikipedia.org/wiki/PID_controller#Overview_of_tuning_methods>`__
-censées faciliter cette étape mais souvent régler le PID à l'instinct suffit.
+      .. code-block:: java
 
-.. attention::
-    Régler un PID peu s'avérer très dangereux si des précautions ne sont pas
-    prises. Pensez, au tout début, à calculer l'ordre de grandeur de vos
-    coefficients en fonction des valeurs de l'erreur.
+         double setpoint = 1.2;     // Position cible en mètres
+         double current = getPosition(); // Position mesurée
+         double error = setpoint - current;
 
-    Par exemple, pour un élévateur dont l'erreur sera au maximum égale à 1,5 (m),
-    on veut commencer avec un output maximum inférieur à 0,1.
+        double kP = 5.0;
+        double output = kP * error;
 
-    :math:`P \times erreur = output`
+        setMotorVoltage(output);
 
-    :math:`P \times erreurMax < outputMax`
+.. note::
 
-    :math:`P \times 1.5 < 0.1`
+   Ce code ne gère que le P. Il est simple, mais peut suffire pour des systèmes lents ou très stables.
 
-    :math:`P < 0.06666`
+Le terme Intégral (I)
+---------------------
 
-    On peut donc commencer avec un coefficient P aux alentours de 0.06666 sans
-    prendre trop de risques. En revanche, si la distance parcourue par
-    l'élévateur était exprimée en cm, un coefficient de 0.06666 serait beaucoup
-    trop élevé et dangereux (:math:`0.06666 \times 150 = 10` !!!).
+Introduction
+^^^^^^^^^^^^
+
+Le **terme intégral** prend en compte **l’historique de l’erreur**. Contrairement au terme proportionnel (P) qui réagit à l’instantané, 
+le terme I observe le **cumul des erreurs dans le temps**.  
+
+Autrement dit, il "se souvient" si ton robot est resté longtemps en retard ou en avance par rapport à la consigne. 
+Cela permet de **corriger les erreurs persistantes**, qu’on appelle aussi *erreurs statiques*. 
+
+Pour cela on utilise une **intégrale** de l’erreur sur le temps. C'est un `concept mathématique <https://youtu.be/i7kCaE7Yvfc?si=0DU_aCes_m0ukEEF>`__ qui signifie tout simplement 
+**additionner** l’erreur à chaque appel à la valeur précédente.
+
+Formule
+^^^^^^^
+
+.. math::
+
+   \text{Commande}_I = k_I \cdot \int_0^t \text{erreur}(t) \, dt
+
+- Le symbole :math:`\int` représente une **intégrale**, c’est-à-dire une **somme continue**.
+- En robotique, on **approxime** cela en additionnant l’erreur à chaque cycle :
+
+.. math::
+
+   \text{intégrale} \approx \sum \text{erreur} \times \Delta t
+
+Exemple
+^^^^^^^
+
+Imagine que ton élévateur s’arrête à 1.15 m au lieu de 1.20 m. Le terme proportionnel devient petit (car l’erreur est petite), donc la correction s’arrête trop tôt.  
+Le terme intégral va **accumuler** cette erreur de 5 cm à chaque cycle, et ajouter petit à petit une correction supplémentaire. Cela permet au bras de rattraper lentement ce dernier écart.
+
+Code minimaliste
+^^^^^^^^^^^^^^^^^^^^
+.. tabs::
+
+   .. tab:: C++
+
+      .. code-block:: cpp
+
+        double error = setpoint - current;
+        errorSum += error * dt; // dt = période du loop, typiquement 0.02s en FTC/FRC
+
+        double kI = 0.05;
+        double output_I = kI * errorSum;
+
+   .. tab:: Java
+
+      .. code-block:: java
+
+        double error = setpoint - current;
+        errorSum += error * dt; // dt = période du loop, typiquement 0.02s en FTC/FRC
+
+        double kI = 0.05;
+        double output_I = kI * errorSum;
+
+.. warning::
+
+   Le I peut devenir **trop fort** si l’erreur s'accumule trop longtemps (ex : robot bloqué). 
+   C’est ce qu’on appelle un *effet intégral excessif*. Pour cela il faut éviter que le ``kI`` ne soit trop grand.
+   Aussi il est préférable de mettre un **limiteur** sur l’erreur cumulée ou d'utiliser un **anti-windup**.
+
+---
+Le terme Dérivé (D)
+-------------------
+
+Introduction
+^^^^^^^^^^^^
+
+Le **terme dérivé** mesure la **vitesse de variation de l’erreur**. Autrement dit, il regarde **à quelle vitesse l’erreur change**, 
+pour anticiper ce qui va se passer.
+
+On dit qu’il fait un **effet prédictif** : si l’erreur diminue rapidement, le D freine la commande pour **éviter un dépassement**. 
+C’est un peu comme des amortisseurs sur une voiture : ils absorbent les variations brusques pour stabiliser le mouvement.
+
+Formule
+^^^^^^^
+
+.. math::
+
+   \text{Commande}_D = k_D \cdot \frac{d(\text{erreur})}{dt}
+
+- Le symbole :math:`\frac{d}{dt}` est une **dérivée**, c’est-à-dire une mesure du **taux de changement**.
+- En pratique, on approxime la dérivée par :
+
+.. math::
+
+   \frac{\Delta \text{erreur}}{\Delta t} = \frac{\text{erreur}_{\text{actuelle}} - \text{erreur}_{\text{précédente}}}{dt}
+
+Exemple
+^^^^^^^
+
+Si ton bras va vite vers la cible, le D verra que l’erreur diminue très vite. Il va donc **freiner la commande** 
+pour éviter qu’il ne dépasse la position voulue.
+
+Inversement, si ton bras est presque immobile, le D ne fait rien (car le taux de variation est faible).
+
+Code minimaliste
+^^^^^^^^^^^^^^^^^^^^
+.. tabs::
+
+   .. tab:: C++
+
+    .. code-block:: cpp
+
+        double dError = (error - lastError) / dt;
+        lastError = error;
+
+        double kD = 0.4;
+        double output_D = kD * dError;
+
+   .. tab:: Java
+
+      .. code-block:: java
+
+        double dError = (error - lastError) / dt;
+        lastError = error;
+
+        double kD = 0.4;
+        double output_D = kD * dError;
+
+
+.. tip::
+
+   Le D est très utile pour éviter les oscillations (ex : bras qui rebondit autour de la cible).  
+   Mais il est **sensible au bruit** des capteurs. Si la position mesurée varie brutalement (bruit), la dérivée devient instable.  
+   On peut parfois lisser la mesure ou filtrer le D pour améliorer la stabilité.
+
+Combiner les trois termes
+--------------------------
+
+Formule complète
+^^^^^^^^^^^^^^^^
+
+.. math::
+
+   \text{Commande} = k_P \cdot e + k_I \cdot \int e \, dt + k_D \cdot \frac{de}{dt}
+
+Chaque terme a un rôle distinct :
+
+.. list-table::
+   :header-rows: 1
+
+   * - Terme
+     - Rôle principal
+   * - P
+     - Corriger l’erreur actuelle
+   * - I
+     - Corriger les erreurs passées
+   * - D
+     - Anticiper les erreurs futures
+
+Code C++ complet minimal
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: cpp
+
+   double error = setpoint - current;
+   errorSum += error * dt;
+   double dError = (error - lastError) / dt;
+   lastError = error;
+
+   double output = kP * error + kI * errorSum + kD * dError;
+
+   setMotorVoltage(output);
+
+.. note::
+
+   Ce contrôleur est générique et réutilisable mais pas optimisé. Il est préférable d'utiliser un contrôleur PID déjà implémenté comme ``PidRBL``.

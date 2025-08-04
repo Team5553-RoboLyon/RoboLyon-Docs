@@ -209,27 +209,28 @@ Inversement, si ton élévateur est presque immobile, le D ne fait rien (car le 
 
 Code minimaliste
 ^^^^^^^^^^^^^^^^^^^^
+
 .. tab-set::
 
-    .. tab-item:: C++
+   .. tab-item:: C++
 
-    .. code-block:: cpp
+      .. code-block:: cpp
 
-        double dError = (error - lastError) / dt;
-        lastError = error;
+         double dError = (error - lastError) / dt;
+         lastError = error;
 
-        double kD = 0.4;
-        double output_D = kD * dError;
+         double kD = 0.4;
+         double output_D = kD * dError;
 
-    .. tab-item:: Java
+   .. tab-item:: Java
 
       .. code-block:: java
 
-        double dError = (error - lastError) / dt;
-        lastError = error;
+         double dError = (error - lastError) / dt;
+         lastError = error;
 
-        double kD = 0.4;
-        double output_D = kD * dError;
+         double kD = 0.4;
+         double output_D = kD * dError;
 
 
 .. tip::

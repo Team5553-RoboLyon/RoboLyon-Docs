@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.abspath('../extensions'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Cours-WpiLib'
+project = 'RoboLyon Docs'
 copyright = "2025, Robo'Lyon"
 author = "Robo'Lyon"
 

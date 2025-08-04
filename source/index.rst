@@ -1,4 +1,4 @@
-Cours WpiLib
+RoboLyon Docs
 ============
 
 Version : |today|
@@ -52,6 +52,7 @@ Sommaire
    docs/2-Controler_un_robot/6-Pneumatique.rst
    docs/2-Controler_un_robot/7-Communication.rst
    docs/2-Controler_un_robot/8-Camera.rst
+   docs/2-Controler_un_robot/9-Camera.rst
 
 
 .. toctree::

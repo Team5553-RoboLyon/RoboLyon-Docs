@@ -75,6 +75,7 @@ Si ton élévateur est à 0.8 m, et que tu veux aller à 1.2 m :
 
 Code minimaliste
 ^^^^^^^^^^^^^^^^^^^^
+
 .. tab-set::
 
    .. tab-item:: C++
@@ -144,6 +145,7 @@ Le terme intégral va **accumuler** cette erreur de 5 cm à chaque cycle, et ajo
 
 Code minimaliste
 ^^^^^^^^^^^^^^^^^^^^
+
 .. tab-set::
 
     .. tab-item:: C++
@@ -156,7 +158,7 @@ Code minimaliste
         double kI = 0.05;
         double output_I = kI * errorSum;
 
-   .. tab-item:: Java
+    .. tab-item:: Java
 
       .. code-block:: java
 

@@ -27,6 +27,8 @@ pip install -r source/requirements.txt
 
 - Pour tester le site en local, exécuter la commande `make livehtml` (`.\make livehtml` sur Windows) et aller à l'adresse : http://127.0.0.1:8000, la page sera rafraîchie automatiquement à chaque modification des sources.
 
+- Ou sinon il faut exécuter la commande `python -m sphinx -b html source build/html` à la source du projet. Les HTML générés seront dans le dossier `build/html`.
+
 - Pour build le site en local, entrer la commande `make html` (`.\make html` sur Windows). Les sources du site seront générées dans le dossier `build/html`.
 
 

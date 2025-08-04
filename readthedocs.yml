@@ -2,13 +2,24 @@
 # Read the Docs configuration file
 # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
 
-# Required
+# # Required
+# version: 2
+
+# # Build the docs in additional formats such as PDF and ePub
+# formats: all
+
+# # Set the requirements to build the docs
+# python:
+#   install:
+#     - requirements: source/requirements.txt
+
 version: 2
 
-# Build the docs in additional formats such as PDF and ePub
-formats: all
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.11"
 
-# Set the requirements to build the docs
 python:
   install:
     - requirements: source/requirements.txt

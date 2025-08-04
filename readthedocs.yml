@@ -12,8 +12,7 @@ formats: all
 
 python:
   install:
-    - method: pip
-      path: source
+    - requirements: source/requirements.txt
 
 sphinx:
   configuration: source/conf.py

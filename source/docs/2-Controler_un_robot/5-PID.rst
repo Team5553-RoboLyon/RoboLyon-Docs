@@ -27,6 +27,7 @@ techniques et industriels.
 
 Un PID sert à **réduire une erreur**, c’est-à-dire l’écart entre une mesure (position réelle, vitesse, etc.) et une consigne 
 (autrement dit un objectif tel qu'une position désirée, une vitesse cible, etc.) comme ceci :
+
 .. math::
 
    \text{erreur} = \text{consigne} - \text{mesure}
@@ -74,9 +75,9 @@ Si ton élévateur est à 0.8 m, et que tu veux aller à 1.2 m :
 
 Code minimaliste
 ^^^^^^^^^^^^^^^^^^^^
-.. tabs::
+.. tab-set::
 
-   .. tab:: C++
+   .. tab-item:: C++
 
       .. code-block:: cpp
 
@@ -89,7 +90,7 @@ Code minimaliste
 
         setMotorVoltage(output);
 
-   .. tab:: Java
+   .. tab-item:: Java
 
       .. code-block:: java
 
@@ -143,9 +144,9 @@ Le terme intégral va **accumuler** cette erreur de 5 cm à chaque cycle, et ajo
 
 Code minimaliste
 ^^^^^^^^^^^^^^^^^^^^
-.. tabs::
+.. tab-set::
 
-   .. tab:: C++
+    .. tab-item:: C++
 
       .. code-block:: cpp
 
@@ -155,7 +156,7 @@ Code minimaliste
         double kI = 0.05;
         double output_I = kI * errorSum;
 
-   .. tab:: Java
+   .. tab-item:: Java
 
       .. code-block:: java
 
@@ -171,7 +172,7 @@ Code minimaliste
    C’est ce qu’on appelle un *effet intégral excessif*. Pour cela il faut éviter que le ``kI`` ne soit trop grand.
    Aussi il est préférable de mettre un **limiteur** sur l’erreur cumulée ou d'utiliser un **anti-windup**.
 
----
+
 Le terme Dérivé (D)
 -------------------
 
@@ -191,7 +192,7 @@ Formule
 
    \text{Commande}_D = k_D \cdot \frac{d(\text{erreur})}{dt}
 
-- Le symbole :math:`\frac{d}{dt}` est une **dérivée**, c’est-à-dire une mesure du **taux de changement**.
+- Le symbole :math:`\frac{d}{dt}` est une `dérivée <https://youtu.be/RLEE-iSBimc?si=v7_-RtmowAl8uN2h>`__, c’est-à-dire une mesure du **taux de changement**.
 - En pratique, on approxime la dérivée par :
 
 .. math::
@@ -201,16 +202,16 @@ Formule
 Exemple
 ^^^^^^^
 
-Si ton bras va vite vers la cible, le D verra que l’erreur diminue très vite. Il va donc **freiner la commande** 
+Si ton élévateur va vite vers la cible, le D verra que l’erreur diminue très vite. Il va donc **freiner la commande**
 pour éviter qu’il ne dépasse la position voulue.
 
-Inversement, si ton bras est presque immobile, le D ne fait rien (car le taux de variation est faible).
+Inversement, si ton élévateur est presque immobile, le D ne fait rien (car le taux de variation est faible).
 
 Code minimaliste
 ^^^^^^^^^^^^^^^^^^^^
-.. tabs::
+.. tab-set::
 
-   .. tab:: C++
+    .. tab-item:: C++
 
     .. code-block:: cpp
 
@@ -220,7 +221,7 @@ Code minimaliste
         double kD = 0.4;
         double output_D = kD * dError;
 
-   .. tab:: Java
+    .. tab-item:: Java
 
       .. code-block:: java
 

@@ -87,11 +87,11 @@ ou -1 si il est situé au centre.
             // Bas
             break;
 
-        case 90
+        case 90:
             // Droite
             break;
 
-        case 270
+        case 270:
             // Gauche
             break;
     }
